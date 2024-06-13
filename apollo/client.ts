@@ -8,6 +8,8 @@ import { getJwtToken } from '../libs/auth';
 import { TokenRefreshLink } from 'apollo-link-token-refresh';
 let apolloClient: ApolloClient<NormalizedCacheObject>;
 
+// frontend clientni tekshiradi
+// frontend da mavjud bolgan token ni qolga olib beradi
 function getHeaders() {
 	const headers = {} as HeadersInit;
 	const token = getJwtToken();
@@ -27,6 +29,9 @@ const tokenRefreshLink = new TokenRefreshLink({
 	},
 });
 
+// frontend da authenticated bolgan memberni credentialarni
+// request bn birga qoshib yuboradigon yani headerlar qismida
+// bizni royhatga olingan jsonwebtoken ni qabul etkan holda yuborishini talab qilyabmiz
 function createIsomorphicLink() {
 	if (typeof window !== 'undefined') {
 		const authLink = new ApolloLink((operation, forward) => {
