@@ -46,3 +46,8 @@ const Home: NextPage = () => {
 };
 
 export default withLayoutMain(Home);
+
+// graphql backend serverga graphql request yuborish 3 usuli bor:
+//1: useQuery and useMutation
+//2: Apollo client togridan togri
+//3: Axios orqali -> rasm yuklash uchun ishlatamiz

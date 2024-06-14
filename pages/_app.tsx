@@ -26,3 +26,5 @@ const App = ({ Component, pageProps }: AppProps) => {
 };
 
 export default appWithTranslation(App);
+
+// next-i18 multiple language  integration helper

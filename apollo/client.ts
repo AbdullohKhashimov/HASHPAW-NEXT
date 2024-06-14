@@ -33,12 +33,13 @@ const tokenRefreshLink = new TokenRefreshLink({
 // request bn birga qoshib yuboradigon yani headerlar qismida
 // bizni royhatga olingan jsonwebtoken ni qabul etkan holda yuborishini talab qilyabmiz
 function createIsomorphicLink() {
+	// clientSide rendering da ishga tush
 	if (typeof window !== 'undefined') {
 		const authLink = new ApolloLink((operation, forward) => {
 			operation.setContext(({ headers = {} }) => ({
 				headers: {
 					...headers,
-					...getHeaders(),
+					...getHeaders(), //-> har bitta apolo request qilayotganda headerlarni tashkil etish uchun
 				},
 			}));
 			console.warn('requesting.. ', operation);
@@ -47,7 +48,7 @@ function createIsomorphicLink() {
 
 		// @ts-ignore
 		const link = new createUploadLink({
-			uri: process.env.REACT_APP_API_GRAPHQL_URL,
+			uri: process.env.REACT_APP_API_GRAPHQL_URL, //-> http link
 		});
 
 		/* WEBSOCKET SUBSCRIPTION LINK */
@@ -60,7 +61,7 @@ function createIsomorphicLink() {
 					return { headers: getHeaders() };
 				},
 			},
-		});
+		}); //-> socket io link
 
 		const errorLink = onError(({ graphQLErrors, networkError, response }) => {
 			if (graphQLErrors) {
@@ -89,8 +90,8 @@ function createIsomorphicLink() {
 
 function createApolloClient() {
 	return new ApolloClient({
-		ssrMode: typeof window === 'undefined',
-		link: createIsomorphicLink(),
+		ssrMode: typeof window === 'undefined', // -> serverside rendering amalga oshirilyapti
+		link: createIsomorphicLink(), //-> http va socketio linklar ham bor
 		cache: new InMemoryCache(),
 		resolvers: {},
 	});
@@ -125,3 +126,6 @@ const client = new ApolloClient({
 
 export default client;
 */
+
+// useMemo() hook has the ability of caching
+//[initialState] -> useMemo() ga biriktiryapmiz
