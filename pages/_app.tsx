@@ -28,3 +28,5 @@ const App = ({ Component, pageProps }: AppProps) => {
 export default appWithTranslation(App);
 
 // next-i18 multiple language  integration helper
+
+// Apollo -> server va client side oraligida graphql connection ni amalga oshirib beruvchi package
