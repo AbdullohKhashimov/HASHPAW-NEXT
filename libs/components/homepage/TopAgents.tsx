@@ -8,6 +8,9 @@ import { Autoplay, Navigation, Pagination } from 'swiper';
 import TopAgentCard from './TopAgentCard';
 import { Member } from '../../types/member/member';
 import { AgentsInquiry } from '../../types/member/member.input';
+import { GET_AGENTS } from '../../../apollo/user/query';
+import { useQuery } from '@apollo/client';
+import { T } from '../../types/common';
 
 interface TopAgentsProps {
 	initialInput: AgentsInquiry;
@@ -20,6 +23,20 @@ const TopAgents = (props: TopAgentsProps) => {
 	const [topAgents, setTopAgents] = useState<Member[]>([]);
 
 	/** APOLLO REQUESTS **/
+
+	const {
+		loading: getAgentsLoading, //-> loading jarayoni yani backend dan data olish jarayonida qanaqadur animatsiyalarni korsatishimiz mumkun.
+		data: getAgentsData, //-> data kirib kelgandan keyin onComplete etapi ishga tushadi.
+		error: getAgentsError, //-> data kirib kelgunga qadar qandaydur errorlar hosil bolsa errorni korsatish.
+		refetch: getAgentsRefetch,
+	} = useQuery(GET_AGENTS, {
+		fetchPolicy: 'cache-and-network', //->
+		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
+		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
+		onCompleted: (data: T) => {
+			setTopAgents(data?.getAgents?.list); //-> backend dan birinchi data olinganda onComplete ishga tushadi.
+		},
+	});
 	/** HANDLERS **/
 
 	if (device === 'mobile') {
