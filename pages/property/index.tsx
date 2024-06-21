@@ -11,6 +11,9 @@ import { Property } from '../../libs/types/property/property';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 import { Direction } from '../../libs/enums/common.enum';
+import { GET_PROPERTIES } from '../../apollo/user/query';
+import { useQuery } from '@apollo/client';
+import { T } from '../../libs/types/common';
 
 export const getStaticProps = async ({ locale }: any) => ({
 	props: {
@@ -32,6 +35,20 @@ const PropertyList: NextPage = ({ initialInput, ...props }: any) => {
 	const [filterSortName, setFilterSortName] = useState('New');
 
 	/** APOLLO REQUESTS **/
+	const {
+		loading: getPropertiesLoading, //-> loading jarayoni yani backend dan data olish jarayonida qanaqadur animatsiyalarni korsatishimiz mumkun.
+		data: getPropertiesData, //-> data kirib kelgandan keyin onComplete etapi ishga tushadi.
+		error: getPropertiesError, //-> data kirib kelgunga qadar qandaydur errorlar hosil bolsa errorni korsatish.
+		refetch: getPropertiesRefetch,
+	} = useQuery(GET_PROPERTIES, {
+		fetchPolicy: 'network-only', //->
+		variables: { input: searchFilter }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
+		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
+		onCompleted: (data: T) => {
+			setProperties(data?.getProperties?.list); //-> backend dan birinchi data olinganda onComplete ishga tushadi.
+			setTotal(data?.getProperties?.metaCounter[0]?.total);
+		},
+	});
 
 	/** LIFECYCLES **/
 	useEffect(() => {
@@ -43,7 +60,11 @@ const PropertyList: NextPage = ({ initialInput, ...props }: any) => {
 		setCurrentPage(searchFilter.page === undefined ? 1 : searchFilter.page);
 	}, [router]);
 
-	useEffect(() => {}, [searchFilter]);
+	useEffect(() => {
+		console.log('searchFilter:', searchFilter);
+		//Backend Refetch
+		//getPropertiesRefetch({ input: searchFilter }).then();
+	}, [searchFilter]);
 
 	/** HANDLERS **/
 	const handlePaginationChange = async (event: ChangeEvent<unknown>, value: number) => {
@@ -193,3 +214,16 @@ PropertyList.defaultProps = {
 };
 
 export default withLayoutBasic(PropertyList);
+
+/*
+router = comes from Next/router useRouter() hook orqali yasalgan.
+useRouter() ozi nima? useEffect dagi router qiymatlari ozgarsa useEffect() qayta ishga tushadi 
+yani componentDidMount boladi.
+
+router -> query paramsdagi qiymatlar ozgarsa router trigger beradi.yani useEffect() qayta ishga tushadi. va inputdagi qiymatlarni 
+togridan togri router orqali olishimiz mumkun.
+
+router.query -> query paramsni olib beradi
+
+
+ */
