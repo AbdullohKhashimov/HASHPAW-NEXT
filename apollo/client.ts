@@ -30,6 +30,35 @@ const tokenRefreshLink = new TokenRefreshLink({
 	},
 });
 
+//custom websocket client
+class LoggingWebSocket {
+	private socket: WebSocket;
+
+	constructor(url: string) {
+		this.socket = new WebSocket(url);
+
+		this.socket.onopen = () => {
+			console.log('Websocket connection!');
+		};
+
+		this.socket.onmessage = (msg) => {
+			console.log('Websocket message:', msg.data);
+		};
+
+		this.socket.onerror = (error) => {
+			console.log('Websocket error:', error);
+		};
+	}
+
+	send(data: string | ArrayBuffer | SharedArrayBuffer | Blob | ArrayBufferView) {
+		this.socket.send(data);
+	}
+
+	close() {
+		this.socket.close();
+	}
+}
+
 // frontend da authenticated bolgan memberni credentialarni
 // request bn birga qoshib yuboradigon yani headerlar qismida
 // bizni royhatga olingan jsonwebtoken ni qabul etkan holda yuborishini talab qilyabmiz
@@ -62,6 +91,7 @@ function createIsomorphicLink() {
 					return { headers: getHeaders() };
 				},
 			},
+			webSocketImpl: LoggingWebSocket,
 		}); //-> socket io link
 
 		const errorLink = onError(({ graphQLErrors, networkError, response }) => {
