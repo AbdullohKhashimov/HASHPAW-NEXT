@@ -26,3 +26,5 @@ export const userVar = makeVar<CustomJwtPayload>({
 
 // makeVar => make reactive variable
 
+//@ts-ignore
+export const socketVar = makeVar<WebSocket>();

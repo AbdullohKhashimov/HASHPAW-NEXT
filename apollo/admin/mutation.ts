@@ -153,3 +153,26 @@ export const REMOVE_COMMENT_BY_ADMIN = gql`
 		}
 	}
 `;
+
+/**************************
+ *      NOTIFICATION      *
+ *************************/
+
+export const CREATE_NOTIFICATION = gql`
+	mutation CreateNotification($input: CreateNotificationInput!) {
+		createNotification(input: $input) {
+			_id
+			notificationType
+			notificationStatus
+			notificationGroup
+			notificationTitle
+			notificationDesc
+			authorId
+			receiverId
+			propertyId
+			articleId
+			createdAt
+			updatedAt
+		}
+	}
+`;
