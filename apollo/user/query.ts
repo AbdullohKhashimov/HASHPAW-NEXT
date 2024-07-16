@@ -98,15 +98,17 @@ export const GET_PROPERTY = gql`
 			propertyAddress
 			propertyTitle
 			propertyPrice
-			propertySquare
-			propertyBeds
-			propertyRooms
+			propertyAge
+			propertyBreed
+			propertySize
 			propertyViews
 			propertyLikes
+			propertyComments
+			propertyRank
 			propertyImages
 			propertyDesc
 			propertyBarter
-			propertyRent
+			propertyInjected
 			memberId
 			soldAt
 			deletedAt
@@ -124,20 +126,26 @@ export const GET_PROPERTY = gql`
 				memberImage
 				memberAddress
 				memberDesc
-				memberWarnings
-				memberBlocks
+				memberProperties
+				memberArticles
+				memberFollowers
+				memberFollowings
 				memberPoints
 				memberLikes
 				memberViews
+				memberComments
+				memberRank
+				memberWarnings
+				memberBlocks
 				deletedAt
 				createdAt
 				updatedAt
 				accessToken
-			}
-			meLiked {
-				memberId
-				likeRefId
-				myFavorite
+				meLiked {
+					memberId
+					likeRefId
+					myFavorite
+				}
 			}
 		}
 	}
@@ -154,16 +162,17 @@ export const GET_PROPERTIES = gql`
 				propertyAddress
 				propertyTitle
 				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
+				propertyAge
+				propertyBreed
+				propertySize
 				propertyViews
 				propertyLikes
+				propertyComments
 				propertyRank
 				propertyImages
 				propertyDesc
 				propertyBarter
-				propertyRent
+				propertyInjected
 				memberId
 				soldAt
 				deletedAt
@@ -181,16 +190,21 @@ export const GET_PROPERTIES = gql`
 					memberImage
 					memberAddress
 					memberDesc
-					memberWarnings
-					memberBlocks
 					memberProperties
-					memberRank
+					memberArticles
+					memberFollowers
+					memberFollowings
 					memberPoints
 					memberLikes
 					memberViews
+					memberComments
+					memberRank
+					memberWarnings
+					memberBlocks
 					deletedAt
 					createdAt
 					updatedAt
+					accessToken
 				}
 				meLiked {
 					memberId
@@ -216,15 +230,17 @@ export const GET_AGENT_PROPERTIES = gql`
 				propertyAddress
 				propertyTitle
 				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
+				propertyAge
+				propertyBreed
+				propertySize
 				propertyViews
 				propertyLikes
+				propertyComments
+				propertyRank
 				propertyImages
 				propertyDesc
 				propertyBarter
-				propertyRent
+				propertyInjected
 				memberId
 				soldAt
 				deletedAt
@@ -250,9 +266,9 @@ export const GET_FAVORITES = gql`
 				propertyAddress
 				propertyTitle
 				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
+				propertyAge
+				propertyBreed
+				propertySize
 				propertyViews
 				propertyLikes
 				propertyComments
@@ -260,7 +276,7 @@ export const GET_FAVORITES = gql`
 				propertyImages
 				propertyDesc
 				propertyBarter
-				propertyRent
+				propertyInjected
 				memberId
 				soldAt
 				deletedAt
@@ -280,12 +296,12 @@ export const GET_FAVORITES = gql`
 					memberDesc
 					memberProperties
 					memberArticles
+					memberFollowers
+					memberFollowings
 					memberPoints
 					memberLikes
 					memberViews
 					memberComments
-					memberFollowings
-					memberFollowers
 					memberRank
 					memberWarnings
 					memberBlocks
@@ -313,9 +329,9 @@ export const GET_VISITED = gql`
 				propertyAddress
 				propertyTitle
 				propertyPrice
-				propertySquare
-				propertyBeds
-				propertyRooms
+				propertyAge
+				propertyBreed
+				propertySize
 				propertyViews
 				propertyLikes
 				propertyComments
@@ -323,7 +339,7 @@ export const GET_VISITED = gql`
 				propertyImages
 				propertyDesc
 				propertyBarter
-				propertyRent
+				propertyInjected
 				memberId
 				soldAt
 				deletedAt
@@ -343,12 +359,12 @@ export const GET_VISITED = gql`
 					memberDesc
 					memberProperties
 					memberArticles
+					memberFollowers
+					memberFollowings
 					memberPoints
 					memberLikes
 					memberViews
 					memberComments
-					memberFollowings
-					memberFollowers
 					memberRank
 					memberWarnings
 					memberBlocks
