@@ -24,7 +24,7 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 	/** HANDLERS **/
 	const pushDetailHandler = async (propertyId: string) => {
 		console.log('ID:', propertyId);
-		await router.push({ pathname: '/property/detail', query: { id: propertyId } });
+		await router.push({ pathname: '/product/detail', query: { id: propertyId } });
 	};
 
 	if (device === 'mobile') {
@@ -53,22 +53,22 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 					<div className={'options'}>
 						<div>
 							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property.propertyBeds} bed</span>
+							<span>{property.propertyAge} age</span>
 						</div>
 						<div>
 							<img src="/img/icons/room.svg" alt="" />
-							<span>{property.propertyRooms} rooms</span>
+							<span>{property.propertyBreed} breed</span>
 						</div>
 						<div>
 							<img src="/img/icons/expand.svg" alt="" />
-							<span>{property.propertySquare} m2</span>
+							<span>{property.propertySize} m2</span>
 						</div>
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
 					<div className={'bott'}>
 						<p>
-							{property.propertyRent ? 'Rent' : ''} {property.propertyRent && property.propertyBarter && '/'}{' '}
-							{property.propertyBarter ? 'Barter' : ''}
+							{property.propertyInjected ? 'Injected' : ''}{' '}
+							{property.propertyInjected && property.propertyBarter && '/'} {property.propertyBarter ? 'Barter' : ''}
 						</p>
 						<div className="view-like-box">
 							<IconButton color={'default'}>
@@ -112,24 +112,24 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 					</strong>
 					<p className={'desc'}>{property.propertyDesc ?? 'no description'}</p>
 					<div className={'options'}>
-						<div>
+						{/* <div>
 							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property.propertyBeds} bed</span>
-						</div>
+							<span>{property.propertyAge} old</span>
+						</div> */}
 						<div>
-							<img src="/img/icons/room.svg" alt="" />
-							<span>{property.propertyRooms} rooms</span>
+							{/* <img src="/img/icons/room.svg" alt="" /> */}
+							<span>SIZE: {property.propertySize}</span>
 						</div>
-						<div>
+						{/* <div>
 							<img src="/img/icons/expand.svg" alt="" />
-							<span>{property.propertySquare} m2</span>
-						</div>
+							<span>{property.propertyBreed}</span>
+						</div> */}
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
 					<div className={'bott'}>
 						<p>
-							{property.propertyRent ? 'Rent' : ''} {property.propertyRent && property.propertyBarter && '/'}{' '}
-							{property.propertyBarter ? 'Barter' : ''}
+							{property.propertyInjected ? 'Injected' : ''}{' '}
+							{property.propertyInjected && property.propertyBarter && '/'} {property.propertyBarter ? 'Barter' : ''}
 						</p>
 						<div className="view-like-box">
 							<IconButton color={'default'}>

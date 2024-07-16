@@ -23,7 +23,7 @@ const PopularPropertyCard = (props: PopularPropertyCardProps) => {
 
 	const pushDetailHandler = async (propertyId: string) => {
 		console.log('ID:', propertyId);
-		await router.push({ pathname: '/property/detail', query: { id: propertyId } });
+		await router.push({ pathname: '/product/detail', query: { id: propertyId } });
 	};
 
 	if (device === 'mobile') {

@@ -14,6 +14,7 @@ import { T } from '../../types/common';
 import { LIKE_TARGET_PROPERTY } from '../../../apollo/user/mutation';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import { Message } from '../../enums/common.enum';
+import { PropertyType } from '../../enums/property.enum';
 
 interface TrendPropertiesProps {
 	initialInput: PropertiesInquiry;
@@ -37,7 +38,11 @@ const TrendProperties = (props: TrendPropertiesProps) => {
 		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
-			setTrendProperties(data?.getProperties?.list); //-> backend dan birinchi data olinganda onComplete ishga tushadi.
+			// Filter out properties of type other than "OTHER"
+			const filteredProperties = data?.getProperties?.list.filter(
+				(property: Property) => property.propertyType === PropertyType.OTHER,
+			);
+			setTrendProperties(filteredProperties);
 		},
 	});
 	/** HANDLERS **/
@@ -66,12 +71,12 @@ const TrendProperties = (props: TrendPropertiesProps) => {
 			<Stack className={'trend-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
-						<span>Trend Properties</span>
+						<span>Featured Products</span>
 					</Stack>
 					<Stack className={'card-box'}>
 						{trendProperties.length === 0 ? (
 							<Box component={'div'} className={'empty-list'}>
-								Trends Empty
+								Featured Products Empty
 							</Box>
 						) : (
 							<Swiper
@@ -100,8 +105,8 @@ const TrendProperties = (props: TrendPropertiesProps) => {
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
-							<span>Trend Properties</span>
-							<p>Trend is based on likes</p>
+							<span>Featured Products</span>
+							<p>Featured products is based on product types </p>
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>
@@ -114,7 +119,7 @@ const TrendProperties = (props: TrendPropertiesProps) => {
 					<Stack className={'card-box'}>
 						{trendProperties.length === 0 ? (
 							<Box component={'div'} className={'empty-list'}>
-								Trends Empty
+								Featured Products Empty!
 							</Box>
 						) : (
 							<Swiper
@@ -150,8 +155,8 @@ TrendProperties.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
-		sort: 'propertyLikes',
-		direction: 'DESC',
+		sort: 'propertyPrice',
+		direction: 'ASC',
 		search: {},
 	},
 };

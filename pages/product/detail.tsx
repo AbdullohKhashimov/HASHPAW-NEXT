@@ -230,14 +230,14 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 												</>
 											)}
 
-											{property?.propertyRent && (
+											{property?.propertyInjected && (
 												<>
 													<Stack className={'circle'}>
 														<svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6" fill="none">
 															<circle cx="3" cy="3" r="3" fill="#EB6753" />
 														</svg>
 													</Stack>
-													<Typography className={'buy-rent'}>rent</Typography>
+													<Typography className={'buy-rent'}>injected</Typography>
 												</>
 											)}
 										</Stack>
@@ -263,7 +263,7 @@ const PropertyDetail: NextPage = ({ initialComment, ...props }: any) => {
 									</Stack>
 									<Stack className={'bottom-box'}>
 										<Stack className="option">
-											<img src="/img/icons/bed.svg" alt="" /> <Typography>{property?.propertyBeds} bed</Typography>
+											<img src="/img/icons/bed.svg" alt="" /> <Typography>{property?.propertyBreed} breed</Typography>
 										</Stack>
 										<Stack className="option">
 											<img src="/img/icons/room.svg" alt="" /> <Typography>{property?.propertyRooms} room</Typography>

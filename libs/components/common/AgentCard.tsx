@@ -24,13 +24,13 @@ const AgentCard = (props: AgentCardProps) => {
 		: '/img/profile/defaultUser.svg';
 
 	if (device === 'mobile') {
-		return <div>AGENT CARD</div>;
+		return <div>DEALER CARD</div>;
 	} else {
 		return (
 			<Stack className="agent-general-card">
 				<Link
 					href={{
-						pathname: '/agent/detail',
+						pathname: '/dealer/detail',
 						query: { agentId: agent?._id },
 					}}
 				>
@@ -52,7 +52,7 @@ const AgentCard = (props: AgentCardProps) => {
 					<Box component={'div'} className={'agent-info'}>
 						<Link
 							href={{
-								pathname: '/agent/detail',
+								pathname: '/dealer/detail',
 								query: { agentId: 'id' },
 							}}
 						>

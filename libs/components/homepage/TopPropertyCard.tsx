@@ -24,7 +24,7 @@ const TopPropertyCard = (props: TopPropertyCardProps) => {
 	/** HANDLERS **/
 	const pushDetailHandler = async (propertyId: string) => {
 		console.log('ID:', propertyId);
-		await router.push({ pathname: '/property/detail', query: { id: propertyId } });
+		await router.push({ pathname: '/product/detail', query: { id: propertyId } });
 	};
 
 	if (device === 'mobile') {
@@ -43,7 +43,7 @@ const TopPropertyCard = (props: TopPropertyCardProps) => {
 						{property?.propertyTitle}
 					</strong>
 					<p className={'desc'}>{property?.propertyAddress}</p>
-					<div className={'options'}>
+					{/* <div className={'options'}>
 						<div>
 							<img src="/img/icons/bed.svg" alt="" />
 							<span>{property?.propertyBeds} bed</span>
@@ -56,7 +56,7 @@ const TopPropertyCard = (props: TopPropertyCardProps) => {
 							<img src="/img/icons/expand.svg" alt="" />
 							<span>{property?.propertySquare} m2</span>
 						</div>
-					</div>
+					</div> */}
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
 					<div className={'bott'}>
 						<p>

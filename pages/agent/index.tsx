@@ -61,7 +61,7 @@ const AgentList: NextPage = ({ initialInput, ...props }: any) => {
 			const input_obj = JSON.parse(router?.query?.input as string);
 			setSearchFilter(input_obj);
 		} else
-			router.replace(`/agent?input=${JSON.stringify(searchFilter)}`, `/agent?input=${JSON.stringify(searchFilter)}`);
+			router.replace(`/dealer?input=${JSON.stringify(searchFilter)}`, `/dealer?input=${JSON.stringify(searchFilter)}`);
 
 		setCurrentPage(searchFilter.page === undefined ? 1 : searchFilter.page);
 	}, [router]);
@@ -102,9 +102,13 @@ const AgentList: NextPage = ({ initialInput, ...props }: any) => {
 
 	const paginationChangeHandler = async (event: ChangeEvent<unknown>, value: number) => {
 		searchFilter.page = value;
-		await router.push(`/agent?input=${JSON.stringify(searchFilter)}`, `/agent?input=${JSON.stringify(searchFilter)}`, {
-			scroll: false,
-		});
+		await router.push(
+			`/dealer?input=${JSON.stringify(searchFilter)}`,
+			`/dealer?input=${JSON.stringify(searchFilter)}`,
+			{
+				scroll: false,
+			},
+		);
 		setCurrentPage(value);
 	};
 

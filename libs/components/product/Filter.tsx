@@ -89,26 +89,26 @@ const Filter = (props: FilterType) => {
 				.then();
 		}
 
-		if (searchFilter?.search?.roomsList?.length == 0) {
-			delete searchFilter.search.roomsList;
-			router
-				.push(
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-					{ scroll: false },
-				)
-				.then();
-		}
+		// if (searchFilter?.search?.roomsList?.length == 0) {
+		// 	delete searchFilter.search.roomsList;
+		// 	router
+		// 		.push(
+		// 			`/product?input=${JSON.stringify({
+		// 				...searchFilter,
+		// 				search: {
+		// 					...searchFilter.search,
+		// 				},
+		// 			})}`,
+		// 			`/product?input=${JSON.stringify({
+		// 				...searchFilter,
+		// 				search: {
+		// 					...searchFilter.search,
+		// 				},
+		// 			})}`,
+		// 			{ scroll: false },
+		// 		)
+		// 		.then();
+		// }
 
 		if (searchFilter?.search?.options?.length == 0) {
 			delete searchFilter.search.options;
@@ -131,26 +131,26 @@ const Filter = (props: FilterType) => {
 				.then();
 		}
 
-		if (searchFilter?.search?.bedsList?.length == 0) {
-			delete searchFilter.search.bedsList;
-			router
-				.push(
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-					{ scroll: false },
-				)
-				.then();
-		}
+		// if (searchFilter?.search?.bedsList?.length == 0) {
+		// 	delete searchFilter.search.bedsList;
+		// 	router
+		// 		.push(
+		// 			`/product?input=${JSON.stringify({
+		// 				...searchFilter,
+		// 				search: {
+		// 					...searchFilter.search,
+		// 				},
+		// 			})}`,
+		// 			`/product?input=${JSON.stringify({
+		// 				...searchFilter,
+		// 				search: {
+		// 					...searchFilter.search,
+		// 				},
+		// 			})}`,
+		// 			{ scroll: false },
+		// 		)
+		// 		.then();
+		// }
 
 		if (searchFilter?.search?.locationList) setShowMore(true);
 	}, [searchFilter]);
