@@ -19,9 +19,9 @@ export interface Property {
 	propertyAddress: string;
 	propertyTitle: string;
 	propertyPrice: number;
-	propertySquare: number;
-	propertyBeds: number;
-	propertyRooms: number;
+	propertyBreed?: string;
+	propertySize?: string;
+	propertyAge?: number;
 	propertyViews: number;
 	propertyLikes: number;
 	propertyComments: number;
@@ -29,7 +29,7 @@ export interface Property {
 	propertyImages: string[];
 	propertyDesc?: string;
 	propertyBarter: boolean;
-	propertyRent: boolean;
+	propertyInjected: boolean;
 	memberId: string;
 	soldAt?: Date;
 	deletedAt?: Date;
