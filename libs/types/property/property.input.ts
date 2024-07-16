@@ -1,4 +1,4 @@
-import { PropertyLocation, PropertyStatus, PropertyType } from '../../enums/property.enum';
+import { PropertyLocation, PropertySize, PropertyStatus, PropertyType } from '../../enums/property.enum';
 import { Direction } from '../../enums/common.enum';
 
 export interface PropertyInput {
@@ -9,7 +9,7 @@ export interface PropertyInput {
 	propertyPrice: number;
 	propertyAge: number;
 	propertyBreed: string;
-	propertySize: string[];
+	propertySize: PropertySize;
 	propertyImages: string[];
 	propertyDesc?: string;
 	propertyBarter?: boolean;
@@ -25,8 +25,7 @@ interface PISearch {
 	options?: string[];
 	breedList?: string[];
 	pricesRange?: Range;
-	sizeList?: string[];
-	periodsRange?: PeriodsRange;
+	sizeList?: SizesRange[];
 	agesRange?: Range;
 	text?: string;
 }
@@ -69,7 +68,7 @@ interface Range {
 	end: number;
 }
 
-interface PeriodsRange {
-	start: Date | number;
-	end: Date | number;
+interface SizesRange {
+	minSize: number;
+	maxSize: number;
 }

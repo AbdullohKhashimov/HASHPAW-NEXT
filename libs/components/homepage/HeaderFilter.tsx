@@ -44,13 +44,13 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 	const { t, i18n } = useTranslation('common');
 	const [searchFilter, setSearchFilter] = useState<PropertiesInquiry>(initialInput);
 	const locationRef: any = useRef();
-	const typeRef: any = useRef();
-	const roomsRef: any = useRef();
+	const sizeListRef: any = useRef();
+	const breedListRef: any = useRef();
 	const router = useRouter();
 	const [openAdvancedFilter, setOpenAdvancedFilter] = useState(false);
 	const [openLocation, setOpenLocation] = useState(false);
-	const [openType, setOpenType] = useState(false);
-	const [openRooms, setOpenRooms] = useState(false);
+	const [openSizeList, setOpenSizeList] = useState(false); //openType
+	const [openBreedList, setOpenBreedList] = useState(false); //openRooms
 	const [propertyLocation, setPropertyLocation] = useState<PropertyLocation[]>(Object.values(PropertyLocation));
 	const [propertyType, setPropertyType] = useState<PropertyType[]>(Object.values(PropertyType));
 	const [yearCheck, setYearCheck] = useState({ start: 1970, end: thisYear });
@@ -63,12 +63,12 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 				setOpenLocation(false);
 			}
 
-			if (!typeRef?.current?.contains(event.target)) {
-				setOpenType(false);
+			if (!sizeListRef?.current?.contains(event.target)) {
+				setOpenSizeList(false);
 			}
 
-			if (!roomsRef?.current?.contains(event.target)) {
-				setOpenRooms(false);
+			if (!breedListRef?.current?.contains(event.target)) {
+				setOpenBreedList(false);
 			}
 		};
 
@@ -82,32 +82,32 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 	/** HANDLERS **/
 	const advancedFilterHandler = (status: boolean) => {
 		setOpenLocation(false);
-		setOpenRooms(false);
-		setOpenType(false);
+		setOpenBreedList(false);
+		setOpenSizeList(false);
 		setOpenAdvancedFilter(status);
 	};
 
 	const locationStateChangeHandler = () => {
 		setOpenLocation((prev) => !prev);
-		setOpenRooms(false);
-		setOpenType(false);
+		setOpenBreedList(false);
+		setOpenSizeList(false);
 	};
 
 	const typeStateChangeHandler = () => {
-		setOpenType((prev) => !prev);
+		setOpenSizeList((prev) => !prev);
 		setOpenLocation(false);
-		setOpenRooms(false);
+		setOpenBreedList(false);
 	};
 
 	const roomStateChangeHandler = () => {
-		setOpenRooms((prev) => !prev);
-		setOpenType(false);
+		setOpenBreedList((prev) => !prev);
+		setOpenSizeList(false);
 		setOpenLocation(false);
 	};
 
 	const disableAllStateHandler = () => {
-		setOpenRooms(false);
-		setOpenType(false);
+		setOpenBreedList(false);
+		setOpenSizeList(false);
 		setOpenLocation(false);
 	};
 
@@ -147,14 +147,15 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 		[searchFilter],
 	);
 
-	const propertyRoomSelectHandler = useCallback(
+	const propertyBreedSelectHandler = useCallback(
+		//-> breedList from roomList
 		async (value: any) => {
 			try {
 				setSearchFilter({
 					...searchFilter,
 					search: {
 						...searchFilter.search,
-						roomsList: [value],
+						breedList: [value],
 					},
 				});
 				disableAllStateHandler();
@@ -165,32 +166,32 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 		[searchFilter],
 	);
 
-	const propertyBedSelectHandler = useCallback(
-		async (number: Number) => {
+	const propertySizeSelectHandler = useCallback(
+		async (number: any) => {
 			try {
 				if (number != 0) {
-					if (searchFilter?.search?.bedsList?.includes(number)) {
+					if (searchFilter?.search?.sizeList?.includes(number)) {
 						setSearchFilter({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
-								bedsList: searchFilter?.search?.bedsList?.filter((item: Number) => item !== number),
+								sizeList: searchFilter?.search?.sizeList?.filter((item: any) => item !== number),
 							},
 						});
 					} else {
 						setSearchFilter({
 							...searchFilter,
-							search: { ...searchFilter.search, bedsList: [...(searchFilter?.search?.bedsList || []), number] },
+							search: { ...searchFilter.search, sizeList: [...(searchFilter?.search?.sizeList || []), number] },
 						});
 					}
 				} else {
-					delete searchFilter?.search.bedsList;
+					delete searchFilter?.search.sizeList;
 					setSearchFilter({ ...searchFilter });
 				}
 
-				console.log('propertyBedSelectHandler:', number);
+				console.log('propertySizeSelectHandler:', number);
 			} catch (err: any) {
-				console.log('ERROR, propertyBedSelectHandler:', err);
+				console.log('ERROR, propertySizeSelectHandler:', err);
 			}
 		},
 		[searchFilter],
@@ -293,16 +294,16 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 				delete searchFilter.search.typeList;
 			}
 
-			if (searchFilter?.search?.roomsList?.length == 0) {
-				delete searchFilter.search.roomsList;
+			if (searchFilter?.search?.sizeList?.length == 0) {
+				delete searchFilter.search.sizeList;
 			}
 
 			if (searchFilter?.search?.options?.length == 0) {
 				delete searchFilter.search.options;
 			}
 
-			if (searchFilter?.search?.bedsList?.length == 0) {
-				delete searchFilter.search.bedsList;
+			if (searchFilter?.search?.breedList?.length == 0) {
+				delete searchFilter.search.breedList;
 			}
 
 			await router.push(
@@ -375,7 +376,7 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 					<div className={`filter-rooms ${openRooms ? 'on' : ''}`} ref={roomsRef}>
 						{[1, 2, 3, 4, 5].map((room: number) => {
 							return (
-								<span onClick={() => propertyRoomSelectHandler(room)} key={room}>
+								<span onClick={() => propertyBreedSelectHandler(room)} key={room}>
 									{room} room{room > 1 ? 's' : ''}
 								</span>
 							);
@@ -420,18 +421,18 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 										<span>bedrooms</span>
 										<div className={'inside'}>
 											<div
-												className={`room ${!searchFilter?.search?.bedsList ? 'active' : ''}`}
-												onClick={() => propertyBedSelectHandler(0)}
+												className={`room ${!searchFilter?.search?.sizeList ? 'active' : ''}`}
+												onClick={() => propertySizeSelectHandler(0)}
 											>
 												Any
 											</div>
-											{[1, 2, 3, 4, 5].map((bed: number) => (
+											{['SMALL', 'MEDIUM', 'LARGE'].map((size: any) => (
 												<div
-													className={`room ${searchFilter?.search?.bedsList?.includes(bed) ? 'active' : ''}`}
-													onClick={() => propertyBedSelectHandler(bed)}
-													key={bed}
+													className={`size ${searchFilter?.search?.sizeList?.includes(size) ? 'active' : ''}`}
+													onClick={() => propertySizeSelectHandler(size)}
+													key={size}
 												>
-													{bed == 0 ? 'Any' : bed}
+													{size == 0 ? 'Any' : size}
 												</div>
 											))}
 										</div>

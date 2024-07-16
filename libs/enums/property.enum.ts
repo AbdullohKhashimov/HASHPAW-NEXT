@@ -10,6 +10,12 @@ export enum PropertyStatus {
 	DELETE = 'DELETE',
 }
 
+export enum PropertySize {
+	SMALL = 'SMALL',
+	MEDIUM = 'MEDIUM',
+	LARGE = 'LARGE',
+}
+
 export enum PropertyLocation {
 	SEOUL = 'SEOUL',
 	BUSAN = 'BUSAN',
