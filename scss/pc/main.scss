@@ -56,18 +56,24 @@ body::-webkit-scrollbar {
 				box-sizing: border-box;
 				z-index: 99;
 				align-items: center;
+				background-color: white;
+				letter-spacing: 2px;
 				border-top: 1px solid rgba(255, 255, 255, 0.07);
 				&.transparent {
-					background-color: #181a209e;
+					background-color: White;
 				}
 				.container {
 					flex-direction: row;
 					align-items: center;
 					justify-content: space-between;
 					.logo-box {
-						img {
-							width: 150px;
-							cursor: pointer;
+						.logo-txt {
+							font-size: 25px;
+							font: $font;
+							font-weight: 900;
+							color: #2a07f1b5;
+							line-height: 26px;
+							letter-spacing: 3px;
 						}
 					}
 					.router-box {
@@ -76,9 +82,10 @@ body::-webkit-scrollbar {
 						display: flex;
 						flex-direction: row;
 						justify-content: space-between;
+
 						div {
 							position: relative;
-							color: #eeeeeeed;
+							color: #181a20;
 							font-family: $font;
 							font-size: 15px;
 							font-style: normal;
@@ -113,6 +120,7 @@ body::-webkit-scrollbar {
 						display: flex;
 						flex-direction: row;
 						justify-content: flex-end;
+
 						.join-box {
 							width: 184px;
 							height: 47px;
@@ -120,7 +128,8 @@ body::-webkit-scrollbar {
 							align-items: center;
 							justify-content: center;
 							border-radius: 60px;
-							border: 1px solid #ffffff;
+							border: 1px solid #2a07f1b5;
+							background: #2a07f1b5;
 							cursor: pointer;
 							svg {
 								color: #ffffff;
@@ -149,7 +158,7 @@ body::-webkit-scrollbar {
 						display: flex;
 						align-items: center;
 						.notification-icon {
-							color: white;
+							color: #181a21;
 						}
 						.btn-lang {
 							border-radius: 4px;
@@ -175,35 +184,38 @@ body::-webkit-scrollbar {
 		position: relative;
 		width: 100%;
 		height: 860px;
-		background-image: url('/img/banner/header1.svg');
-		background-size: cover;
+		background-image: url('/img/banner/pet.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
 		.container {
 			position: relative;
-			margin-top: 20px;
+			margin-top: 642px;
 			flex-direction: column;
 			align-items: center;
 			.search-box {
 				position: relative;
 				margin-top: 56px;
-				padding: 16px 29px;
-				width: 1094px;
-				height: 96px;
+				padding: 16px 19px;
+				width: 1104px;
+				height: 65px;
 				display: flex;
-				flex-direction: row;
+				flex-direction: row-reverse;
 				justify-content: space-between;
-				background: rgba(255, 255, 255, 0.28);
+				// background: rgba(255, 255, 255, 0.28);
 				border-radius: 12px;
+				background: #2a07f1b5;
 				.select-box {
-					width: 712px;
+					width: 812px;
 					display: flex;
-					flex-direction: row;
+					flex-direction: column;
 					justify-content: space-between;
 					.box {
-						padding: 24px 22px;
+						padding: 18px 22px;
 						width: 213px;
-						height: 56px;
+						height: 26px;
 						display: flex;
-						flex-direction: row;
+						flex-direction: row-reverse;
 						align-items: center;
 						justify-content: space-between;
 						border-radius: 12px;
@@ -223,17 +235,16 @@ body::-webkit-scrollbar {
 							font-weight: 400;
 							line-height: 26px;
 						}
-						svg {
-						}
 					}
 				}
 				.search-box-other {
 					display: flex;
-					flex-direction: row;
+					flex-direction: row-reverse;
 					align-items: center;
+					justify-content: space-between;
 					.advanced-filter {
 						display: flex;
-						flex-direction: row;
+						flex-direction: row-reverse;
 						align-items: center;
 						img {
 							margin-right: 10px;

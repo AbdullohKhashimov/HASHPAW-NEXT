@@ -50,14 +50,14 @@ const Filter = (props: FilterType) => {
 			setShowMore(false);
 			router
 				.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 						},
 					})}`,
 
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -72,13 +72,13 @@ const Filter = (props: FilterType) => {
 			delete searchFilter.search.typeList;
 			router
 				.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -93,13 +93,13 @@ const Filter = (props: FilterType) => {
 			delete searchFilter.search.roomsList;
 			router
 				.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -114,13 +114,13 @@ const Filter = (props: FilterType) => {
 			delete searchFilter.search.options;
 			router
 				.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -135,13 +135,13 @@ const Filter = (props: FilterType) => {
 			delete searchFilter.search.bedsList;
 			router
 				.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -163,11 +163,11 @@ const Filter = (props: FilterType) => {
 				const value = e.target.value;
 				if (isChecked) {
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: { ...searchFilter.search, locationList: [...(searchFilter?.search?.locationList || []), value] },
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: { ...searchFilter.search, locationList: [...(searchFilter?.search?.locationList || []), value] },
 						})}`,
@@ -175,14 +175,14 @@ const Filter = (props: FilterType) => {
 					);
 				} else if (searchFilter?.search?.locationList?.includes(value)) {
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
 								locationList: searchFilter?.search?.locationList?.filter((item: string) => item !== value),
 							},
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
@@ -212,11 +212,11 @@ const Filter = (props: FilterType) => {
 				const value = e.target.value;
 				if (isChecked) {
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter, // spread operator orqali amalga oshirib yangi referencega togrilab olyabmiz
 							search: { ...searchFilter.search, typeList: [...(searchFilter?.search?.typeList || []), value] },
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: { ...searchFilter.search, typeList: [...(searchFilter?.search?.typeList || []), value] },
 						})}`,
@@ -224,14 +224,14 @@ const Filter = (props: FilterType) => {
 					);
 				} else if (searchFilter?.search?.typeList?.includes(value)) {
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
 								typeList: searchFilter?.search?.typeList?.filter((item: string) => item !== value),
 							},
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
@@ -260,14 +260,14 @@ const Filter = (props: FilterType) => {
 				if (number != 0) {
 					if (searchFilter?.search?.roomsList?.includes(number)) {
 						await router.push(
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: {
 									...searchFilter.search,
 									roomsList: searchFilter?.search?.roomsList?.filter((item: Number) => item !== number),
 								},
 							})}`,
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: {
 									...searchFilter.search,
@@ -278,11 +278,11 @@ const Filter = (props: FilterType) => {
 						);
 					} else {
 						await router.push(
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: { ...searchFilter.search, roomsList: [...(searchFilter?.search?.roomsList || []), number] },
 							})}`,
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: { ...searchFilter.search, roomsList: [...(searchFilter?.search?.roomsList || []), number] },
 							})}`,
@@ -293,13 +293,13 @@ const Filter = (props: FilterType) => {
 					delete searchFilter?.search.roomsList;
 					setSearchFilter({ ...searchFilter });
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
 							},
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
@@ -324,11 +324,11 @@ const Filter = (props: FilterType) => {
 				const value = e.target.value;
 				if (isChecked) {
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: { ...searchFilter.search, options: [...(searchFilter?.search?.options || []), value] },
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: { ...searchFilter.search, options: [...(searchFilter?.search?.options || []), value] },
 						})}`,
@@ -336,14 +336,14 @@ const Filter = (props: FilterType) => {
 					);
 				} else if (searchFilter?.search?.options?.includes(value)) {
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
 								options: searchFilter?.search?.options?.filter((item: string) => item !== value),
 							},
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
@@ -368,14 +368,14 @@ const Filter = (props: FilterType) => {
 				if (number != 0) {
 					if (searchFilter?.search?.bedsList?.includes(number)) {
 						await router.push(
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: {
 									...searchFilter.search,
 									bedsList: searchFilter?.search?.bedsList?.filter((item: Number) => item !== number),
 								},
 							})}`,
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: {
 									...searchFilter.search,
@@ -386,11 +386,11 @@ const Filter = (props: FilterType) => {
 						);
 					} else {
 						await router.push(
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: { ...searchFilter.search, bedsList: [...(searchFilter?.search?.bedsList || []), number] },
 							})}`,
-							`/property?input=${JSON.stringify({
+							`/product?input=${JSON.stringify({
 								...searchFilter,
 								search: { ...searchFilter.search, bedsList: [...(searchFilter?.search?.bedsList || []), number] },
 							})}`,
@@ -401,13 +401,13 @@ const Filter = (props: FilterType) => {
 					delete searchFilter?.search.bedsList;
 					setSearchFilter({ ...searchFilter });
 					await router.push(
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
 							},
 						})}`,
-						`/property?input=${JSON.stringify({
+						`/product?input=${JSON.stringify({
 							...searchFilter,
 							search: {
 								...searchFilter.search,
@@ -431,14 +431,14 @@ const Filter = (props: FilterType) => {
 
 			if (type == 'start') {
 				await router.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 							squaresRange: { ...searchFilter.search.squaresRange, start: value },
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -449,14 +449,14 @@ const Filter = (props: FilterType) => {
 				);
 			} else {
 				await router.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 							squaresRange: { ...searchFilter.search.squaresRange, end: value },
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -474,14 +474,14 @@ const Filter = (props: FilterType) => {
 		async (value: number, type: string) => {
 			if (type == 'start') {
 				await router.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 							pricesRange: { ...searchFilter.search.pricesRange, start: value * 1 },
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -492,14 +492,14 @@ const Filter = (props: FilterType) => {
 				);
 			} else {
 				await router.push(
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
 							pricesRange: { ...searchFilter.search.pricesRange, end: value * 1 },
 						},
 					})}`,
-					`/property?input=${JSON.stringify({
+					`/product?input=${JSON.stringify({
 						...searchFilter,
 						search: {
 							...searchFilter.search,
@@ -517,8 +517,8 @@ const Filter = (props: FilterType) => {
 		try {
 			setSearchText('');
 			await router.push(
-				`/property?input=${JSON.stringify(initialInput)}`,
-				`/property?input=${JSON.stringify(initialInput)}`,
+				`/product?input=${JSON.stringify(initialInput)}`,
+				`/product?input=${JSON.stringify(initialInput)}`,
 				{ scroll: false },
 			);
 		} catch (err: any) {
