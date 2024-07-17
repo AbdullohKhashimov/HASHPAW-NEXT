@@ -12,12 +12,12 @@ import { userVar } from '../../../apollo/store';
 import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined';
 import PermContactCalendarSharpIcon from '@mui/icons-material/PermContactCalendarSharp';
 
-interface FeaturedProductCard {
+interface FoodListCard {
 	property: Property;
 	likePropertyHandler: any;
 }
 
-const FeaturedProductCard = (props: FeaturedProductCard) => {
+const FoodListCard = (props: FoodListCard) => {
 	const { property, likePropertyHandler } = props;
 	const device = useDeviceDetect();
 	const router = useRouter();
@@ -56,10 +56,10 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 						<div className={'options'}>
 							<div>
 								<PermContactCalendarSharpIcon style={{ color: 'red' }} />
-								<span>{property.propertyAge} mos</span>
+								<span>{property.propertySize} </span>
 							</div>
 
-							<div>
+							{/* <div>
 								<PetsOutlinedIcon
 									style={{
 										color: 'red',
@@ -67,8 +67,8 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 										marginRight: '4px',
 									}}
 								/>
-								<span>{property.propertyBreed}</span>
-							</div>
+								<span>{property.propertyType}</span>
+							</div> */}
 						</div>
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
@@ -119,10 +119,10 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 					<div className={'options'}>
 						<div>
 							<PermContactCalendarSharpIcon style={{ color: 'red' }} />
-							<span>{property.propertyAge} mos</span>
+							<span>size{property.propertySize}</span>
 						</div>
 
-						<div>
+						{/* <div>
 							<PetsOutlinedIcon
 								style={{
 									color: 'red',
@@ -131,7 +131,7 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 								}}
 							/>
 							<span>{property.propertyBreed}</span>
-						</div>
+						</div> */}
 					</div>
 					<Divider sx={{ mt: '12px', mb: '10px' }} />
 
@@ -158,4 +158,4 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 	}
 };
 
-export default FeaturedProductCard;
+export default FoodListCard;

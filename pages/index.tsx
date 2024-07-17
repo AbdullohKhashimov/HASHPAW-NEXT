@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import useDeviceDetect from '../libs/hooks/useDeviceDetect';
 import withLayoutMain from '../libs/components/layout/LayoutHome';
 import CommunityBoards from '../libs/components/homepage/CommunityBoards';
-import PopularProperties from '../libs/components/homepage/PopularProperties';
+import PopularProperties from '../libs/components/homepage/DogsListings';
 import TopAgents from '../libs/components/homepage/TopAgents';
 import Events from '../libs/components/homepage/Events';
 import TrendProperties from '../libs/components/homepage/FeaturedProducts';
@@ -12,6 +12,9 @@ import Advertisement from '../libs/components/homepage/Advertisement';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import FeaturedProducts from '../libs/components/homepage/FeaturedProducts';
 import Statistics from '../libs/components/homepage/Statistics';
+import InfoProducts from '../libs/components/homepage/InfoProducts';
+import DogsListings from '../libs/components/homepage/DogsListings';
+import FoodList from '../libs/components/homepage/FoodList';
 
 export const getStaticProps = async ({ locale }: any) => ({
 	props: {
@@ -26,7 +29,7 @@ const Home: NextPage = () => {
 		return (
 			<Stack className={'home-page'}>
 				<FeaturedProducts />
-				<PopularProperties />
+				<DogsListings />
 				<Advertisement />
 				<TopProperties />
 				<TopAgents />
@@ -37,7 +40,9 @@ const Home: NextPage = () => {
 			<Stack className={'home-page'}>
 				<Statistics />
 				<FeaturedProducts />
-				<PopularProperties />
+				<InfoProducts />
+				<DogsListings />
+				<FoodList />
 				<Advertisement />
 				<TopProperties />
 				<TopAgents />

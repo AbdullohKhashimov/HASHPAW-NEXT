@@ -12,12 +12,12 @@ import { userVar } from '../../../apollo/store';
 import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined';
 import PermContactCalendarSharpIcon from '@mui/icons-material/PermContactCalendarSharp';
 
-interface FeaturedProductCard {
+interface DogsListingCard {
 	property: Property;
 	likePropertyHandler: any;
 }
 
-const FeaturedProductCard = (props: FeaturedProductCard) => {
+const DogsListingCard = (props: DogsListingCard) => {
 	const { property, likePropertyHandler } = props;
 	const device = useDeviceDetect();
 	const router = useRouter();
@@ -105,7 +105,9 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 					onClick={() => {
 						pushDetailHandler(property._id);
 					}}
-				></Box>
+				>
+					<div>${property.propertyPrice}</div>
+				</Box>
 				<Box component={'div'} className={'info'}>
 					<strong
 						className={'title'}
@@ -134,9 +136,7 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 						</div>
 					</div>
 					<Divider sx={{ mt: '12px', mb: '10px' }} />
-
 					<div className={'bott'}>
-						<div>${property.propertyPrice}</div>
 						<div className="view-like-box">
 							<IconButton color={'default'}>
 								<RemoveRedEyeIcon />
@@ -158,4 +158,4 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 	}
 };
 
-export default FeaturedProductCard;
+export default DogsListingCard;

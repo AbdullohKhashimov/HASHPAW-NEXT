@@ -17,11 +17,11 @@ import { Message } from '../../enums/common.enum';
 import { PropertyType } from '../../enums/property.enum';
 import FeaturedProductCard from './FeaturedProductCard';
 
-interface FeaturedProducts {
+interface DogsListings {
 	initialInput: PropertiesInquiry;
 }
 
-const FeaturedProducts = (props: FeaturedProducts) => {
+const DogsListings = (props: DogsListings) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
 	const [trendProperties, setTrendProperties] = useState<Property[]>([]);
@@ -41,7 +41,7 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 		onCompleted: (data: T) => {
 			// Filter out properties of type other than "OTHER"
 			const filteredProperties = data?.getProperties?.list.filter(
-				(property: Property) => property.propertyType === PropertyType.CAT,
+				(property: Property) => property.propertyType === PropertyType.DOG,
 			);
 			setTrendProperties(filteredProperties);
 		},
@@ -106,8 +106,8 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
-							<span>Cats Line</span>
-							<p> Listings of a range of cat breeds </p>
+							<span>Dogs</span>
+							<p> Line of cutie dogs based on views </p>
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>
@@ -152,17 +152,17 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 	}
 };
 
-FeaturedProducts.defaultProps = {
+DogsListings.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
-		sort: 'propertyPrice',
-		direction: 'ASC',
+		sort: 'propertyViews',
+		direction: 'DESC',
 		search: {},
 	},
 };
 
-export default FeaturedProducts;
+export default DogsListings;
 
 /* fetchPolicy: 'cache-and-network',  //-> graphQL apollo client orqali graphql api request 
 amalga oshirilganda malumotlar birinchi kelib cache ga saqlandi va undan keyin bu malumotlar 

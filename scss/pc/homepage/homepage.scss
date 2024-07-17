@@ -55,6 +55,7 @@
 			.left {
 				display: flex;
 				flex-direction: column;
+
 				span {
 					color: #181a20;
 					font-family: $font;
@@ -164,11 +165,13 @@
 			height: 697px;
 			display: flex;
 			flex-direction: row;
+
 			.container {
 				flex-direction: column;
+
 				.card-box {
 					position: relative;
-					margin-top: 64px;
+					margin-top: 54px;
 					display: flex;
 					flex-direction: row;
 					.empty-list {
@@ -192,8 +195,8 @@
 					}
 					.trend-card-box {
 						position: relative;
-						width: 300px;
-						height: 375px;
+						width: 320px;
+						height: 475px; //475px
 						display: flex;
 						flex-direction: column;
 						transition: transform 0.3s;
@@ -204,7 +207,7 @@
 						.card-img {
 							position: relative;
 							width: 100%;
-							height: 203px;
+							height: 220px;
 							background-size: cover;
 							border-radius: 12px 12px 0px 0px;
 							cursor: pointer;
@@ -214,7 +217,7 @@
 								left: 12px;
 								bottom: 12px;
 								border-radius: 6px;
-								background: #fff;
+								background: #ffffff;
 								color: #181a20;
 								font-family: $font;
 								font-size: 15px;
@@ -274,7 +277,7 @@
 									span {
 										color: #181a20;
 										font-family: $font;
-										font-size: 13px;
+										font-size: 14px;
 										font-style: normal;
 										font-weight: 400;
 										line-height: normal;
@@ -286,6 +289,8 @@
 								flex-direction: row;
 								justify-content: space-between;
 								align-items: center;
+								font-size: 15px;
+								font-weight: 600;
 								p {
 									color: #181a20;
 									font-family: $font;
@@ -321,7 +326,130 @@
 					}
 				}
 			}
+			.hgts-container {
+				width: 100%;
+				height: auto;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				gap: 10px;
+				gap: 10px;
+				.highlights-up {
+					.hgts-up {
+						border-right: 5px solid #2a07f1b5;
+						width: 100%;
+						height: 44%;
+						display: flex;
+						flex-direction: row-reverse;
+						justify-content: center;
+						justify-content: space-between;
+						align-items: center;
+						font-weight: bold;
+						background-color: rgb(250, 250, 250);
+
+						box-shadow: 0 4px 8px rgba(255, 255, 255, 0.902);
+						.hgts-hold {
+							display: flex;
+							flex-direction: column;
+							gap: 10px;
+						}
+						.hgts-ttl {
+							color: gray;
+							font-size: 20px;
+							margin-left: 20px;
+						}
+						.hgts-text {
+							width: 570px;
+							color: rgb(15, 15, 15);
+							font-family: $font;
+							font-size: 18px;
+							margin-left: 20px;
+							font-weight: 600;
+						}
+						.hgts-place {
+							color: gray;
+							font-size: 15px;
+							margin-left: 20px;
+						}
+						.hgts-section {
+							color: rgb(209, 29, 222);
+							font-size: 18px;
+							margin-left: 20px;
+							font-family: $font;
+							font-weight: 550;
+							letter-spacing: 1px;
+						}
+						.hgts-img {
+							width: 650px;
+							height: 215px;
+						}
+					}
+					.hgts-down {
+						width: 100%;
+						height: 44%;
+						display: flex;
+						flex-direction: row;
+						justify-content: space-between;
+						margin-top: 50px;
+						align-items: center;
+						border-left: 5px solid #2a07f1b5;
+						background-color: rgb(250, 250, 250);
+						.hgts-hold {
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+							gap: 10px;
+							border: 12px 10px 10px 0px solid #2a07f1b5;
+						}
+						.hgts-ttl {
+							color: gray;
+							font-size: 20px;
+							margin-left: 20px;
+							font-weight: 600;
+						}
+						.hgts-text {
+							width: 550px;
+							color: rgb(35, 35, 35);
+							font-size: 27px;
+							margin-left: 20px;
+						}
+						.hgts-place {
+							width: 600px;
+							color: rgb(15, 15, 15);
+							font-weight: 600;
+							font-size: 18px;
+							margin-left: 20px;
+						}
+						.hgts-section {
+							color: gray;
+							font-size: 20px;
+							margin-left: 20px;
+							font-family: $font;
+							font-weight: 550;
+							letter-spacing: -1px;
+						}
+						.hgts-img {
+							width: 650px;
+							height: 215px;
+						}
+					}
+				}
+			}
+			.info-box {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				margin-top: -50px;
+				margin-bottom: 30px;
+				color: #181a20;
+				.left {
+					span {
+						color: gray;
+					}
+				}
+			}
 		}
+
 		.popular-properties {
 			padding: 132px 0px 94px;
 			width: 100%;

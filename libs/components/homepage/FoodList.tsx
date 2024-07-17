@@ -17,11 +17,11 @@ import { Message } from '../../enums/common.enum';
 import { PropertyType } from '../../enums/property.enum';
 import FeaturedProductCard from './FeaturedProductCard';
 
-interface FeaturedProducts {
+interface FoodList {
 	initialInput: PropertiesInquiry;
 }
 
-const FeaturedProducts = (props: FeaturedProducts) => {
+const FoodList = (props: FoodList) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
 	const [trendProperties, setTrendProperties] = useState<Property[]>([]);
@@ -41,7 +41,7 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 		onCompleted: (data: T) => {
 			// Filter out properties of type other than "OTHER"
 			const filteredProperties = data?.getProperties?.list.filter(
-				(property: Property) => property.propertyType === PropertyType.CAT,
+				(property: Property) => property.propertyType === PropertyType.FOOD,
 			);
 			setTrendProperties(filteredProperties);
 		},
@@ -152,7 +152,7 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 	}
 };
 
-FeaturedProducts.defaultProps = {
+FoodList.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
@@ -162,7 +162,7 @@ FeaturedProducts.defaultProps = {
 	},
 };
 
-export default FeaturedProducts;
+export default FoodList;
 
 /* fetchPolicy: 'cache-and-network',  //-> graphQL apollo client orqali graphql api request 
 amalga oshirilganda malumotlar birinchi kelib cache ga saqlandi va undan keyin bu malumotlar 
