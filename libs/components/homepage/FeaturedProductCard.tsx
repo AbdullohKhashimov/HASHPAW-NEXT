@@ -9,13 +9,15 @@ import { REACT_APP_API_URL } from '../../config';
 import { useRouter } from 'next/router';
 import { useReactiveVar } from '@apollo/client';
 import { userVar } from '../../../apollo/store';
+import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined';
+import PermContactCalendarSharpIcon from '@mui/icons-material/PermContactCalendarSharp';
 
-interface TrendPropertyCardProps {
+interface FeaturedProductCard {
 	property: Property;
 	likePropertyHandler: any;
 }
 
-const TrendPropertyCard = (props: TrendPropertyCardProps) => {
+const FeaturedProductCard = (props: FeaturedProductCard) => {
 	const { property, likePropertyHandler } = props;
 	const device = useDeviceDetect();
 	const router = useRouter();
@@ -51,17 +53,22 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 					</strong>
 					<p className={'desc'}>{property.propertyDesc ?? 'no description'}</p>
 					<div className={'options'}>
-						<div>
-							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property.propertyAge} age</span>
-						</div>
-						<div>
-							<img src="/img/icons/room.svg" alt="" />
-							<span>{property.propertyBreed} breed</span>
-						</div>
-						<div>
-							<img src="/img/icons/expand.svg" alt="" />
-							<span>{property.propertySize} m2</span>
+						<div className={'options'}>
+							<div>
+								<PermContactCalendarSharpIcon style={{ color: 'red' }} />
+								<span>{property.propertyAge} mos</span>
+							</div>
+
+							<div>
+								<PetsOutlinedIcon
+									style={{
+										color: 'red',
+										width: '20px',
+										marginRight: '4px',
+									}}
+								/>
+								<span>{property.propertyBreed}</span>
+							</div>
 						</div>
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
@@ -112,25 +119,24 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 					</strong>
 					<p className={'desc'}>{property.propertyDesc ?? 'no description'}</p>
 					<div className={'options'}>
-						{/* <div>
-							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property.propertyAge} old</span>
-						</div> */}
 						<div>
-							{/* <img src="/img/icons/room.svg" alt="" /> */}
-							<span>SIZE: {property.propertySize}</span>
+							<PermContactCalendarSharpIcon style={{ color: 'red' }} />
+							<span>{property.propertyAge} mos</span>
 						</div>
-						{/* <div>
-							<img src="/img/icons/expand.svg" alt="" />
+
+						<div>
+							<PetsOutlinedIcon
+								style={{
+									color: 'red',
+									width: '20px',
+									marginRight: '4px',
+								}}
+							/>
 							<span>{property.propertyBreed}</span>
-						</div> */}
+						</div>
 					</div>
-					<Divider sx={{ mt: '15px', mb: '17px' }} />
+					<Divider sx={{ mt: '12px', mb: '10px' }} />
 					<div className={'bott'}>
-						<p>
-							{property.propertyInjected ? 'Injected' : ''}{' '}
-							{property.propertyInjected && property.propertyBarter && '/'} {property.propertyBarter ? 'Barter' : ''}
-						</p>
 						<div className="view-like-box">
 							<IconButton color={'default'}>
 								<RemoveRedEyeIcon />
@@ -152,4 +158,4 @@ const TrendPropertyCard = (props: TrendPropertyCardProps) => {
 	}
 };
 
-export default TrendPropertyCard;
+export default FeaturedProductCard;

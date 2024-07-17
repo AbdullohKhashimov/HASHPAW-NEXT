@@ -5,11 +5,13 @@ import CommunityBoards from '../libs/components/homepage/CommunityBoards';
 import PopularProperties from '../libs/components/homepage/PopularProperties';
 import TopAgents from '../libs/components/homepage/TopAgents';
 import Events from '../libs/components/homepage/Events';
-import TrendProperties from '../libs/components/homepage/TrendProperties';
+import TrendProperties from '../libs/components/homepage/FeaturedProducts';
 import TopProperties from '../libs/components/homepage/TopProperties';
 import { Stack } from '@mui/material';
 import Advertisement from '../libs/components/homepage/Advertisement';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import FeaturedProducts from '../libs/components/homepage/FeaturedProducts';
+import Statistics from '../libs/components/homepage/Statistics';
 
 export const getStaticProps = async ({ locale }: any) => ({
 	props: {
@@ -23,7 +25,7 @@ const Home: NextPage = () => {
 	if (device === 'mobile') {
 		return (
 			<Stack className={'home-page'}>
-				<TrendProperties />
+				<FeaturedProducts />
 				<PopularProperties />
 				<Advertisement />
 				<TopProperties />
@@ -33,7 +35,8 @@ const Home: NextPage = () => {
 	} else {
 		return (
 			<Stack className={'home-page'}>
-				<TrendProperties />
+				<Statistics />
+				<FeaturedProducts />
 				<PopularProperties />
 				<Advertisement />
 				<TopProperties />

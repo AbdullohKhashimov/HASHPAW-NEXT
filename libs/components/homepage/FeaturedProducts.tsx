@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
 import { Property } from '../../types/property/property';
 import { PropertiesInquiry } from '../../types/property/property.input';
-import TrendPropertyCard from './TrendPropertyCard';
+import TrendPropertyCard from './FeaturedProductCard';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_PROPERTIES } from '../../../apollo/user/query';
 import { T } from '../../types/common';
@@ -16,11 +16,11 @@ import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAler
 import { Message } from '../../enums/common.enum';
 import { PropertyType } from '../../enums/property.enum';
 
-interface TrendPropertiesProps {
+interface FeaturedProducts {
 	initialInput: PropertiesInquiry;
 }
 
-const TrendProperties = (props: TrendPropertiesProps) => {
+const FeaturedProducts = (props: FeaturedProducts) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
 	const [trendProperties, setTrendProperties] = useState<Property[]>([]);
@@ -40,7 +40,7 @@ const TrendProperties = (props: TrendPropertiesProps) => {
 		onCompleted: (data: T) => {
 			// Filter out properties of type other than "OTHER"
 			const filteredProperties = data?.getProperties?.list.filter(
-				(property: Property) => property.propertyType === PropertyType.OTHER,
+				(property: Property) => property.propertyType === PropertyType.CAT,
 			);
 			setTrendProperties(filteredProperties);
 		},
@@ -105,8 +105,8 @@ const TrendProperties = (props: TrendPropertiesProps) => {
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
-							<span>Featured Products</span>
-							<p>Featured products is based on product types </p>
+							<span>Cats Line</span>
+							<p> Listings of a range of cat breeds </p>
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>
@@ -151,7 +151,7 @@ const TrendProperties = (props: TrendPropertiesProps) => {
 	}
 };
 
-TrendProperties.defaultProps = {
+FeaturedProducts.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
@@ -161,7 +161,7 @@ TrendProperties.defaultProps = {
 	},
 };
 
-export default TrendProperties;
+export default FeaturedProducts;
 
 /* fetchPolicy: 'cache-and-network',  //-> graphQL apollo client orqali graphql api request 
 amalga oshirilganda malumotlar birinchi kelib cache ga saqlandi va undan keyin bu malumotlar 

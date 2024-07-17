@@ -17,7 +17,6 @@ import { PropertyLocation, PropertyType } from '../../enums/property.enum';
 import { PropertiesInquiry } from '../../types/property/property.input';
 import { useRouter } from 'next/router';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
-import { propertySquare } from '../../config';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
 const MenuProps = {
@@ -690,7 +689,7 @@ const Filter = (props: FilterType) => {
 				<Stack className={'find-your-home'} mb={'30px'}>
 					<Typography className={'title'}>Bedrooms</Typography>
 					<Stack className="button-group">
-						<Button
+						{/* <Button
 							sx={{
 								borderRadius: '12px 0 0 12px',
 								border: !searchFilter?.search?.bedsList ? '2px solid #181A20' : '1px solid #b9b9b9',
@@ -739,8 +738,8 @@ const Filter = (props: FilterType) => {
 							onClick={() => propertyBedSelectHandler(4)}
 						>
 							4
-						</Button>
-						<Button
+						</Button> */}
+						{/* <Button
 							sx={{
 								borderRadius: '0 12px 12px 0',
 								border: searchFilter?.search?.bedsList?.includes(5) ? '2px solid #181A20' : '1px solid #b9b9b9',
@@ -749,7 +748,7 @@ const Filter = (props: FilterType) => {
 							onClick={() => propertyBedSelectHandler(5)}
 						>
 							5+
-						</Button>
+						</Button> */}
 					</Stack>
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
@@ -786,7 +785,7 @@ const Filter = (props: FilterType) => {
 				<Stack className={'find-your-home'} mb={'30px'}>
 					<Typography className={'title'}>Square meter</Typography>
 					<Stack className="square-year-input">
-						<FormControl>
+						{/* <FormControl>
 							<InputLabel id="demo-simple-select-label">Min</InputLabel>
 							<Select
 								labelId="demo-simple-select-label"
@@ -806,9 +805,9 @@ const Filter = (props: FilterType) => {
 									</MenuItem>
 								))}
 							</Select>
-						</FormControl>
+						</FormControl> */}
 						<div className="central-divider"></div>
-						<FormControl>
+						{/* <FormControl>
 							<InputLabel id="demo-simple-select-label">Max</InputLabel>
 							<Select
 								labelId="demo-simple-select-label"
@@ -828,7 +827,7 @@ const Filter = (props: FilterType) => {
 									</MenuItem>
 								))}
 							</Select>
-						</FormControl>
+						</FormControl> */}
 					</Stack>
 				</Stack>
 				<Stack className={'find-your-home'}>

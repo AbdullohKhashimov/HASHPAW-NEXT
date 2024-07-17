@@ -1,10 +1,12 @@
 export enum PropertyType {
-	PET = 'PET',
+	CAT = 'CAT',
+	DOG = 'DOG',
 	FOOD = 'FOOD',
 	OTHER = 'OTHER',
 }
 
 export enum PropertyStatus {
+	// HOLD = 'HOLD',
 	ACTIVE = 'ACTIVE',
 	SOLD = 'SOLD',
 	DELETE = 'DELETE',
@@ -18,12 +20,12 @@ export enum PropertySize {
 
 export enum PropertyLocation {
 	SEOUL = 'SEOUL',
-	BUSAN = 'BUSAN',
-	INCHEON = 'INCHEON',
-	DAEGU = 'DAEGU',
-	GYEONGJU = 'GYEONGJU',
-	GWANGJU = 'GWANGJU',
-	CHONJU = 'CHONJU',
-	DAEJON = 'DAEJON',
-	JEJU = 'JEJU',
+	GIMPO = 'GIMPO',
+	HANAM = 'HANAM',
+	ASAN = 'ASAN',
+	CHEONAN = 'CHEONAN',
+	SUWON = 'SUWON',
+	PAJU = 'PAJU',
+	YANGJU = 'YANGJU',
+	HWASONG = 'HWASONG',
 }

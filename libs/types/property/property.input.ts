@@ -23,7 +23,7 @@ interface PISearch {
 	locationList?: PropertyLocation[];
 	typeList?: PropertyType[];
 	options?: string[];
-	breedList?: string[];
+	breedList?: Number[];
 	pricesRange?: Range;
 	sizeList?: SizesRange[];
 	agesRange?: Range;
