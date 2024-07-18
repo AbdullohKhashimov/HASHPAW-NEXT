@@ -15,7 +15,7 @@ import { LIKE_TARGET_PROPERTY } from '../../../apollo/user/mutation';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import { Message } from '../../enums/common.enum';
 import { PropertyType } from '../../enums/property.enum';
-import FeaturedProductCard from './FeaturedProductCard';
+import DogsListingCard from './DogsListingCard';
 
 interface DogsListings {
 	initialInput: PropertiesInquiry;
@@ -64,8 +64,8 @@ const DogsListings = (props: DogsListings) => {
 		}
 	};
 
-	if (trendProperties) console.log('trendProperties:+++', trendProperties);
-	if (!trendProperties) return null;
+	if (DogsListings) console.log('DogsListings:+++', DogsListings);
+	if (!DogsListings) return null;
 
 	if (device === 'mobile') {
 		return (
@@ -90,7 +90,7 @@ const DogsListings = (props: DogsListings) => {
 								{trendProperties.map((property: Property) => {
 									return (
 										<SwiperSlide key={property._id} className={'trend-property-slide'}>
-											<TrendPropertyCard property={property} likePropertyHandler={likePropertyHandler} />
+											<DogsListingCard property={property} likePropertyHandler={likePropertyHandler} />
 										</SwiperSlide>
 									);
 								})}
@@ -139,7 +139,7 @@ const DogsListings = (props: DogsListings) => {
 								{trendProperties.map((property: Property) => {
 									return (
 										<SwiperSlide key={property._id} className={'trend-property-slide'}>
-											<FeaturedProductCard property={property} likePropertyHandler={likePropertyHandler} />
+											<DogsListingCard property={property} likePropertyHandler={likePropertyHandler} />
 										</SwiperSlide>
 									);
 								})}
@@ -156,7 +156,7 @@ DogsListings.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
-		sort: 'propertyViews',
+		sort: 'propertyLikes',
 		direction: 'DESC',
 		search: {},
 	},

@@ -14,6 +14,7 @@ import { T } from '../../types/common';
 import { LIKE_TARGET_PROPERTY } from '../../../apollo/user/mutation';
 import { Message } from '../../enums/common.enum';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
+import FeaturedProductCard from './FeaturedProductCard';
 
 interface TopPropertiesProps {
 	initialInput: PropertiesInquiry;
@@ -92,8 +93,8 @@ const TopProperties = (props: TopPropertiesProps) => {
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
-							<span>Top properties</span>
-							<p>Check out our Top Properties</p>
+							<span>Top products</span>
+							<p>Products are based on their rankings</p>
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>

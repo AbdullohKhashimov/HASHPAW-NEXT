@@ -16,7 +16,7 @@ const Advertisement = () => {
 					preload="auto"
 					style={{ width: '100%', height: '100%', objectFit: 'cover' }}
 				>
-					<source src="/video/ads.mov" type="video/mp4" />
+					<source src="/video/bengal.mp4" type="video/mp4" />
 				</video>
 			</Stack>
 		);
@@ -29,9 +29,9 @@ const Advertisement = () => {
 					loop
 					playsInline
 					preload="auto"
-					style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+					style={{ width: '100%', height: '100%', objectFit: 'contain' }}
 				>
-					<source src="/video/ads.mov" type="video/mp4" />
+					<source src="/video/bengal.mp4" type="video/mp4" />
 				</video>
 			</Stack>
 		);

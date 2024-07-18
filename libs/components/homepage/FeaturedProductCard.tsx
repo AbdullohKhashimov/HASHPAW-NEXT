@@ -2,15 +2,16 @@ import React from 'react';
 import { Stack, Box, Divider, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Property } from '../../types/property/property';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { REACT_APP_API_URL } from '../../config';
 import { useRouter } from 'next/router';
 import { useReactiveVar } from '@apollo/client';
 import { userVar } from '../../../apollo/store';
 import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined';
 import PermContactCalendarSharpIcon from '@mui/icons-material/PermContactCalendarSharp';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import PinDropIcon from '@mui/icons-material/PinDrop';
 
 interface FeaturedProductCard {
 	property: Property;
@@ -73,20 +74,16 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
 					<div className={'bott'}>
-						<p>
-							{property.propertyInjected ? 'Injected' : ''}{' '}
-							{property.propertyInjected && property.propertyBarter && '/'} {property.propertyBarter ? 'Barter' : ''}
-						</p>
 						<div className="view-like-box">
 							<IconButton color={'default'}>
-								<RemoveRedEyeIcon />
+								<RemoveRedEyeOutlinedIcon />
 							</IconButton>
 							<Typography className="view-cnt">{property?.propertyViews}</Typography>
 							<IconButton color={'default'} onClick={() => likePropertyHandler(user, property?._id)}>
 								{property?.meLiked && property?.meLiked[0]?.myFavorite ? (
-									<FavoriteIcon style={{ color: 'red' }} />
+									<ThumbUpIcon style={{ color: 'blue' }} />
 								) : (
-									<FavoriteIcon />
+									<ThumbUpIcon />
 								)}
 							</IconButton>
 							<Typography className="view-cnt">{property?.propertyLikes}</Typography>
@@ -115,13 +112,14 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 					>
 						{property.propertyTitle}
 					</strong>
+
 					<p className={'desc'}>{property.propertyDesc ?? 'no description'}</p>
+
 					<div className={'options'}>
 						<div>
 							<PermContactCalendarSharpIcon style={{ color: 'red' }} />
 							<span>{property.propertyAge} mos</span>
 						</div>
-
 						<div>
 							<PetsOutlinedIcon
 								style={{
@@ -139,14 +137,14 @@ const FeaturedProductCard = (props: FeaturedProductCard) => {
 						<div>${property.propertyPrice}</div>
 						<div className="view-like-box">
 							<IconButton color={'default'}>
-								<RemoveRedEyeIcon />
+								<RemoveRedEyeOutlinedIcon style={{ color: 'blue' }} />
 							</IconButton>
 							<Typography className="view-cnt">{property?.propertyViews}</Typography>
 							<IconButton color={'default'} onClick={() => likePropertyHandler(user, property?._id)}>
 								{property?.meLiked && property?.meLiked[0]?.myFavorite ? (
-									<FavoriteIcon style={{ color: 'red' }} />
+									<ThumbUpIcon style={{ color: 'blue' }} />
 								) : (
-									<FavoriteIcon />
+									<ThumbUpIcon />
 								)}
 							</IconButton>
 							<Typography className="view-cnt">{property?.propertyLikes}</Typography>

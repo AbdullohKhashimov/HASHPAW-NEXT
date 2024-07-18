@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
 import { Property } from '../../types/property/property';
 import { PropertiesInquiry } from '../../types/property/property.input';
-import TrendPropertyCard from './FeaturedProductCard';
 import { useMutation, useQuery } from '@apollo/client';
 import { GET_PROPERTIES } from '../../../apollo/user/query';
 import { T } from '../../types/common';
@@ -64,8 +63,8 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 		}
 	};
 
-	if (trendProperties) console.log('trendProperties:+++', trendProperties);
-	if (!trendProperties) return null;
+	if (FeaturedProducts) console.log('FeaturedProducts:+++', FeaturedProducts);
+	if (!FeaturedProducts) return null;
 
 	if (device === 'mobile') {
 		return (
@@ -90,7 +89,7 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 								{trendProperties.map((property: Property) => {
 									return (
 										<SwiperSlide key={property._id} className={'trend-property-slide'}>
-											<TrendPropertyCard property={property} likePropertyHandler={likePropertyHandler} />
+											<FeaturedProductCard property={property} likePropertyHandler={likePropertyHandler} />
 										</SwiperSlide>
 									);
 								})}

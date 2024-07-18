@@ -5,26 +5,26 @@ import WestIcon from '@mui/icons-material/West';
 import EastIcon from '@mui/icons-material/East';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper';
-import { Property } from '../../types/property/property';
+import TopPropertyCard from './TopPropertyCard';
 import { PropertiesInquiry } from '../../types/property/property.input';
-import TrendPropertyCard from './FeaturedProductCard';
-import { useMutation, useQuery } from '@apollo/client';
+import { Property } from '../../types/property/property';
 import { GET_PROPERTIES } from '../../../apollo/user/query';
+import { useMutation, useQuery } from '@apollo/client';
 import { T } from '../../types/common';
 import { LIKE_TARGET_PROPERTY } from '../../../apollo/user/mutation';
-import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import { Message } from '../../enums/common.enum';
+import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
+import FoodListCard from './FoodListCard';
 import { PropertyType } from '../../enums/property.enum';
-import FeaturedProductCard from './FeaturedProductCard';
 
-interface FoodList {
+interface FoodListProps {
 	initialInput: PropertiesInquiry;
 }
 
-const FoodList = (props: FoodList) => {
+const FoodListProps = (props: FoodListProps) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
-	const [trendProperties, setTrendProperties] = useState<Property[]>([]);
+	const [topProperties, setTopProperties] = useState<Property[]>([]);
 
 	/** APOLLO REQUESTS **/
 	const [likeTargetProperty] = useMutation(LIKE_TARGET_PROPERTY);
@@ -39,14 +39,14 @@ const FoodList = (props: FoodList) => {
 		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
-			// Filter out properties of type other than "OTHER"
 			const filteredProperties = data?.getProperties?.list.filter(
 				(property: Property) => property.propertyType === PropertyType.FOOD,
 			);
-			setTrendProperties(filteredProperties);
+			setTopProperties(filteredProperties); //-> backend dan birinchi data olinganda onComplete ishga tushadi.
 		},
 	});
 	/** HANDLERS **/
+
 	const likePropertyHandler = async (user: T, id: string) => {
 		try {
 			if (!id) return;
@@ -64,87 +64,72 @@ const FoodList = (props: FoodList) => {
 		}
 	};
 
-	if (trendProperties) console.log('trendProperties:+++', trendProperties);
-	if (!trendProperties) return null;
-
 	if (device === 'mobile') {
 		return (
-			<Stack className={'trend-properties'}>
+			<Stack className={'top-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
-						<span>Featured Products</span>
+						<span>Range of Products</span>
 					</Stack>
 					<Stack className={'card-box'}>
-						{trendProperties.length === 0 ? (
-							<Box component={'div'} className={'empty-list'}>
-								Featured Products Empty
-							</Box>
-						) : (
-							<Swiper
-								className={'trend-property-swiper'}
-								slidesPerView={'auto'}
-								centeredSlides={true}
-								spaceBetween={15}
-								modules={[Autoplay]}
-							>
-								{trendProperties.map((property: Property) => {
-									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
-											<TrendPropertyCard property={property} likePropertyHandler={likePropertyHandler} />
-										</SwiperSlide>
-									);
-								})}
-							</Swiper>
-						)}
+						<Swiper
+							className={'top-property-swiper'}
+							slidesPerView={'auto'}
+							centeredSlides={true}
+							spaceBetween={15}
+							modules={[Autoplay]}
+						>
+							{topProperties.map((property: Property) => {
+								return (
+									<SwiperSlide className={'top-property-slide'} key={property?._id}>
+										<TopPropertyCard property={property} likePropertyHandler={likePropertyHandler} />
+									</SwiperSlide>
+								);
+							})}
+						</Swiper>
 					</Stack>
 				</Stack>
 			</Stack>
 		);
 	} else {
 		return (
-			<Stack className={'trend-properties'}>
+			<Stack className={'top-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
-							<span>Cats Line</span>
-							<p> Listings of a range of cat breeds </p>
+							<span>Range of Products</span>
+							<p>List of Cat and Dog foods</p>
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>
-								<WestIcon className={'swiper-trend-prev'} />
-								<div className={'swiper-trend-pagination'}></div>
-								<EastIcon className={'swiper-trend-next'} />
+								<WestIcon className={'swiper-top-prev'} />
+								<div className={'swiper-top-pagination'}></div>
+								<EastIcon className={'swiper-top-next'} />
 							</div>
 						</Box>
 					</Stack>
 					<Stack className={'card-box'}>
-						{trendProperties.length === 0 ? (
-							<Box component={'div'} className={'empty-list'}>
-								Featured Products Empty!
-							</Box>
-						) : (
-							<Swiper
-								className={'trend-property-swiper'}
-								slidesPerView={'auto'}
-								spaceBetween={15}
-								modules={[Autoplay, Navigation, Pagination]}
-								navigation={{
-									nextEl: '.swiper-trend-next',
-									prevEl: '.swiper-trend-prev',
-								}}
-								pagination={{
-									el: '.swiper-trend-pagination',
-								}}
-							>
-								{trendProperties.map((property: Property) => {
-									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
-											<FeaturedProductCard property={property} likePropertyHandler={likePropertyHandler} />
-										</SwiperSlide>
-									);
-								})}
-							</Swiper>
-						)}
+						<Swiper
+							className={'top-property-swiper'}
+							slidesPerView={'auto'}
+							spaceBetween={15}
+							modules={[Autoplay, Navigation, Pagination]}
+							navigation={{
+								nextEl: '.swiper-top-next',
+								prevEl: '.swiper-top-prev',
+							}}
+							pagination={{
+								el: '.swiper-top-pagination',
+							}}
+						>
+							{topProperties.map((property: Property) => {
+								return (
+									<SwiperSlide className={'top-property-slide'} key={property?._id}>
+										<FoodListCard property={property} likePropertyHandler={likePropertyHandler} />
+									</SwiperSlide>
+								);
+							})}
+						</Swiper>
 					</Stack>
 				</Stack>
 			</Stack>
@@ -152,43 +137,14 @@ const FoodList = (props: FoodList) => {
 	}
 };
 
-FoodList.defaultProps = {
+FoodListProps.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 8,
-		sort: 'propertyPrice',
-		direction: 'ASC',
+		sort: 'propertyViews',
+		direction: 'DESC',
 		search: {},
 	},
 };
 
-export default FoodList;
-
-/* fetchPolicy: 'cache-and-network',  //-> graphQL apollo client orqali graphql api request 
-amalga oshirilganda malumotlar birinchi kelib cache ga saqlandi va undan keyin bu malumotlar 
-viewga taqdim etiladi. Datalarni biz togridan togri ishlatishimiz mumkun yoki dataga biriktirlgan
-malumotlarni biz saqlab pastda ishlatishimiz mumkun. 
-
-Malumotlarni backend dan chaqirish va cache larga saqlash politikasi bolib ular fetchPolicy deb ataladi.
-1: Cache-first -> birinchi agar ilgari backend dan chaqirilgan malumot cache ga saqlangan bolsa
-bizning cache mizdan malumotni olib berib u backend ga request yubormas edi. 
-
-2: network-only -> har safar birinchi browserga kirganimzda bizning malumotlarni faqatgina networkdan
-qabul qiladi yani cache ga etiborni qaratmaydi. Networkdan malumotlarni olib cache ga yozishni davom etadi.
-
-cache-and-network: birinchi navbatda browser update qilganda kirib kelib birinchi cache dagi malumotni izlaydi
-va cacheda malumotlar mujassam bolsa ularni render qilib beradi va bu bilan tohtab qolmasdan
-backend serverga ham requestni amalga oshiradi. aytaylik cachedagi malumot ishlatildi va networkdan kelgan malumot
-qabul etildi va cache bn network ortasidagi malumotlar hech qanday mantiq amalga oshmaydi. Agar har hil mantiqlar bolsa
-unday holda cachedan olingan malumotlarni eng ohirgi malumotlarga ozgaertirib networkdan kelgan malumotni 
-userlarga taqdim etadi. 
-
-3: cache-only: -> u bir marta backend dan malumot olib cache ga saqlangandan keyin 
-qaytib backend ga request amalga oshirmaydi. Faqat cache dagi malumotlar bn kifoyalandi.
-
-4: no-cache: -> tez tez request qilish mantigi bn amalga oshirilgan mantiqlar safida ishlatiladi.
-bu juda network-only mantigiga oxshash buladi cache ni ignore qiladi
-
-5: standby: -> kutish mantigi hisoblanadi.
-
-*/
+export default FoodListProps;
