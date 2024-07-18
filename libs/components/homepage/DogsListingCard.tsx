@@ -14,12 +14,12 @@ import PinDropIcon from '@mui/icons-material/PinDrop';
 import RecommendIcon from '@mui/icons-material/Recommend';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-interface DogsListingCard {
+interface DogsListingCardProps {
 	property: Property;
 	likePropertyHandler: any;
 }
 
-const DogsListingCard = (props: DogsListingCard) => {
+const DogsListingCard = (props: DogsListingCardProps) => {
 	const { property, likePropertyHandler } = props;
 	const device = useDeviceDetect();
 	const router = useRouter();
@@ -33,7 +33,7 @@ const DogsListingCard = (props: DogsListingCard) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className="trend-card-box" key={property._id}>
+			<Stack className="dog-card-box" key={property._id}>
 				<Box
 					component={'div'}
 					className={'card-img'}
@@ -99,7 +99,7 @@ const DogsListingCard = (props: DogsListingCard) => {
 		);
 	} else {
 		return (
-			<Stack className="trend-card-box" key={property._id}>
+			<Stack className="dog-card-box" key={property._id}>
 				<Box
 					component={'div'}
 					className={'card-img'}
@@ -141,7 +141,7 @@ const DogsListingCard = (props: DogsListingCard) => {
 					</div>
 					<Divider sx={{ mt: '12px', mb: '10px' }} />
 					<div className={'bott'}>
-						<div>${property.propertyPrice}</div>
+						<div style={{ color: 'grey', fontWeight: '600' }}>${property.propertyPrice}</div>
 						<div className="view-like-box">
 							<IconButton color={'default'}>
 								<RemoveRedEyeOutlinedIcon style={{ color: 'blue' }} />

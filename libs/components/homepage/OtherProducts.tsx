@@ -16,12 +16,13 @@ import { Message } from '../../enums/common.enum';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import FoodListCard from './FoodListCard';
 import { PropertyType } from '../../enums/property.enum';
+import OtherProductsCard from './OtherProductsCard';
 
-interface FoodListProps {
+interface OtherProductsProps {
 	initialInput: PropertiesInquiry;
 }
 
-const FoodList = (props: FoodListProps) => {
+const OtherProducts = (props: OtherProductsProps) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
 	const [topProperties, setTopProperties] = useState<Property[]>([]);
@@ -40,7 +41,7 @@ const FoodList = (props: FoodListProps) => {
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
 			const filteredProperties = data?.getProperties?.list.filter(
-				(property: Property) => property.propertyType === PropertyType.FOOD,
+				(property: Property) => property.propertyType === PropertyType.OTHER,
 			);
 			setTopProperties(filteredProperties); //-> backend dan birinchi data olinganda onComplete ishga tushadi.
 		},
@@ -66,14 +67,14 @@ const FoodList = (props: FoodListProps) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className={'food-properties'}>
+			<Stack className={'other-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
-						<span>Range of Products</span>
+						<span>Featured Supplements</span>
 					</Stack>
 					<Stack className={'card-box'}>
 						<Swiper
-							className={'food-property-swiper'}
+							className={'other-property-swiper'}
 							slidesPerView={'auto'}
 							centeredSlides={true}
 							spaceBetween={15}
@@ -81,8 +82,8 @@ const FoodList = (props: FoodListProps) => {
 						>
 							{topProperties.map((property: Property) => {
 								return (
-									<SwiperSlide className={'food-property-slide'} key={property?._id}>
-										<FoodListCard property={property} likePropertyHandler={likePropertyHandler} />
+									<SwiperSlide className={'other-property-slide'} key={property?._id}>
+										<OtherProductsCard property={property} likePropertyHandler={likePropertyHandler} />
 									</SwiperSlide>
 								);
 							})}
@@ -93,39 +94,39 @@ const FoodList = (props: FoodListProps) => {
 		);
 	} else {
 		return (
-			<Stack className={'food-properties'}>
+			<Stack className={'other-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
-							<span>Range of Products</span>
-							<p>List of Cat and Dog foods</p>
+							<span>Featured Supplements</span>
+							<p>Line offers variety of supplements and toys your pets need</p>
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>
-								<WestIcon className={'swiper-food-prev'} />
-								<div className={'swiper-food-pagination'}></div>
-								<EastIcon className={'swiper-food-next'} />
+								<WestIcon className={'swiper-other-prev'} />
+								<div className={'swiper-other-pagination'}></div>
+								<EastIcon className={'swiper-other-next'} />
 							</div>
 						</Box>
 					</Stack>
 					<Stack className={'card-box'}>
 						<Swiper
-							className={'food-property-swiper'}
+							className={'other-property-swiper'}
 							slidesPerView={'auto'}
 							spaceBetween={15}
 							modules={[Autoplay, Navigation, Pagination]}
 							navigation={{
-								nextEl: '.swiper-food-next',
-								prevEl: '.swiper-food-prev',
+								nextEl: '.swiper-other-next',
+								prevEl: '.swiper-other-prev',
 							}}
 							pagination={{
-								el: '.swiper-food-pagination',
+								el: '.swiper-other-pagination',
 							}}
 						>
-							{topProperties.map((property: Property) => {
+							{topProperties.map((product: Property) => {
 								return (
-									<SwiperSlide className={'food-property-slide'} key={property?._id}>
-										<FoodListCard property={property} likePropertyHandler={likePropertyHandler} />
+									<SwiperSlide className={'other-property-slide'} key={product?._id}>
+										<OtherProductsCard property={product} likePropertyHandler={likePropertyHandler} />
 									</SwiperSlide>
 								);
 							})}
@@ -137,14 +138,14 @@ const FoodList = (props: FoodListProps) => {
 	}
 };
 
-FoodList.defaultProps = {
+OtherProducts.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 7,
-		sort: 'propertyViews',
+		sort: 'propertyLikes',
 		direction: 'DESC',
 		search: {},
 	},
 };
 
-export default FoodList;
+export default OtherProducts;

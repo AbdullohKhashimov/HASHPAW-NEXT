@@ -12,12 +12,12 @@ import CropSquareIcon from '@mui/icons-material/CropSquare';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-interface FoodListCard {
+interface FoodListCardProps {
 	property: Property;
 	likePropertyHandler: any;
 }
 
-const FoodListCard = (props: FoodListCard) => {
+const FoodListCard = (props: FoodListCardProps) => {
 	const { property, likePropertyHandler } = props;
 	const device = useDeviceDetect();
 	const router = useRouter();
@@ -31,7 +31,7 @@ const FoodListCard = (props: FoodListCard) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className="top-card-box">
+			<Stack className="food-card-box">
 				<Box
 					component={'div'}
 					className={'card-img'}
@@ -77,7 +77,7 @@ const FoodListCard = (props: FoodListCard) => {
 		);
 	} else {
 		return (
-			<Stack className="top-card-box">
+			<Stack className="food-card-box">
 				<Box
 					component={'div'}
 					className={'card-img'}

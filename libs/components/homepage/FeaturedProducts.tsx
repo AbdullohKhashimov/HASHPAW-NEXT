@@ -16,14 +16,15 @@ import { Message } from '../../enums/common.enum';
 import { PropertyType } from '../../enums/property.enum';
 import FeaturedProductCard from './FeaturedProductCard';
 
-interface FeaturedProducts {
+interface FeaturedProductProps {
+	//TrendPropertiesProps
 	initialInput: PropertiesInquiry;
 }
 
-const FeaturedProducts = (props: FeaturedProducts) => {
+const FeaturedProducts = (props: FeaturedProductProps) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
-	const [trendProperties, setTrendProperties] = useState<Property[]>([]);
+	const [featuredProducts, setFeaturedProducts] = useState<Property[]>([]);
 
 	/** APOLLO REQUESTS **/
 	const [likeTargetProperty] = useMutation(LIKE_TARGET_PROPERTY);
@@ -39,10 +40,10 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
 			// Filter out properties of type other than "OTHER"
-			const filteredProperties = data?.getProperties?.list.filter(
+			const filteredProducts = data?.getProperties?.list.filter(
 				(property: Property) => property.propertyType === PropertyType.CAT,
 			);
-			setTrendProperties(filteredProperties);
+			setFeaturedProducts(filteredProducts);
 		},
 	});
 	/** HANDLERS **/
@@ -68,27 +69,27 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className={'trend-properties'}>
+			<Stack className={'featured-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<span>Featured Products</span>
 					</Stack>
 					<Stack className={'card-box'}>
-						{trendProperties.length === 0 ? (
+						{featuredProducts.length === 0 ? (
 							<Box component={'div'} className={'empty-list'}>
 								Featured Products Empty
 							</Box>
 						) : (
 							<Swiper
-								className={'trend-property-swiper'}
+								className={'featured-property-swiper'}
 								slidesPerView={'auto'}
 								centeredSlides={true}
 								spaceBetween={15}
 								modules={[Autoplay]}
 							>
-								{trendProperties.map((property: Property) => {
+								{featuredProducts.map((property: Property) => {
 									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
+										<SwiperSlide key={property._id} className={'featured-property-slide'}>
 											<FeaturedProductCard property={property} likePropertyHandler={likePropertyHandler} />
 										</SwiperSlide>
 									);
@@ -101,7 +102,7 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 		);
 	} else {
 		return (
-			<Stack className={'trend-properties'}>
+			<Stack className={'featured-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
@@ -110,34 +111,34 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>
-								<WestIcon className={'swiper-trend-prev'} />
-								<div className={'swiper-trend-pagination'}></div>
-								<EastIcon className={'swiper-trend-next'} />
+								<WestIcon className={'swiper-featured-prev'} />
+								<div className={'swiper-featured-pagination'}></div>
+								<EastIcon className={'swiper-featured-next'} />
 							</div>
 						</Box>
 					</Stack>
 					<Stack className={'card-box'}>
-						{trendProperties.length === 0 ? (
+						{featuredProducts.length === 0 ? (
 							<Box component={'div'} className={'empty-list'}>
 								Featured Products Empty!
 							</Box>
 						) : (
 							<Swiper
-								className={'trend-property-swiper'}
+								className={'featured-property-swiper'}
 								slidesPerView={'auto'}
 								spaceBetween={15}
 								modules={[Autoplay, Navigation, Pagination]}
 								navigation={{
-									nextEl: '.swiper-trend-next',
-									prevEl: '.swiper-trend-prev',
+									nextEl: '.swiper-featured-next',
+									prevEl: '.swiper-featured-prev',
 								}}
 								pagination={{
-									el: '.swiper-trend-pagination',
+									el: '.swiper-featured-pagination',
 								}}
 							>
-								{trendProperties.map((property: Property) => {
+								{featuredProducts.map((property: Property) => {
 									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
+										<SwiperSlide key={property._id} className={'featured-property-slide'}>
 											<FeaturedProductCard property={property} likePropertyHandler={likePropertyHandler} />
 										</SwiperSlide>
 									);
@@ -154,7 +155,7 @@ const FeaturedProducts = (props: FeaturedProducts) => {
 FeaturedProducts.defaultProps = {
 	initialInput: {
 		page: 1,
-		limit: 8,
+		limit: 7,
 		sort: 'propertyPrice',
 		direction: 'ASC',
 		search: {},

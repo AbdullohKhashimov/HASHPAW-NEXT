@@ -17,14 +17,14 @@ import { Message } from '../../enums/common.enum';
 import { PropertyType } from '../../enums/property.enum';
 import DogsListingCard from './DogsListingCard';
 
-interface DogsListings {
+interface DogsListingsProps {
 	initialInput: PropertiesInquiry;
 }
 
-const DogsListings = (props: DogsListings) => {
+const DogsListings = (props: DogsListingsProps) => {
 	const { initialInput } = props;
 	const device = useDeviceDetect();
-	const [trendProperties, setTrendProperties] = useState<Property[]>([]);
+	const [dogProducts, setDogProducts] = useState<Property[]>([]);
 
 	/** APOLLO REQUESTS **/
 	const [likeTargetProperty] = useMutation(LIKE_TARGET_PROPERTY);
@@ -43,7 +43,7 @@ const DogsListings = (props: DogsListings) => {
 			const filteredProperties = data?.getProperties?.list.filter(
 				(property: Property) => property.propertyType === PropertyType.DOG,
 			);
-			setTrendProperties(filteredProperties);
+			setDogProducts(filteredProperties);
 		},
 	});
 	/** HANDLERS **/
@@ -69,27 +69,27 @@ const DogsListings = (props: DogsListings) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className={'trend-properties'}>
+			<Stack className={'dog-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<span>Featured Products</span>
 					</Stack>
 					<Stack className={'card-box'}>
-						{trendProperties.length === 0 ? (
+						{dogProducts.length === 0 ? (
 							<Box component={'div'} className={'empty-list'}>
 								Featured Products Empty
 							</Box>
 						) : (
 							<Swiper
-								className={'trend-property-swiper'}
+								className={'dog-property-swiper'}
 								slidesPerView={'auto'}
 								centeredSlides={true}
 								spaceBetween={15}
 								modules={[Autoplay]}
 							>
-								{trendProperties.map((property: Property) => {
+								{dogProducts.map((property: Property) => {
 									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
+										<SwiperSlide key={property._id} className={'dog-property-slide'}>
 											<DogsListingCard property={property} likePropertyHandler={likePropertyHandler} />
 										</SwiperSlide>
 									);
@@ -102,7 +102,7 @@ const DogsListings = (props: DogsListings) => {
 		);
 	} else {
 		return (
-			<Stack className={'trend-properties'}>
+			<Stack className={'dog-properties'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
@@ -111,34 +111,34 @@ const DogsListings = (props: DogsListings) => {
 						</Box>
 						<Box component={'div'} className={'right'}>
 							<div className={'pagination-box'}>
-								<WestIcon className={'swiper-trend-prev'} />
-								<div className={'swiper-trend-pagination'}></div>
-								<EastIcon className={'swiper-trend-next'} />
+								<WestIcon className={'swiper-dog-prev'} />
+								<div className={'swiper-dog-pagination'}></div>
+								<EastIcon className={'swiper-dog-next'} />
 							</div>
 						</Box>
 					</Stack>
 					<Stack className={'card-box'}>
-						{trendProperties.length === 0 ? (
+						{dogProducts.length === 0 ? (
 							<Box component={'div'} className={'empty-list'}>
 								Featured Products Empty!
 							</Box>
 						) : (
 							<Swiper
-								className={'trend-property-swiper'}
+								className={'dog-property-swiper'}
 								slidesPerView={'auto'}
 								spaceBetween={15}
 								modules={[Autoplay, Navigation, Pagination]}
 								navigation={{
-									nextEl: '.swiper-trend-next',
-									prevEl: '.swiper-trend-prev',
+									nextEl: '.swiper-dog-next',
+									prevEl: '.swiper-dog-prev',
 								}}
 								pagination={{
-									el: '.swiper-trend-pagination',
+									el: '.swiper-dog-pagination',
 								}}
 							>
-								{trendProperties.map((property: Property) => {
+								{dogProducts.map((property: Property) => {
 									return (
-										<SwiperSlide key={property._id} className={'trend-property-slide'}>
+										<SwiperSlide key={property._id} className={'dog-property-slide'}>
 											<DogsListingCard property={property} likePropertyHandler={likePropertyHandler} />
 										</SwiperSlide>
 									);
@@ -155,7 +155,7 @@ const DogsListings = (props: DogsListings) => {
 DogsListings.defaultProps = {
 	initialInput: {
 		page: 1,
-		limit: 8,
+		limit: 7,
 		sort: 'propertyLikes',
 		direction: 'DESC',
 		search: {},

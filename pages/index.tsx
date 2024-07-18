@@ -2,10 +2,7 @@ import { NextPage } from 'next';
 import useDeviceDetect from '../libs/hooks/useDeviceDetect';
 import withLayoutMain from '../libs/components/layout/LayoutHome';
 import CommunityBoards from '../libs/components/homepage/CommunityBoards';
-import PopularProperties from '../libs/components/homepage/DogsListings';
 import TopAgents from '../libs/components/homepage/TopAgents';
-import Events from '../libs/components/homepage/Events';
-import TrendProperties from '../libs/components/homepage/FeaturedProducts';
 import TopProperties from '../libs/components/homepage/TopProperties';
 import { Stack } from '@mui/material';
 import Advertisement from '../libs/components/homepage/Advertisement';
@@ -15,6 +12,7 @@ import Statistics from '../libs/components/homepage/Statistics';
 import InfoProducts from '../libs/components/homepage/InfoProducts';
 import DogsListings from '../libs/components/homepage/DogsListings';
 import FoodList from '../libs/components/homepage/FoodList';
+import OtherProducts from '../libs/components/homepage/OtherProducts';
 
 export const getStaticProps = async ({ locale }: any) => ({
 	props: {
@@ -45,8 +43,8 @@ const Home: NextPage = () => {
 				<FoodList />
 				<Advertisement />
 				<TopProperties />
+				<OtherProducts />
 				<TopAgents />
-				<Events />
 				<CommunityBoards />
 			</Stack>
 		);
