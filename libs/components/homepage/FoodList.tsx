@@ -16,6 +16,7 @@ import { Message } from '../../enums/common.enum';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import FoodListCard from './FoodListCard';
 import { PropertyType } from '../../enums/property.enum';
+import Link from 'next/link';
 
 interface FoodListProps {
 	initialInput: PropertiesInquiry;
@@ -35,7 +36,7 @@ const FoodList = (props: FoodListProps) => {
 		error: getPropertiesError, //-> data kirib kelgunga qadar qandaydur errorlar hosil bolsa errorni korsatish.
 		refetch: getPropertiesRefetch,
 	} = useQuery(GET_PROPERTIES, {
-		fetchPolicy: 'cache-and-network', //->
+		fetchPolicy: 'network-only', //->
 		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
@@ -101,6 +102,12 @@ const FoodList = (props: FoodListProps) => {
 							<p>List of Cat and Dog foods</p>
 						</Box>
 						<Box component={'div'} className={'right'}>
+							<div className={'more-box'}>
+								<Link href={'/product'}>
+									<span>See All Categories</span>
+								</Link>
+								<img src="/img/icons/rightup.svg" alt="" />
+							</div>
 							<div className={'pagination-box'}>
 								<WestIcon className={'swiper-food-prev'} />
 								<div className={'swiper-food-pagination'}></div>
@@ -141,7 +148,7 @@ FoodList.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 7,
-		sort: 'propertyViews',
+		sort: 'propertyPrice',
 		direction: 'DESC',
 		search: {},
 	},

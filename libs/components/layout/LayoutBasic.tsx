@@ -29,9 +29,9 @@ const withLayoutBasic = (Component: any) => {
 
 			switch (router.pathname) {
 				case '/product':
-					title = 'Property Search';
-					desc = 'We are glad to see you again!';
-					bgImage = '/img/banner/properties.png';
+					title = 'Product Search';
+					desc = 'Great to have you with us again!';
+					bgImage = '/img/banner/pets.png';
 					break;
 				case '/dealer':
 					title = 'Dealers';
@@ -127,8 +127,9 @@ const withLayoutBasic = (Component: any) => {
 							className={`header-basic ${authHeader && 'auth'}`}
 							style={{
 								backgroundImage: `url(${memoizedValues.bgImage})`,
-								backgroundSize: 'cover',
-								boxShadow: 'inset 10px 40px 150px 40px rgb(24 22 36)',
+								backgroundSize: 'contain',
+								backgroundRepeat: 'no-repeat',
+								backgroundPosition: 'right',
 							}}
 						>
 							<Stack className={'container'}>

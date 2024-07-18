@@ -15,6 +15,9 @@ const StaticInfo = (props: any) => {
 		return (
 			<Stack className={'container'}>
 				<Stack className={'hgts-container'}>
+					<Box component={'div'} className={'left'}>
+						<span style={{ fontSize: '20px', fontWeight: '600' }}>Recently Posted</span>
+					</Box>
 					<Stack className={'highlights-up'}>
 						<Box component={'div'} className={'hgts-up'}>
 							<div className={'hgts-hold'}>

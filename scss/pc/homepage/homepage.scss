@@ -497,7 +497,7 @@
 		/*Static info*/
 		.hgts-container {
 			width: 100%;
-			height: auto;
+			height: 650px;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
@@ -628,8 +628,7 @@
 			height: auto;
 			display: flex;
 			flex-direction: row;
-			background: #11767b39;
-
+			background: #f7f5f56f;
 			.container {
 				flex-direction: column;
 				align-items: center;
@@ -1188,10 +1187,15 @@
 							height: 280px;
 							display: flex;
 							flex-direction: column;
+							transition: transform 0.3s ease, box-shadow 0.3s ease;
+							&:hover {
+								transform: translateY(-10px);
+								box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+							}
 							img {
 								width: 209px;
 								height: 209px;
-								border-radius: 50%;
+								border-radius: 40%;
 								cursor: pointer;
 								object-fit: cover;
 							}
@@ -1221,6 +1225,7 @@
 				}
 			}
 		}
+
 		// .events {
 		// 	position: relative;
 		// 	padding: 100px 0px 92px;

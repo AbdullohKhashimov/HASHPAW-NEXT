@@ -15,6 +15,7 @@ import { LIKE_TARGET_PROPERTY } from '../../../apollo/user/mutation';
 import { Message } from '../../enums/common.enum';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAlert';
 import FeaturedProductCard from './FeaturedProductCard';
+import Link from 'next/link';
 
 interface TopPropertiesProps {
 	initialInput: PropertiesInquiry;

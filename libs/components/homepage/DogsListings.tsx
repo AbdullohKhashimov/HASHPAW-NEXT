@@ -16,6 +16,7 @@ import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../sweetAler
 import { Message } from '../../enums/common.enum';
 import { PropertyType } from '../../enums/property.enum';
 import DogsListingCard from './DogsListingCard';
+import Link from 'next/link';
 
 interface DogsListingsProps {
 	initialInput: PropertiesInquiry;
@@ -35,7 +36,7 @@ const DogsListings = (props: DogsListingsProps) => {
 		error: getPropertiesError, //-> data kirib kelgunga qadar qandaydur errorlar hosil bolsa errorni korsatish.
 		refetch: getPropertiesRefetch,
 	} = useQuery(GET_PROPERTIES, {
-		fetchPolicy: 'cache-and-network', //->
+		fetchPolicy: 'network-only', //->
 		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
@@ -107,9 +108,15 @@ const DogsListings = (props: DogsListingsProps) => {
 					<Stack className={'info-box'}>
 						<Box component={'div'} className={'left'}>
 							<span>Dogs</span>
-							<p> Line of cutie dogs based on views </p>
+							<p> Line of cutie dogs based on price range </p>
 						</Box>
 						<Box component={'div'} className={'right'}>
+							{/* <div className={'more-box'}>
+								<Link href={'/product'}>
+									<span>See All Categories</span>
+								</Link>
+								<img src="/img/icons/rightup.svg" alt="" />
+							</div> */}
 							<div className={'pagination-box'}>
 								<WestIcon className={'swiper-dog-prev'} />
 								<div className={'swiper-dog-pagination'}></div>
@@ -155,8 +162,8 @@ const DogsListings = (props: DogsListingsProps) => {
 DogsListings.defaultProps = {
 	initialInput: {
 		page: 1,
-		limit: 7,
-		sort: 'propertyLikes',
+		limit: 8,
+		sort: 'propertyPrice',
 		direction: 'DESC',
 		search: {},
 	},

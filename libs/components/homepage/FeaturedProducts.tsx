@@ -35,7 +35,7 @@ const FeaturedProducts = (props: FeaturedProductProps) => {
 		error: getPropertiesError, //-> data kirib kelgunga qadar qandaydur errorlar hosil bolsa errorni korsatish.
 		refetch: getPropertiesRefetch,
 	} = useQuery(GET_PROPERTIES, {
-		fetchPolicy: 'cache-and-network', //->
+		fetchPolicy: 'network-only', //->
 		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
@@ -126,7 +126,7 @@ const FeaturedProducts = (props: FeaturedProductProps) => {
 							<Swiper
 								className={'featured-property-swiper'}
 								slidesPerView={'auto'}
-								spaceBetween={15}
+								spaceBetween={10}
 								modules={[Autoplay, Navigation, Pagination]}
 								navigation={{
 									nextEl: '.swiper-featured-next',
@@ -157,7 +157,7 @@ FeaturedProducts.defaultProps = {
 		page: 1,
 		limit: 7,
 		sort: 'propertyPrice',
-		direction: 'ASC',
+		direction: 'DESC',
 		search: {},
 	},
 };
