@@ -1,23 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import {
-	Stack,
-	Typography,
-	Checkbox,
-	Button,
-	OutlinedInput,
-	FormControl,
-	InputLabel,
-	Select,
-	MenuItem,
-	Tooltip,
-	IconButton,
-} from '@mui/material';
+import { Stack, Typography, OutlinedInput, Tooltip, IconButton } from '@mui/material';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
 import { PropertyLocation, PropertyType } from '../../enums/property.enum';
 import { PropertiesInquiry } from '../../types/property/property.input';
 import { useRouter } from 'next/router';
 import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 import RefreshIcon from '@mui/icons-material/Refresh';
+import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 
 const MenuProps = {
 	PaperProps: {
@@ -44,48 +33,15 @@ const Filter = (props: FilterType) => {
 
 	/** LIFECYCLES **/
 	useEffect(() => {
-		if (searchFilter?.search?.locationList?.length == 0) {
+		if (searchFilter?.search?.locationList?.length === 0) {
 			delete searchFilter.search.locationList;
 			setShowMore(false);
-			router
-				.push(
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-					{ scroll: false },
-				)
-				.then();
+			router.push(`/product?input=${JSON.stringify(searchFilter)}`, undefined, { scroll: false }).then();
 		}
 
-		if (searchFilter?.search?.typeList?.length == 0) {
+		if (searchFilter?.search?.typeList?.length === 0) {
 			delete searchFilter.search.typeList;
-			router
-				.push(
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-						},
-					})}`,
-					{ scroll: false },
-				)
-				.then();
+			router.push(`/product?input=${JSON.stringify(searchFilter)}`, undefined, { scroll: false }).then();
 		}
 
 		if (searchFilter?.search?.locationList) setShowMore(true);
@@ -93,156 +49,65 @@ const Filter = (props: FilterType) => {
 
 	/** HANDLERS **/
 	const propertyLocationSelectHandler = useCallback(
-		async (e: any) => {
+		async (event: any, newLocationList: any) => {
 			try {
-				const isChecked = e.target.checked;
-				const value = e.target.value;
-				if (isChecked) {
-					await router.push(
-						`/product?input=${JSON.stringify({
-							...searchFilter,
-							search: { ...searchFilter.search, locationList: [...(searchFilter?.search?.locationList || []), value] },
-						})}`,
-						`/product?input=${JSON.stringify({
-							...searchFilter,
-							search: { ...searchFilter.search, locationList: [...(searchFilter?.search?.locationList || []), value] },
-						})}`,
-						{ scroll: false },
-					);
-				} else if (searchFilter?.search?.locationList?.includes(value)) {
-					await router.push(
-						`/product?input=${JSON.stringify({
-							...searchFilter,
-							search: {
-								...searchFilter.search,
-								locationList: searchFilter?.search?.locationList?.filter((item: string) => item !== value),
-							},
-						})}`,
-						`/product?input=${JSON.stringify({
-							...searchFilter,
-							search: {
-								...searchFilter.search,
-								locationList: searchFilter?.search?.locationList?.filter((item: string) => item !== value),
-							},
-						})}`,
-						{ scroll: false },
-					);
-				}
-
-				if (searchFilter?.search?.typeList?.length == 0) {
-					alert('error');
-				}
-
-				console.log('propertyLocationSelectHandler:', e.target.value);
-			} catch (err: any) {
-				console.log('ERROR, propertyLocationSelectHandler:', err);
+				await router.push(
+					`/product?input=${JSON.stringify({
+						...searchFilter,
+						search: { ...searchFilter.search, locationList: newLocationList },
+					})}`,
+					undefined,
+					{ scroll: false },
+				);
+			} catch (err) {
+				console.error('ERROR, propertyLocationSelectHandler:', err);
 			}
 		},
-		[searchFilter],
+		[searchFilter, router],
 	);
 
 	const propertyTypeSelectHandler = useCallback(
-		async (e: any) => {
+		async (event: any, newTypeList: any) => {
 			try {
-				const isChecked = e.target.checked;
-				const value = e.target.value;
-				if (isChecked) {
-					await router.push(
-						`/product?input=${JSON.stringify({
-							...searchFilter, // spread operator orqali amalga oshirib yangi referencega togrilab olyabmiz
-							search: { ...searchFilter.search, typeList: [...(searchFilter?.search?.typeList || []), value] },
-						})}`,
-						`/product?input=${JSON.stringify({
-							...searchFilter,
-							search: { ...searchFilter.search, typeList: [...(searchFilter?.search?.typeList || []), value] },
-						})}`,
-						{ scroll: false },
-					);
-				} else if (searchFilter?.search?.typeList?.includes(value)) {
-					await router.push(
-						`/product?input=${JSON.stringify({
-							...searchFilter,
-							search: {
-								...searchFilter.search,
-								typeList: searchFilter?.search?.typeList?.filter((item: string) => item !== value),
-							},
-						})}`,
-						`/product?input=${JSON.stringify({
-							...searchFilter,
-							search: {
-								...searchFilter.search,
-								typeList: searchFilter?.search?.typeList?.filter((item: string) => item !== value),
-							},
-						})}`,
-						{ scroll: false },
-					);
-				}
-
-				if (searchFilter?.search?.typeList?.length == 0) {
-					alert('error');
-				}
-
-				console.log('propertyTypeSelectHandler:', e.target.value);
-			} catch (err: any) {
-				console.log('ERROR, propertyTypeSelectHandler:', err);
+				await router.push(
+					`/product?input=${JSON.stringify({
+						...searchFilter,
+						search: { ...searchFilter.search, typeList: newTypeList },
+					})}`,
+					undefined,
+					{ scroll: false },
+				);
+			} catch (err) {
+				console.error('ERROR, propertyTypeSelectHandler:', err);
 			}
 		},
-		[searchFilter],
+		[searchFilter, router],
 	);
 
 	const propertyPriceHandler = useCallback(
-		async (value: number, type: string) => {
-			if (type == 'start') {
-				await router.push(
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-							pricesRange: { ...searchFilter.search.pricesRange, start: value * 1 },
-						},
-					})}`,
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-							pricesRange: { ...searchFilter.search.pricesRange, start: value * 1 },
-						},
-					})}`,
-					{ scroll: false },
-				);
-			} else {
-				await router.push(
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-							pricesRange: { ...searchFilter.search.pricesRange, end: value * 1 },
-						},
-					})}`,
-					`/product?input=${JSON.stringify({
-						...searchFilter,
-						search: {
-							...searchFilter.search,
-							pricesRange: { ...searchFilter.search.pricesRange, end: value * 1 },
-						},
-					})}`,
-					{ scroll: false },
-				);
-			}
+		async (value: any, type: any) => {
+			const newPricesRange = {
+				...searchFilter.search.pricesRange,
+				[type]: value * 1,
+			};
+			await router.push(
+				`/product?input=${JSON.stringify({
+					...searchFilter,
+					search: { ...searchFilter.search, pricesRange: newPricesRange },
+				})}`,
+				undefined,
+				{ scroll: false },
+			);
 		},
-		[searchFilter],
+		[searchFilter, router],
 	);
 
 	const refreshHandler = async () => {
 		try {
 			setSearchText('');
-			await router.push(
-				`/product?input=${JSON.stringify(initialInput)}`,
-				`/product?input=${JSON.stringify(initialInput)}`,
-				{ scroll: false },
-			);
-		} catch (err: any) {
-			console.log('ERROR, refreshHandler:', err);
+			await router.push(`/product?input=${JSON.stringify(initialInput)}`, undefined, { scroll: false });
+		} catch (err) {
+			console.error('ERROR, refreshHandler:', err);
 		}
 	};
 
@@ -259,9 +124,9 @@ const Filter = (props: FilterType) => {
 							type={'text'}
 							className={'search-input'}
 							placeholder={'Any breed type in your thoughts?'}
-							onChange={(e: any) => setSearchText(e.target.value)}
-							onKeyDown={(event: any) => {
-								if (event.key == 'Enter') {
+							onChange={(e) => setSearchText(e.target.value)}
+							onKeyDown={(event) => {
+								if (event.key === 'Enter') {
 									setSearchFilter({
 										...searchFilter,
 										search: { ...searchFilter.search, text: searchText },
@@ -304,46 +169,40 @@ const Filter = (props: FilterType) => {
 							}
 						}}
 					>
-						{propertyLocation.map((location: string) => {
-							return (
-								<Stack className={'input-box'} key={location}>
-									<Checkbox
-										id={location}
-										className="property-checkbox"
-										color="default"
-										size="small"
-										value={location}
-										checked={(searchFilter?.search?.locationList || []).includes(location as PropertyLocation)}
-										onChange={propertyLocationSelectHandler}
-									/>
-									<label htmlFor={location} style={{ cursor: 'pointer' }}>
-										<Typography className="property-type">{location}</Typography>
-									</label>
-								</Stack>
-							);
-						})}
+						<ToggleButtonGroup
+							value={searchFilter?.search?.locationList || []}
+							onChange={propertyLocationSelectHandler}
+							aria-label="property locations"
+							className="property-location-toggle-group"
+						>
+							{propertyLocation.map((location) => (
+								<ToggleButton
+									key={location}
+									value={location}
+									aria-label={location}
+									className="property-location-toggle-button"
+								>
+									{location}
+								</ToggleButton>
+							))}
+						</ToggleButtonGroup>
 					</Stack>
 				</Stack>
 				<Stack className={'find-your-home'} mb={'30px'}>
 					<Typography className={'title'}>Product Category</Typography>
-					{propertyType.map((type: string) => (
-						<Stack className={'input-box'} key={type}>
-							<Checkbox
-								id={type}
-								className="property-checkbox"
-								color="default"
-								size="small"
-								value={type}
-								onChange={propertyTypeSelectHandler}
-								checked={(searchFilter?.search?.typeList || []).includes(type as PropertyType)}
-							/>
-							<label style={{ cursor: 'pointer' }}>
-								<Typography className="property_type">{type}</Typography>
-							</label>
-						</Stack>
-					))}
+					<ToggleButtonGroup
+						value={searchFilter?.search?.typeList || []}
+						onChange={propertyTypeSelectHandler}
+						aria-label="property types"
+						className="property-type-toggle-group"
+					>
+						{propertyType.map((type) => (
+							<ToggleButton key={type} value={type} aria-label={type} className="property-type-toggle-button">
+								{type}
+							</ToggleButton>
+						))}
+					</ToggleButtonGroup>
 				</Stack>
-
 				<Stack className={'find-your-home'}>
 					<Typography className={'title'}>Price Range</Typography>
 					<Stack className="square-year-input">

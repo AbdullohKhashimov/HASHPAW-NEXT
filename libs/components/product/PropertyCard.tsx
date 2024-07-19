@@ -1,8 +1,7 @@
 import React from 'react';
 import { Stack, Typography, Box } from '@mui/material';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 import { Property } from '../../types/property/property';
 import Link from 'next/link';
 import { formatterStr } from '../../utils';
@@ -10,8 +9,8 @@ import { REACT_APP_API_URL, topPropertyRank } from '../../config';
 import { useReactiveVar } from '@apollo/client';
 import { userVar } from '../../../apollo/store';
 import IconButton from '@mui/material/IconButton';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
 interface PropertyCardType {
 	property: Property;
@@ -74,16 +73,16 @@ const PropertyCard = (props: PropertyCardType) => {
 						{!recentlyVisited && (
 							<Stack className="buttons">
 								<IconButton color={'default'}>
-									<RemoveRedEyeIcon />
+									<RemoveRedEyeOutlinedIcon style={{ color: 'blue' }} />
 								</IconButton>
 								<Typography className="view-cnt">{property?.propertyViews}</Typography>
 								<IconButton color={'default'} onClick={() => likePropertyHandler(user, property?._id)}>
 									{myFavorites ? (
-										<FavoriteIcon color="primary" />
+										<ThumbUpIcon color="primary" />
 									) : property?.meLiked && property?.meLiked[0]?.myFavorite ? (
-										<FavoriteIcon color="primary" />
+										<ThumbUpIcon color="primary" />
 									) : (
-										<FavoriteBorderIcon />
+										<ThumbUpIcon />
 									)}
 								</IconButton>
 								<Typography className="view-cnt">{property?.propertyLikes}</Typography>
