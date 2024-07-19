@@ -11,7 +11,7 @@ const TopAgentCard = (props: TopAgentProps) => {
 	const { agent } = props;
 	const device = useDeviceDetect();
 	const router = useRouter();
-	const dealerImage = agent?.memberImage
+	const agentImage = agent?.memberImage
 		? `${process.env.REACT_APP_API_URL}/${agent?.memberImage}`
 		: '/img/profile/defaultUser.svg';
 
@@ -20,7 +20,7 @@ const TopAgentCard = (props: TopAgentProps) => {
 	if (device === 'mobile') {
 		return (
 			<Stack className="top-agent-card">
-				<img src={dealerImage} alt="" />
+				<img src={agentImage} alt="" />
 
 				<strong>{agent?.memberNick}</strong>
 				<span>{agent?.memberType}</span>
@@ -29,7 +29,7 @@ const TopAgentCard = (props: TopAgentProps) => {
 	} else {
 		return (
 			<Stack className="top-agent-card">
-				<img src={dealerImage} alt="" />
+				<img src={agentImage} alt="" />
 
 				<strong>{agent?.memberNick}</strong>
 				<span>{agent?.memberType}</span>

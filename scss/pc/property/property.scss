@@ -267,7 +267,7 @@
 				.main-config {
 					width: 936px;
 					align-items: center;
-					gap: 109px;
+					gap: 30px;
 					.list-config {
 						display: flex;
 						width: 100%;
@@ -277,22 +277,22 @@
 						gap: 23px;
 						.card-config {
 							width: 296px;
-							height: 413px;
-							margin-bottom: 7px;
+							height: auto;
+							margin-bottom: 5px;
 							border-radius: 12px;
 							background: #fff;
 							box-shadow: 0px 1px 4px 0px rgba(24, 26, 32, 0.07);
 							.top {
 								position: relative;
 								width: 100%;
-								height: 240px;
+								height: 340px;
 								a {
 									height: 100%;
 								}
 								img {
 									width: 100%;
 									height: 100%;
-									object-fit: cover;
+									object-fit: content;
 									border-radius: 12px 12px 0 0;
 								}
 								.top-badge {
@@ -341,18 +341,18 @@
 							.bottom {
 								width: 100%;
 								height: 173px;
-								padding: 20px 16px 10px 16px;
+								padding: 20px 36px 10px 26px;
 								display: flex;
 								flex-direction: column;
 								.name-address {
 									width: 100%;
-									height: 48px;
+									height: 60px;
 									gap: 5px;
 									margin-bottom: 20px;
 
 									.name {
 										width: 100%;
-										height: 23px;
+										height: 33px;
 										overflow: hidden;
 										p {
 											color: #181a20;
@@ -371,9 +371,9 @@
 										p {
 											color: #717171;
 											font-family: $font;
-											font-size: 13px;
+											font-size: 15px;
 											font-style: normal;
-											font-weight: 400;
+											font-weight: 600;
 											line-height: normal;
 										}
 									}
@@ -410,7 +410,7 @@
 									.buttons {
 										flex-direction: row;
 										width: auto;
-										justify-content: center;
+										justify-content: space-between;
 										align-items: center;
 										svg {
 											width: 24px;
@@ -418,7 +418,8 @@
 											cursor: pointer;
 										}
 										.view-cnt {
-											font-size: 13px;
+											font-size: 15px;
+											font-weight: 600;
 										}
 									}
 								}

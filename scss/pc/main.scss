@@ -44,7 +44,7 @@ body {
 	--text-color: #353030; /* Replace with your desired text color */
 	--background-color: #fff; /* Background color for community menu */
 	--divider-color: #dcdcdc; /* Divider color */
-	--transition-duration: 0.3s; /* Transition duration */
+	--transition-duration: 0.8s; /* Transition duration */
 }
 
 body::-webkit-scrollbar {
@@ -109,7 +109,7 @@ body::-webkit-scrollbar {
 						font-size: 18px;
 						font-weight: 600;
 						cursor: pointer;
-						transition: transform 0.3s ease, box-shadow 0.3s ease;
+						transition: transform 0.8s ease, box-shadow 0.8s ease;
 					}
 
 					.community_menu {
@@ -142,8 +142,8 @@ body::-webkit-scrollbar {
 
 					/* Optional hover effect */
 					.router-box > div:hover .community_menu {
-						opacity: 1;
-						transform: translateY(0); /* Slide up into view */
+						opacity: 2;
+						transform: translateY(3); /* Slide up into view */
 						transition: opacity var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
 					}
 					.user-box {
