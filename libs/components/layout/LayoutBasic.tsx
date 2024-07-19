@@ -35,13 +35,13 @@ const withLayoutBasic = (Component: any) => {
 					break;
 				case '/agent':
 					title = 'Dealers';
-					desc = 'Home / For Rent';
-					bgImage = '/img/banner/agents.webp';
+					desc = 'Perfect Spot for Your Pet Store';
+					bgImage = '/img/banner/hpage.png';
 					break;
 				case '/agent/detail':
 					title = 'Dealer Page';
 					desc = 'Home / For Rent';
-					bgImage = '/img/banner/header2.svg';
+					bgImage = '/img/banner/agentdet.webp';
 					break;
 				case '/mypage':
 					title = 'my page';
