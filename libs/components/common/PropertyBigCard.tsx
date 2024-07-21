@@ -2,14 +2,19 @@ import React from 'react';
 import { Stack, Box, Divider, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Property } from '../../types/property/property';
 import { REACT_APP_API_URL, topPropertyRank } from '../../config';
 import { formatterStr } from '../../utils';
 import { useReactiveVar } from '@apollo/client';
 import { userVar } from '../../../apollo/store';
 import { useRouter } from 'next/router';
-import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined';
+import CropSquareIcon from '@mui/icons-material/CropSquare';
+import PinDropIcon from '@mui/icons-material/PinDrop';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+
+import { PropertyType } from '../../enums/property.enum';
 
 interface PropertyBigCardProps {
 	property: Property;
@@ -27,8 +32,40 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 		router.push(`/property/detail?id=${propertyId}`);
 	};
 
+	/** Conditional Rendering **/
+
+	const renderPropertyInfo = () => {
+		if (property.propertyType === PropertyType.DOG || property.propertyType === PropertyType.CAT) {
+			return (
+				<div>
+					<PetsOutlinedIcon
+						style={{
+							color: 'red',
+							width: '20px',
+							marginRight: '4px',
+						}}
+					/>
+					<span>{property?.propertyBreed}</span>
+				</div>
+			);
+		} else {
+			return (
+				<div>
+					<CropSquareIcon
+						style={{
+							color: 'red',
+							width: '20px',
+							marginRight: '4px',
+						}}
+					/>
+					<span>{property?.propertySize}</span>
+				</div>
+			);
+		}
+	};
+
 	if (device === 'mobile') {
-		return <div>APARTMEND BIG CARD</div>;
+		return <div>PRODUCT BIG CARD</div>;
 	} else {
 		return (
 			<Stack className="property-big-card-box" onClick={() => goPropertyDetatilPage(property?._id)}>
@@ -43,35 +80,31 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 							<span>top</span>
 						</div>
 					)}
-
-					<div className={'price'}>${formatterStr(property?.propertyPrice)}</div>
 				</Box>
 				<Box component={'div'} className={'info'}>
 					<strong className={'title'}>{property?.propertyTitle}</strong>
-					<p className={'desc'}>{property?.propertyAddress}</p>
+					<p className={'desc'}>{property?.propertyDesc ?? 'no description!'}</p>
 					<div className={'options'}>
+						{renderPropertyInfo()}
 						<div>
-							<img src="/img/icons/bed.svg" alt="" />
-							<span>{property?.propertyBeds} bed</span>
-						</div>
-						<div>
-							<img src="/img/icons/room.svg" alt="" />
-							<span>{property?.propertyRooms} rooms</span>
-						</div>
-						<div>
-							<img src="/img/icons/expand.svg" alt="" />
-							<span>{property?.propertySquare} m2</span>
+							<PinDropIcon
+								style={{
+									color: 'red',
+									width: '20px',
+									marginRight: '4px',
+								}}
+							/>
+							<span>{property?.propertyLocation}</span>
 						</div>
 					</div>
 					<Divider sx={{ mt: '15px', mb: '17px' }} />
 					<div className={'bott'}>
-						<div>
-							{property?.propertyRent ? <p>Rent</p> : <span>Rent</span>}
-							{property?.propertyBarter ? <p>Barter</p> : <span>Barter</span>}
+						<div className={'price'} style={{ fontWeight: '600' }}>
+							${formatterStr(property?.propertyPrice)}
 						</div>
 						<div className="buttons-box">
 							<IconButton color={'default'}>
-								<RemoveRedEyeIcon />
+								<RemoveRedEyeOutlinedIcon style={{ color: 'blue' }} />
 							</IconButton>
 							<Typography className="view-cnt">{property?.propertyViews}</Typography>
 							<IconButton
@@ -82,9 +115,9 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 								}}
 							>
 								{property?.meLiked && property?.meLiked[0]?.myFavorite ? (
-									<FavoriteIcon style={{ color: 'red' }} />
+									<ThumbUpIcon style={{ color: 'blue' }} />
 								) : (
-									<FavoriteIcon />
+									<ThumbUpIcon />
 								)}
 							</IconButton>
 							<Typography className="view-cnt">{property?.propertyLikes}</Typography>

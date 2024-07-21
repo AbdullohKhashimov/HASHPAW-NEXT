@@ -112,7 +112,7 @@ const Filter = (props: FilterType) => {
 	};
 
 	if (device === 'mobile') {
-		return <div>PROPERTIES FILTER</div>;
+		return <div>PRODUCTS FILTER</div>;
 	} else {
 		return (
 			<Stack className={'filter-main'}>
