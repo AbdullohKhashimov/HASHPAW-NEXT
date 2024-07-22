@@ -74,11 +74,11 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 					className={'card-img'}
 					style={{ backgroundImage: `url(${REACT_APP_API_URL}/${property?.propertyImages?.[0]})` }}
 				>
-					{property && property?.propertyRank >= topPropertyRank && (
-						<div className={'status'}>
+					{property && property?.propertyRank > topPropertyRank && (
+						<Box component={'div'} className={'top-badge'}>
 							<img src="/img/icons/electricity.svg" alt="" />
-							<span>top</span>
-						</div>
+							<Typography>TOP</Typography>
+						</Box>
 					)}
 				</Box>
 				<Box component={'div'} className={'info'}>

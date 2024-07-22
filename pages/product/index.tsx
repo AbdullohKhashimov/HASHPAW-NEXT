@@ -16,6 +16,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { T } from '../../libs/types/common';
 import { LIKE_TARGET_PROPERTY } from '../../apollo/user/mutation';
 import { sweetMixinErrorAlert, sweetTopSmallSuccessAlert } from '../../libs/sweetAlert';
+import PropertyBigCard from '../../libs/components/common/PropertyBigCard';
 
 export const getStaticProps = async ({ locale }: any) => ({
 	props: {
@@ -120,7 +121,11 @@ const PropertyList: NextPage = ({ initialInput, ...props }: any) => {
 								) : (
 									properties.map((property: Property) => {
 										return (
-											<PropertyCard property={property} key={property?._id} likePropertyHandler={likePropertyHandler} />
+											<PropertyBigCard
+												property={property}
+												key={property?._id}
+												likePropertyHandler={likePropertyHandler}
+											/>
 										);
 									})
 								)}
