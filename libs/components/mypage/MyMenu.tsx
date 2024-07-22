@@ -50,7 +50,8 @@ const MyMenu = () => {
 								<Typography className={'view-list'}>{user?.memberType}</Typography>
 							</a>
 						) : (
-							<Typography className={'view-list'}>{user?.memberType}</Typography>
+							''
+							// <Typography className={'view-list'}>{user?.memberType}</Typography>
 						)}
 					</Stack>
 				</Stack>
@@ -77,7 +78,7 @@ const MyMenu = () => {
 													<img className={'com-icon'} src={'/img/icons/newTab.svg'} alt={'com_icon'} />
 												)}
 												<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-													Add Property
+													Add Product
 												</Typography>
 												<IconButton aria-label="delete" sx={{ ml: '40px' }}>
 													<PortraitIcon style={{ color: 'red' }} />
@@ -100,7 +101,7 @@ const MyMenu = () => {
 													<img className={'com-icon'} src={'/img/icons/home.svg'} alt={'com-icon'} />
 												)}
 												<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-													My Properties
+													All Listings
 												</Typography>
 												<IconButton aria-label="delete" sx={{ ml: '36px' }}>
 													<PortraitIcon style={{ color: 'red' }} />
@@ -126,7 +127,7 @@ const MyMenu = () => {
 										)}
 
 										<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-											My Favorites
+											Favorites
 										</Typography>
 									</div>
 								</Link>
@@ -147,7 +148,7 @@ const MyMenu = () => {
 										)}
 
 										<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-											Recently Visited
+											Recent Visits
 										</Typography>
 									</div>
 								</Link>
@@ -194,7 +195,7 @@ const MyMenu = () => {
 											</g>
 										</svg>
 										<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-											My Followers
+											Followers
 										</Typography>
 									</div>
 								</Link>
@@ -242,7 +243,7 @@ const MyMenu = () => {
 										</svg>
 
 										<Typography className={'sub-title'} variant={'subtitle1'} component={'p'}>
-											My Followings
+											Followings
 										</Typography>
 									</div>
 								</Link>
