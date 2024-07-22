@@ -7,9 +7,9 @@ export interface PropertyInput {
 	propertyAddress: string;
 	propertyTitle: string;
 	propertyPrice: number;
-	propertyAge: number;
-	propertyBreed: string;
-	propertySize: PropertySize;
+	propertyAge?: number;
+	propertyBreed?: string;
+	propertySize?: string;
 	propertyImages: string[];
 	propertyDesc?: string;
 	propertyBarter?: boolean;

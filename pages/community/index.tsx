@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
-import { Stack, Tab, Typography, Button, Pagination } from '@mui/material';
+import { Stack, Tab, Typography, Button, Pagination, Divider } from '@mui/material';
 import CommunityCard from '../../libs/components/common/CommunityCard';
 import useDeviceDetect from '../../libs/hooks/useDeviceDetect';
 import withLayoutBasic from '../../libs/components/layout/LayoutBasic';
@@ -114,9 +114,9 @@ const Community: NextPage = ({ initialInput, ...props }: T) => {
 						<Stack className="main-box">
 							<Stack className="left-config">
 								<Stack className={'image-info'}>
-									<img src={'/img/logo/logoText.svg'} />
+									<img src={'/img/banner/note.png'} />
 									<Stack className={'community-name'}>
-										<Typography className={'name'}>Nestar Community</Typography>
+										<Typography className={'name'}>HushPaw Community</Typography>
 									</Stack>
 								</Stack>
 
@@ -150,14 +150,13 @@ const Community: NextPage = ({ initialInput, ...props }: T) => {
 									/>
 								</TabList>
 							</Stack>
+
 							<Stack className="right-config">
 								<Stack className="panel-config">
 									<Stack className="title-box">
 										<Stack className="left">
 											<Typography className="title">{searchCommunity.search.articleCategory} BOARD</Typography>
-											<Typography className="sub-title">
-												Express your opinions freely here without content restrictions
-											</Typography>
+											<Typography className="sub-title">Speak your mind openly and without censorship</Typography>
 										</Stack>
 										<Button
 											onClick={() =>
@@ -170,7 +169,7 @@ const Community: NextPage = ({ initialInput, ...props }: T) => {
 											}
 											className="right"
 										>
-											Write
+											Compose
 										</Button>
 									</Stack>
 

@@ -115,7 +115,7 @@ const PropertyList: NextPage = ({ initialInput, ...props }: any) => {
 								{properties?.length === 0 ? (
 									<div className={'no-data'}>
 										<img src="/img/icons/icoAlert.svg" alt="" />
-										<p>No Properties found!</p>
+										<p>No Products found!</p>
 									</div>
 								) : (
 									properties.map((property: Property) => {
@@ -162,8 +162,8 @@ PropertyList.defaultProps = {
 		direction: 'DESC',
 		search: {
 			pricesRange: {
-				start: 0,
-				end: 10000,
+				start: 1,
+				end: 100000,
 			},
 		},
 	},

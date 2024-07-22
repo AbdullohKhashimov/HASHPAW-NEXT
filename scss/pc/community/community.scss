@@ -2,7 +2,7 @@
 	#community-list-page {
 		position: relative;
 		.container {
-			padding-top: 100px;
+			padding-top: 50px;
 			flex-direction: column;
 			gap: 64px;
 			.main-box {
@@ -79,9 +79,11 @@
 				.right-config {
 					width: 100%;
 					height: auto;
+
 					.panel-config {
 						width: 100%;
 						height: auto;
+
 						.title-box {
 							width: 100%;
 							height: auto;
@@ -90,7 +92,7 @@
 							align-items: center;
 							margin-bottom: 45px;
 							.left {
-								width: 60%;
+								width: 100%;
 								height: auto;
 								.title {
 									color: #000;
@@ -115,7 +117,7 @@
 								width: 91px;
 								height: 32px;
 								border-radius: 4px;
-								background: #eb6753;
+								background: #541a5d;
 								color: #fff;
 								font-family: $font;
 								font-size: 13px;
@@ -161,13 +163,13 @@
 			.pagination-config {
 				width: 100%;
 				align-items: center;
-				justify-content: center;
+				justify-content: flex-end;
 				margin-bottom: 50px;
 				gap: 20px;
 				padding-left: 270px;
 				.pagination-box {
 					align-items: center;
-					justify-content: center;
+					justify-content: flex-end;
 				}
 				.total-result {
 					p {

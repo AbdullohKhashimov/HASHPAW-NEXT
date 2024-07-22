@@ -2,8 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button, Stack, Typography } from '@mui/material';
 import useDeviceDetect from '../../hooks/useDeviceDetect';
-import { PropertyLocation, PropertyType } from '../../enums/property.enum';
-import { REACT_APP_API_URL, propertySquare } from '../../config';
+import { PropertyLocation, PropertySize, PropertyType } from '../../enums/property.enum';
+import { propertyAge, REACT_APP_API_URL } from '../../config';
 import { PropertyInput } from '../../types/property/property.input';
 import axios from 'axios';
 import { getJwtToken } from '../../auth';
@@ -19,6 +19,7 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 	const inputRef = useRef<any>(null);
 	const [insertPropertyData, setInsertPropertyData] = useState<PropertyInput>(initialValues);
 	const [propertyType, setPropertyType] = useState<PropertyType[]>(Object.values(PropertyType));
+	const [propertySize, setPropertySize] = useState<PropertySize[]>(Object.values(PropertySize));
 	const [propertyLocation, setPropertyLocation] = useState<PropertyLocation[]>(Object.values(PropertyLocation));
 	const token = getJwtToken();
 	const user = useReactiveVar(userVar);
@@ -50,10 +51,10 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 			propertyLocation: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyLocation : '',
 			propertyAddress: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyAddress : '',
 			propertyBarter: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyBarter : false,
-			propertyRent: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyRent : false,
-			propertyRooms: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyRooms : 0,
-			propertyBeds: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyBeds : 0,
-			propertySquare: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertySquare : 0,
+			propertyInjected: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyInjected : false,
+			propertyAge: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyAge : 0,
+			propertySize: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertySize : '',
+			propertyBreed: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyBreed : '',
 			propertyDesc: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyDesc : '',
 			propertyImages: getPropertyData?.getProperty ? getPropertyData?.getProperty?.propertyImages : [],
 		});
@@ -71,7 +72,7 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 			formData.append(
 				'operations',
 				JSON.stringify({
-					query: `mutation ImagesUploader($files: [Upload!]!, $target: String!) { 
+					query: `mutation ImagesUploader($files: [Upload!]!, $target: String!) {
 						imagesUploader(files: $files, target: $target)
 				  }`,
 					variables: {
@@ -120,10 +121,10 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 			insertPropertyData.propertyLocation === '' || // @ts-ignore
 			insertPropertyData.propertyAddress === '' || // @ts-ignore
 			insertPropertyData.propertyBarter === '' || // @ts-ignore
-			insertPropertyData.propertyRent === '' ||
-			insertPropertyData.propertyRooms === 0 ||
-			insertPropertyData.propertyBeds === 0 ||
-			insertPropertyData.propertySquare === 0 ||
+			insertPropertyData.propertyRent === '' || //@ts-ignore
+			// insertPropertyData.propertySize === '' || //@ts-ignore
+			// insertPropertyData.propertyBreed === '' ||
+			// insertPropertyData.propertyAge === 0 ||
 			insertPropertyData.propertyDesc === '' ||
 			insertPropertyData.propertyImages.length === 0
 		) {
@@ -176,15 +177,19 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 		router.back();
 	}
 
+	// const isAnimal =
+	// 	insertPropertyData.propertyType === PropertyType.DOG || insertPropertyData.propertyType === PropertyType.CAT;
+	// const isFood = insertPropertyData.propertyType === PropertyType.FOOD;
+
 	console.log('+insertPropertyData', insertPropertyData);
 
 	if (device === 'mobile') {
-		return <div>ADD NEW PROPERTY MOBILE PAGE</div>;
+		return <div>ADD NEW PRODUCT MOBILE PAGE</div>;
 	} else {
 		return (
 			<div id="add-property-page">
 				<Stack className="main-title-box">
-					<Typography className="main-title">Add New Property</Typography>
+					<Typography className="main-title">Add New Product</Typography>
 					<Typography className="sub-title">We are glad to see you again!</Typography>
 				</Stack>
 
@@ -304,14 +309,15 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 									<div className={'divider'}></div>
 									<img src={'/img/icons/Vector.svg'} className={'arrow-down'} />
 								</Stack>
+
 								<Stack className="price-year-after-price">
-									<Typography className="title">Rent</Typography>
+									<Typography className="title">Injected</Typography>
 									<select
 										className={'select-description'}
-										value={insertPropertyData.propertyRent ? 'yes' : 'no'}
-										defaultValue={insertPropertyData.propertyRent ? 'yes' : 'no'}
+										value={insertPropertyData.propertyInjected ? 'yes' : 'no'}
+										defaultValue={insertPropertyData.propertyInjected ? 'yes' : 'no'}
 										onChange={({ target: { value } }) =>
-											setInsertPropertyData({ ...insertPropertyData, propertyRent: value === 'yes' })
+											setInsertPropertyData({ ...insertPropertyData, propertyInjected: value === 'yes' })
 										}
 									>
 										<option disabled={true} selected={true}>
@@ -326,68 +332,71 @@ const AddProperty = ({ initialValues, ...props }: any) => {
 							</Stack>
 
 							<Stack className="config-row">
-								<Stack className="price-year-after-price">
-									<Typography className="title">Rooms</Typography>
-									<select
-										className={'select-description'}
-										value={insertPropertyData.propertyRooms || 'select'}
-										defaultValue={insertPropertyData.propertyRooms || 'select'}
-										onChange={({ target: { value } }) =>
-											setInsertPropertyData({ ...insertPropertyData, propertyRooms: parseInt(value) })
-										}
-									>
-										<option disabled={true} selected={true} value={'select'}>
-											Select
-										</option>
-										{[1, 2, 3, 4, 5].map((room: number) => (
-											<option value={`${room}`}>{room}</option>
-										))}
-									</select>
-									<div className={'divider'}></div>
-									<img src={'/img/icons/Vector.svg'} className={'arrow-down'} />
-								</Stack>
-								<Stack className="price-year-after-price">
-									<Typography className="title">Bed</Typography>
-									<select
-										className={'select-description'}
-										value={insertPropertyData.propertyBeds || 'select'}
-										defaultValue={insertPropertyData.propertyBeds || 'select'}
-										onChange={({ target: { value } }) =>
-											setInsertPropertyData({ ...insertPropertyData, propertyBeds: parseInt(value) })
-										}
-									>
-										<option disabled={true} selected={true} value={'select'}>
-											Select
-										</option>
-										{[1, 2, 3, 4, 5].map((bed: number) => (
-											<option value={`${bed}`}>{bed}</option>
-										))}
-									</select>
-									<div className={'divider'}></div>
-									<img src={'/img/icons/Vector.svg'} className={'arrow-down'} />
-								</Stack>
-								<Stack className="price-year-after-price">
-									<Typography className="title">Square</Typography>
-									<select
-										className={'select-description'}
-										value={insertPropertyData.propertySquare || 'select'}
-										defaultValue={insertPropertyData.propertySquare || 'select'}
-										onChange={({ target: { value } }) =>
-											setInsertPropertyData({ ...insertPropertyData, propertySquare: parseInt(value) })
-										}
-									>
-										<option disabled={true} selected={true} value={'select'}>
-											Select
-										</option>
-										{propertySquare.map((square: number) => {
-											if (square !== 0) {
-												return <option value={`${square}`}>{square}</option>;
+								{insertPropertyData.propertyType === PropertyType.FOOD ||
+								insertPropertyData.propertyType === PropertyType.OTHER ? (
+									<Stack className="price-year-after-price">
+										<Typography className="title">SIZE</Typography>
+										<select
+											className={'select-description'}
+											defaultValue={insertPropertyData?.propertySize || 'select'}
+											value={insertPropertyData?.propertySize || 'select'}
+											onChange={({ target: { value } }) =>
+												//@ts-ignore
+												setInsertPropertyData({ ...insertPropertyData, propertySize: value ?? '' })
 											}
-										})}
-									</select>
-									<div className={'divider'}></div>
-									<img src={'/img/icons/Vector.svg'} className={'arrow-down'} />
-								</Stack>
+										>
+											<>
+												<option selected={true} disabled={true} value={'select'}>
+													Select
+												</option>
+												{propertySize.map((type: any) => (
+													<option value={`${type}`} key={type}>
+														{type}
+													</option>
+												))}
+											</>
+										</select>
+									</Stack>
+								) : (
+									''
+								)}
+
+								{insertPropertyData.propertyType === PropertyType.CAT ||
+								insertPropertyData.propertyType === PropertyType.DOG ? (
+									<Stack className="price-year-after-price">
+										<Typography className="title">Breed</Typography>
+										<input
+											type="text"
+											className="description-input"
+											placeholder={'Breed'}
+											value={insertPropertyData.propertyBreed}
+											onChange={({ target: { value } }) =>
+												//@ts-ignore
+												setInsertPropertyData({ ...insertPropertyData, propertyBreed: value })
+											}
+										/>
+									</Stack>
+								) : (
+									''
+								)}
+								{insertPropertyData.propertyType === PropertyType.CAT ||
+								insertPropertyData.propertyType === PropertyType.DOG ? (
+									<Stack className="price-year-after-price">
+										<Typography className="title">Age</Typography>
+										<input
+											type="text"
+											className="description-input"
+											placeholder={'Age'}
+											value={insertPropertyData.propertyAge}
+											onChange={({ target: { value } }) =>
+												//@ts-ignore
+												setInsertPropertyData({ ...insertPropertyData, propertyAge: parseFloat(value) })
+											}
+										/>
+									</Stack>
+								) : (
+									''
+								)}
 							</Stack>
 
 							<Typography className="property-title">Property Description</Typography>
@@ -521,10 +530,8 @@ AddProperty.defaultProps = {
 		propertyLocation: '',
 		propertyAddress: '',
 		propertyBarter: false,
-		propertyRent: false,
-		propertyRooms: 0,
-		propertyBeds: 0,
-		propertySquare: 0,
+		propertyInjected: false,
+		propertySize: false,
 		propertyDesc: '',
 		propertyImages: [],
 	},

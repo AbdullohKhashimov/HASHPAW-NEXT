@@ -20,7 +20,7 @@ export interface Property {
 	propertyTitle: string;
 	propertyPrice: number;
 	propertyBreed?: string;
-	propertySize?: PropertySize;
+	propertySize?: string;
 	propertyAge?: number;
 	propertyViews: number;
 	propertyLikes: number;
@@ -28,8 +28,8 @@ export interface Property {
 	propertyRank: number;
 	propertyImages: string[];
 	propertyDesc?: string;
-	propertyBarter: boolean;
-	propertyInjected: boolean;
+	propertyBarter?: boolean;
+	propertyInjected?: boolean;
 	memberId: string;
 	soldAt?: Date;
 	deletedAt?: Date;

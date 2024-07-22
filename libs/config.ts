@@ -10,6 +10,9 @@ for (let i = 1970; i <= thisYear; i++) {
 	propertyAges.push(String(i));
 }
 
+export const propertyAge: any = [];
+
+export const propertySize = ['SMALL', 'MEDIUM', 'LARGE'];
 export const breedList = ['Huskie', 'Maine Coon', 'Scottish Fold', 'Poodle', 'ChowChow', 'Birman', 'Bengal'];
 
 // export const propertySquare = [0, 25, 50, 75, 100, 125, 150, 200, 300, 500];

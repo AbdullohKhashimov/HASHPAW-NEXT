@@ -1,79 +1,161 @@
 #pc-wrap {
 	.agent-list-page {
 		position: relative;
-		padding: 147px 0 75px;
+		padding: 25px 0 55px;
 		width: 100%;
 		height: auto;
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
+		justify-content: center; // Center container in the middle
+
 		.container {
+			width: 90%; // Give some breathing space on sides
+			max-width: 1200px; // Limit max width for better readability
 			display: flex;
 			flex-direction: column;
+			justify-content: space-between;
+
 			.filter {
 				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
+				flex-direction: column;
+				justify-content: flex-start;
 				align-items: center;
+				width: 100%;
+				margin-bottom: 30px;
+
 				.left {
 					display: flex;
 					flex-direction: row;
+
 					input {
-						padding: 22px 10px;
-						width: 333px;
-						height: 50px;
-						border-radius: 40px;
-						border: 1px solid #ddd;
-						background: #fff;
-						color: #181a20;
-						font-family: $font;
-						font-size: 14px;
-						font-style: normal;
-						font-weight: 400;
-						line-height: 26px;
-						box-sizing: border-box;
+						padding: 15px 20px;
+						width: 300px;
+						height: 45px;
+						border-radius: 8px;
+						border: 2px solid #e0e0e0;
+						background: #f7f7f7;
+						color: #333;
+						font-family: 'Roboto', sans-serif;
+						font-size: 15px;
+						transition: all 0.6s ease;
+
+						&:focus {
+							border-color: #6200ea;
+							background: #fff;
+							box-shadow: 0 0 8px rgba(98, 0, 234, 0.2);
+							outline: none;
+						}
 					}
 				}
+
 				.right {
 					display: flex;
 					flex-direction: row;
 					align-items: center;
+					margin-top: 15px; // Space between input and button
+
 					button {
-						margin-left: 10px;
-						color: #181a20;
-						font-family: $font;
-						font-size: 14px;
-						font-style: normal;
-						font-weight: bold;
-						line-height: 26px;
+						margin-left: 15px;
+						padding: 12px 24px;
+						color: #fff;
+						background-color: #6200ea;
+						border: none;
+						border-radius: 8px;
+						font-family: 'Roboto', sans-serif;
+						font-size: 16px;
+						font-weight: 500;
+						cursor: pointer;
+						transition: background-color 0.3s ease, transform 0.3s ease;
+
 						&:hover {
-							background: none;
+							background-color: #3700b3;
+							transform: translateY(-2px);
+						}
+
+						&:focus {
+							outline: none;
+							box-shadow: 0 0 8px rgba(98, 0, 234, 0.4);
 						}
 					}
 				}
 			}
+
 			.card-wrap {
 				position: relative;
-				margin-top: 35px;
-				width: 100%;
-				min-height: 500px;
-				height: auto;
 				display: flex;
 				flex-direction: row;
 				flex-wrap: wrap;
+				justify-content: space-between;
+				margin-top: 30px;
+				width: 100%;
+				min-height: 500px;
+
+				.card {
+					flex: 1 1 calc(25% - 20px); // Four cards per line with some spacing
+					margin: 10px;
+					background: #fff;
+					border-radius: 12px;
+					box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+					transition: transform 0.3s ease, box-shadow 0.3s ease;
+					animation: fadeInUp 0.6s ease both; // Apply animation
+
+					&:hover {
+						transform: translateY(-5px);
+						box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+					}
+
+					.card-content {
+						padding: 20px;
+						font-family: 'Roboto', sans-serif;
+						color: #333;
+
+						h3 {
+							font-size: 18px;
+							font-weight: 500;
+							margin-bottom: 10px;
+						}
+
+						p {
+							font-size: 14px;
+							line-height: 1.6;
+						}
+					}
+				}
 			}
+
 			.pagination {
 				display: flex;
-				flex-direction: column;
+				flex-direction: row; // Change to row for better alignment
+				justify-content: center; // Center pagination
 				align-items: center;
+				margin-top: 20px;
+
 				span {
-					margin-top: 20px;
-					color: #181a20;
-					font-family: $font;
-					font-size: 14px;
-					font-style: normal;
-					font-weight: 400;
-					line-height: 26px; /* 185.714% */
+					margin: 0 10px;
+					color: #666;
+					font-family: 'Roboto', sans-serif;
+					font-size: 16px;
+					font-weight: 500;
+				}
+
+				.page-numbers {
+					display: flex;
+					margin-top: 15px;
+
+					a {
+						padding: 8px 12px;
+						margin: 0 5px;
+						color: #6200ea;
+						text-decoration: none;
+						border-radius: 50%;
+						transition: background-color 0.3s ease, color 0.3s ease;
+
+						&:hover,
+						&.active {
+							background-color: #6200ea;
+							color: #fff;
+						}
+					}
 				}
 			}
 		}

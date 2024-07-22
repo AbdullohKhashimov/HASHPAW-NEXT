@@ -186,7 +186,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 	};
 
 	if (device === 'mobile') {
-		return <div>AGENT DETAIL PAGE MOBILE</div>;
+		return <div>DEALER DETAIL PAGE MOBILE</div>;
 	} else {
 		return (
 			<Stack className={'agent-detail-page'}>
@@ -231,7 +231,7 @@ const AgentDetail: NextPage = ({ initialInput, initialComment, ...props }: any) 
 										/>
 									</Stack>
 									<span>
-										Total {propertyTotal} propert{propertyTotal > 1 ? 'ies' : 'y'} available
+										Total {propertyTotal} product{propertyTotal > 1 ? 's' : ''} available
 									</span>
 								</>
 							) : (

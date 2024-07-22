@@ -160,15 +160,23 @@
 .agent-general-card {
 	position: relative;
 	margin-right: 27px;
-	margin-bottom: 34px;
+	margin-bottom: 30px;
 	display: flex;
 	flex-direction: column;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: scale(1.05);
+		// box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); // Add shadow on hover
+	}
+
 	.agent-img {
 		border-radius: 12px;
 		width: 233px;
 		height: 273px;
 		background-size: 100% 100%;
 		background-repeat: no-repeat;
+		transition: transform 0.3s ease; // Add transition for image zoom
 		cursor: pointer;
 		div {
 			position: absolute;
@@ -176,7 +184,7 @@
 			top: 12px;
 			left: 12px;
 			border-radius: 6px;
-			background: #eb6753;
+			background: rgba(9, 9, 155, 0.645);
 			color: #fff;
 			font-family: $font;
 			font-size: 12px;

@@ -9,7 +9,7 @@ export interface PropertyUpdate {
 	propertyTitle?: string;
 	propertyPrice?: number;
 	propertyBreed?: string;
-	propertySize?: PropertySize;
+	propertySize?: string;
 	propertyAge?: number;
 	propertyViews?: number;
 	propertyLikes?: number;

@@ -29,7 +29,7 @@ const PropertyBigCard = (props: PropertyBigCardProps) => {
 
 	/** HANDLERS **/
 	const goPropertyDetatilPage = (propertyId: string) => {
-		router.push(`/property/detail?id=${propertyId}`);
+		router.push(`/product/detail?id=${propertyId}`);
 	};
 
 	/** Conditional Rendering **/

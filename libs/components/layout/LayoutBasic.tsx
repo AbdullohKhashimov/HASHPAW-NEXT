@@ -49,9 +49,9 @@ const withLayoutBasic = (Component: any) => {
 					bgImage = '/img/banner/header1.svg';
 					break;
 				case '/community':
-					title = 'Community';
-					desc = 'Home / For Rent';
-					bgImage = '/img/banner/header2.svg';
+					title = '';
+					desc = 'Please share your experience with HushPaw';
+					bgImage = '/img/banner/comu.png';
 					break;
 				case '/community/detail':
 					title = 'Community Detail';

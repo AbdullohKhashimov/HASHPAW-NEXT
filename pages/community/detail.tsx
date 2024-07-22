@@ -293,9 +293,7 @@ const CommunityDetail: NextPage = ({ initialInput, ...props }: T) => {
 							<Stack className="title-box">
 								<Stack className="left">
 									<Typography className="title">{articleCategory} BOARD</Typography>
-									<Typography className="sub-title">
-										Express your opinions freely here without content restrictions
-									</Typography>
+									<Typography className="sub-title">Speak your mind openly and without censorship</Typography>
 								</Stack>
 								<Button
 									onClick={() =>
