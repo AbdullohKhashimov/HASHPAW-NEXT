@@ -32,6 +32,7 @@ import {
 	sweetTopSuccessAlert,
 } from '../../libs/sweetAlert';
 import { CommentUpdate } from '../../libs/types/comment/comment.update';
+import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 
 const ToastViewerComponent = dynamic(() => import('../../libs/components/community/TViewer'), { ssr: false });
 
@@ -253,7 +254,7 @@ const CommunityDetail: NextPage = ({ initialInput, ...props }: T) => {
 					<Stack className="main-box">
 						<Stack className="left-config">
 							<Stack className={'image-info'}>
-								<img src={'/img/logo/logoText.svg'} />
+								<img src={'/img/banner/note.png'} />
 								<Stack className={'community-name'}>
 									<Typography className={'name'}>Community Board Article</Typography>
 								</Stack>
@@ -335,7 +336,7 @@ const CommunityDetail: NextPage = ({ initialInput, ...props }: T) => {
 												{boardArticle?.meLiked && boardArticle?.meLiked[0]?.myFavorite ? (
 													<ThumbUpAltIcon onClick={() => likeBoArticleHandler(user, boardArticle?._id)} />
 												) : (
-													<ThumbUpOffAltIcon onClick={() => likeBoArticleHandler(user, boardArticle?._id)} />
+													<ThumbDownOffAltIcon onClick={() => likeBoArticleHandler(user, boardArticle?._id)} />
 												)}
 
 												<Typography className="text">{boardArticle?.articleLikes}</Typography>
@@ -366,7 +367,7 @@ const CommunityDetail: NextPage = ({ initialInput, ...props }: T) => {
 												{boardArticle?.meLiked && boardArticle?.meLiked[0]?.myFavorite ? (
 													<ThumbUpAltIcon onClick={() => likeBoArticleHandler(user, boardArticle?._id)} />
 												) : (
-													<ThumbUpOffAltIcon onClick={() => likeBoArticleHandler(user, boardArticle?._id)} />
+													<ThumbDownOffAltIcon onClick={() => likeBoArticleHandler(user, boardArticle?._id)} />
 												)}
 												<Typography className="text">{boardArticle?.articleLikes}</Typography>
 											</Button>

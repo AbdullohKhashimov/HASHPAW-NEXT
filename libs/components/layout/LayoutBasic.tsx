@@ -46,17 +46,17 @@ const withLayoutBasic = (Component: any) => {
 				case '/mypage':
 					title = 'my page';
 					desc = 'Home / For Rent';
-					bgImage = '/img/banner/header1.svg';
+					bgImage = '/img/banner/cs.png';
 					break;
 				case '/community':
 					title = '';
-					desc = 'Please share your experience with HushPaw';
+					desc = 'Please share your thoughts and experiences with HushPaw';
 					bgImage = '/img/banner/comu.png';
 					break;
 				case '/community/detail':
-					title = 'Community Detail';
-					desc = 'Home / For Rent';
-					bgImage = '/img/banner/header2.svg';
+					title = '';
+					desc = 'Feel free to leave comments or feedbacks';
+					bgImage = '/img/banner/comu.png';
 					break;
 				case '/cs':
 					title = 'CS';
