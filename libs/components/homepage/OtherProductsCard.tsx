@@ -11,11 +11,6 @@ import { userVar } from '../../../apollo/store';
 import PinDropIcon from '@mui/icons-material/PinDrop';
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-// import Card from '@mui/joy/Card';
-// import CardCover from '@mui/joy/CardCover';
-// import CardContent from '@mui/joy/CardContent';
-// import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
-
 interface OtherProductsCardProps {
 	property: Property;
 	likePropertyHandler: any;

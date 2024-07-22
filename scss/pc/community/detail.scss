@@ -1,3 +1,18 @@
+:root {
+	--primary-color: #ab1ea6;
+	--secondary-color: #757575;
+	--accent-color: #16169a;
+	--background-color: #fff;
+	--border-color: #eee;
+	--text-color: #000;
+	--font-family: 'Your Font Family', sans-serif;
+	--font-size-base: 14px;
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+	--line-height-normal: 1.5;
+	--spacing-unit: 16px;
+}
+
 #pc-wrap {
 	#community-detail-page {
 		position: relative;
@@ -249,12 +264,15 @@
 							}
 						}
 						.second-box-config {
-							width: 1012px;
+							width: 100%;
 							height: auto;
 							padding: 30px 24px;
+							margin-top: 5%;
+							display: flex;
+							flex-direction: column;
 							gap: 11px;
 							.title-text {
-								align-self: flex-start;
+								align-self: center;
 								color: #000;
 								text-align: center;
 								font-family: $font;
@@ -267,7 +285,7 @@
 							.leave-comment {
 								input {
 									width: 100%;
-									height: 61px;
+									height: auto;
 									outline: none;
 									padding: 22px 17px;
 									border: 1px solid #eee;
@@ -287,7 +305,7 @@
 									flex-direction: row;
 									justify-content: space-between;
 									align-items: center;
-									padding-left: 17px;
+									padding-left: 10px;
 									border: 1px solid #eee;
 									border-top: none;
 									p {
@@ -311,6 +329,7 @@
 										font-weight: 400;
 										line-height: normal;
 										letter-spacing: 0.56px;
+										border-radius: 10px 0px 0px 10px;
 									}
 								}
 							}
@@ -344,6 +363,9 @@
 							justify-content: center;
 						}
 						.comments-box {
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
 							.main-comment {
 								width: 100%;
 								height: auto;
@@ -365,7 +387,7 @@
 										img {
 											width: 45.035px;
 											height: 45px;
-											border-radius: 50%;
+											border-radius: 30%;
 											cursor: pointer;
 											object-fit: cover;
 										}
@@ -392,7 +414,7 @@
 										}
 									}
 									.buttons {
-										flex-direction: row;
+										flex-direction: column-reverse;
 									}
 								}
 								.content {
