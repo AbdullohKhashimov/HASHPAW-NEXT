@@ -149,7 +149,10 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 							<ExpandMoreIcon />
 						</Box>
 						<Box component={'div'} className={`box ${openType ? 'on' : ''}`} onClick={typeStateChangeHandler}>
-							<span> {searchFilter?.search?.typeList ? searchFilter?.search?.typeList[0] : t('Product type')} </span>
+							<span>
+								{' '}
+								{searchFilter?.search?.typeList ? searchFilter?.search?.typeList[0] : t('Product category')}{' '}
+							</span>
 							<ExpandMoreIcon />
 						</Box>
 					</Stack>

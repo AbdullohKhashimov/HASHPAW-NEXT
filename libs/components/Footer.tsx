@@ -114,7 +114,7 @@ const Footer = () => {
 
 								<div className="bottom">
 									<strong style={{ marginTop: '3%' }}>For More Details</strong>
-									<Link href={'/products'}>
+									<Link href={'/product'}>
 										<span>Products</span>
 									</Link>
 									<Link href={'/community'} style={{ paddingTop: '10px' }}>

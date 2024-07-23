@@ -205,7 +205,7 @@ const withLayoutBasic = (Component: any) => {
 					break;
 				case '/agent/detail':
 					title = 'Dealer Page';
-					desc = 'Home / For Rent';
+					desc = '';
 					bgImage = '/img/banner/agentdet.webp';
 					break;
 				case '/mypage':
@@ -228,20 +228,22 @@ const withLayoutBasic = (Component: any) => {
 					bgImage = '/img/banner/comu.png';
 					break;
 				case '/cs':
-					title = 'CS';
-					desc = 'Great to have you with us again!';
-					bgImage = '/img/banner/header2.svg';
+					title = 'Customer Support';
+					desc = 'We are glad to help you today as well';
+					descPart1 = 'If you have any questions -';
+					descPart2 = '-Please do not hesitate to contact us!';
+					bgImage = '/img/banner/cs.png';
 					break;
 				case '/account/join':
 					title = 'Login/Signup';
 					desc = 'Authentication Process';
-					bgImage = '/img/banner/header2.svg';
+					bgImage = '/img/banner/cuties.png';
 					setAuthHeader(true);
 					break;
 				case '/member':
 					title = 'Member Page';
-					desc = 'Home / For Rent';
-					bgImage = '/img/banner/header1.svg';
+					desc = '';
+					bgImage = '/img/banner/cutie.png';
 					break;
 				default:
 					break;

@@ -1,194 +1,208 @@
 #pc-wrap {
-  .join-page {
-    position: relative;
-    padding: 90px 0px;
-    width: 100%;
-    height: auto;
-   .container {
-     align-items: center;
-     .main {
-       width: 1200px;
-       height: 900px;
-       display: flex;
-       flex-direction: row;
-       border-radius: 12px 0px 0px 12px;
-       background: #FFF;
-       box-shadow: 0px 1px 4px 0px rgba(24, 26, 32, 0.07);
-       .left {
-         width: 50%;
-         height: 100%;
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         justify-content: center;
-         .logo {
-           display: flex;
-           flex-direction: row;
-           align-items: center;
-           img {
-             width: 40px;
-             height: 40px;
-           }
-           span {
-             margin-left: 10px;
-             font-family: $font ;
-             font-size: 22px;
-             font-style: normal;
-             font-weight: 600;
-             line-height: normal;
-             letter-spacing: 0.44px;
-             color:#181A20;
-           }
-         }
-         .info {
-           margin-top: 30px;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           span {
-             font-family: $font;
-             font-size: 20px;
-             font-style: normal;
-             font-weight: 600;
-             line-height: normal;
-             text-transform: uppercase;
-             color:  #181A20;
-           }
-           p {
-             margin-top: 5px;
-             font-family: $font;
-             font-size: 14px;
-             font-style: normal;
-             font-weight: 400;
-             line-height: 26px;
-             color: #181A20;
+	.join-page {
+		position: relative;
+		padding: 60px 0;
+		width: 100%;
+		background: #f0f8ff; /* Light sky blue background */
 
-           }
-         }
-         .input-wrap {
-           margin-top: 45px;
-           width: 470px;
-           display: flex;
-           flex-direction: column;
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			padding: 20px;
 
-          .input-box {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            &:first-child {
-              margin-top: 0px;
-            }
-            span {
-              margin-bottom: 8px;
-              font-family: $font;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 600;
-              line-height: normal;
-              color:  #181A20;
-            }
-            input {
-              padding: 0px 15px;
-              width: 100%;
-              height: 55px;
-              border-radius: 8px;
-              border: 1px solid #DDD;
-              background:  #FFF;
-              font-family: $font;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 400;
-              line-height: 26px;
-              color: #717171;
-            }
-          }
-         }
-         .register {
-           margin-top: 45px;
-           width: 470px;
-           display: flex;
-           flex-direction: column;
-           align-items: center;
-           .type-option {
-             display: flex;
-             flex-direction: row;
-             align-items: center;
-             span.text {
-               font-family: $font;
-               font-size: 14px;
-               font-style: normal;
-               font-weight: 600;
-               line-height: normal;
-               color:  #181A20;
-             }
-             div {
-               margin-left: 20px;
-               display: flex;
-               flex-direction: row;
-               &:nth-child(1){
-                 margin-right: 25px;
-               }
-             }
-           }
-           .remember-info {
-             width: 100%;
-             display: flex;
-             flex-direction: row;
-             justify-content: space-between;
-             align-items: center;
-             a {
-               font-family: $font;
-               font-size: 14px;
-               font-style: normal;
-               font-weight: 400;
-               line-height: 26px;
-               cursor: pointer;
-               color:  #181A20;
-             }
-           }
-           button {
-             margin-top: 25px;
-             width: 100%;
-             height: 55px;
-             border-radius: 12px;
-             background:  #EB6753;
-             font-family: $font;
-             font-size: 15px;
-             font-style: normal;
-             font-weight: 600;
-             line-height: normal;
-             color:  #FFF;
-             img {
-               filter: brightness(0) invert(1);
-             }
-           }
-         }
-         .ask-info {
-           margin-top: 90px;
-           p {
-             font-family: $font;
-             font-size: 20px;
-             font-style: normal;
-             line-height: normal;
-             font-weight: 400;
-             color:  #181A20;
-             b {
-               margin-left: 10px;
-               font-weight: 600;
-               font-size: 32px;
-               cursor: pointer;
-               text-decoration: underline;
-             }
-           }
-         }
-       }
-       .right {
-         width: 50%;
-         height: 100%;
-         background-image: url("/img/banner/joinBg.svg");
-         background-size: cover;
-       }
-     }
-   }
-  }
+			.main {
+				width: 100%;
+				max-width: 1200px; /* Slightly larger max-width for more spacious design */
+				border-radius: 25px; /* Softer, more modern rounded corners */
+				background: #ffffff;
+				box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* More pronounced shadow for depth */
+				display: flex;
+				flex-direction: row;
+				overflow: hidden;
+
+				.left {
+					width: 50%;
+					padding: 40px;
+					display: flex;
+					flex-direction: column;
+					// align-items: center;
+					justify-content: flex-start;
+
+					.logo {
+						display: flex;
+						align-items: center;
+						margin-bottom: 20px;
+
+						img {
+							width: 75px; /* Slightly larger logo for better impact */
+							height: 65px;
+						}
+
+						span {
+							margin-left: 15px;
+							font-family: 'Poppins', sans-serif;
+							font-size: 28px;
+							font-weight: 700;
+							color: #3498db; /* Sky blue color for logo text */
+						}
+					}
+
+					.info {
+						text-align: center;
+						margin-bottom: 40px;
+
+						span {
+							font-family: 'Poppins', sans-serif;
+							font-size: 24px;
+							font-weight: 700;
+							color: #3498db;
+						}
+
+						p {
+							margin-top: 10px;
+							font-family: 'Poppins', sans-serif;
+							font-size: 16px;
+							font-weight: 400;
+							color: #2c3e50;
+						}
+					}
+
+					.input-wrap {
+						width: 100%;
+						max-width: 500px; /* Increased width for form layout */
+
+						.input-box {
+							margin-bottom: 20px;
+
+							span {
+								margin-bottom: 8px;
+								font-family: 'Poppins', sans-serif;
+								font-size: 14px;
+								font-weight: 600;
+								color: #2c3e50;
+							}
+
+							input {
+								padding: 12px 20px;
+								width: 100%;
+								height: 50px;
+								border-radius: 12px;
+								border: 1px solid #d1e0e0; /* Softer border color */
+								background: #ffffff;
+								font-family: 'Poppins', sans-serif;
+								font-size: 15px;
+								font-weight: 400;
+								color: #2c3e50;
+							}
+						}
+					}
+
+					.register {
+						width: 100%;
+						max-width: 500px;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+
+						.type-option {
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							margin-bottom: 20px;
+
+							span.text {
+								font-family: 'Poppins', sans-serif;
+								font-size: 14px;
+								font-weight: 600;
+								color: #2c3e50;
+							}
+
+							div {
+								margin-left: 20px;
+								display: flex;
+								align-items: center;
+
+								&:nth-child(1) {
+									margin-right: 25px;
+								}
+							}
+						}
+
+						.remember-info {
+							width: 100%;
+							display: flex;
+							justify-content: space-between;
+							align-items: center;
+
+							a {
+								font-family: 'Poppins', sans-serif;
+								font-size: 14px;
+								font-weight: 400;
+								color: #3498db; /* Sky blue color for links */
+								text-decoration: none;
+								transition: color 0.3s;
+
+								&:hover {
+									color: #2980b9; /* Darker blue on hover */
+								}
+							}
+						}
+
+						button {
+							margin-top: 20px;
+							width: 100%;
+							height: 50px;
+							border-radius: 12px;
+							background: #3498db; /* Sky blue button */
+							color: #ffffff;
+							border: none;
+							font-family: 'Poppins', sans-serif;
+							font-size: 16px;
+							font-weight: 600;
+							cursor: pointer;
+							transition: background 0.3s;
+
+							&:hover {
+								background: #2980b9; /* Darker shade on hover */
+							}
+
+							img {
+								filter: brightness(0) invert(1);
+							}
+						}
+					}
+
+					.ask-info {
+						margin-top: 60px;
+						text-align: center;
+
+						p {
+							font-family: 'Poppins', sans-serif;
+							font-size: 18px;
+							font-weight: 400;
+							color: #2c3e50;
+
+							b {
+								margin-left: 8px;
+								font-size: 24px;
+								font-weight: 600;
+								color: #3498db; /* Sky blue color for clickable text */
+								cursor: pointer;
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+
+				.right {
+					width: 50%;
+					background-image: url('/img/banner/log.png');
+					background-size: cover;
+					background-position: center;
+				}
+			}
+		}
+	}
 }

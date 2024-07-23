@@ -14,11 +14,6 @@ const Intro = () => {
 					Day!
 				</p>
 			</Stack>
-			<Stack className={'intro-right'}>
-				<Link>
-					<Button className={'intro-btn'}>Join Now</Button>
-				</Link>
-			</Stack>
 		</Stack>
 	);
 };
