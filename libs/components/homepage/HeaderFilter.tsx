@@ -171,7 +171,7 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 						</Box>
 					</Stack>
 					<Stack className={'search-box-other'}>
-						<Box className={'search-btn'} onClick={pushSearchHandler}>
+						<Box className={'search-btn'} onClick={pushSearchHandler} component="div">
 							<img src="/img/icons/search_white.svg" alt="" />
 						</Box>
 					</Stack>

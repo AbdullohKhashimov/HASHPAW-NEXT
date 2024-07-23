@@ -7,23 +7,39 @@ export default function Statistics() {
 			<Container>
 				<Stack className={'info'}>
 					<Stack className={'static-box'}>
-						<Box className={'static-num'}>5+</Box>
-						<Box className={'static-text'}>Ratings</Box>
+						<Box className={'static-num'} component="div">
+							5+
+						</Box>
+						<Box className={'static-text'} component="div">
+							Ratings
+						</Box>
 					</Stack>
 
 					<Stack className={'static-box'}>
-						<Box className={'static-num'}>2022</Box>
-						<Box className={'static-text'}>Established in</Box>
+						<Box className={'static-num'} component="div">
+							2022
+						</Box>
+						<Box className={'static-text'} component="div">
+							Established in
+						</Box>
 					</Stack>
 
 					<Stack className={'static-box'}>
-						<Box className={'static-num'}>1000+</Box>
-						<Box className={'static-text'}>Products</Box>
+						<Box className={'static-num'} component="div">
+							1000+
+						</Box>
+						<Box className={'static-text'} component="div">
+							Products
+						</Box>
 					</Stack>
 
 					<Stack className={'static-box'}>
-						<Box className={'static-num'}>1000+</Box>
-						<Box className={'static-text'}>Reviews</Box>
+						<Box className={'static-num'} component="div">
+							1000+
+						</Box>
+						<Box className={'static-text'} component="div">
+							Reviews
+						</Box>
 					</Stack>
 				</Stack>
 			</Container>
