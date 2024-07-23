@@ -67,8 +67,15 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 
 	/** HANDLERS **/
 
+	const advancedFilterHandler = (status: boolean) => {
+		setOpenLocation(false);
+
+		setOpenType(false);
+	};
+
 	const locationStateChangeHandler = () => {
 		setOpenLocation((prev) => !prev);
+
 		setOpenType(false);
 	};
 
@@ -77,7 +84,14 @@ const HeaderFilter = (props: HeaderFilterProps) => {
 		setOpenLocation(false);
 	};
 
+	const roomStateChangeHandler = () => {
+		// setOpenRooms((prev) => !prev);
+		setOpenType(false);
+		setOpenLocation(false);
+	};
+
 	const disableAllStateHandler = () => {
+		// setOpenRooms(false);
 		setOpenType(false);
 		setOpenLocation(false);
 	};
