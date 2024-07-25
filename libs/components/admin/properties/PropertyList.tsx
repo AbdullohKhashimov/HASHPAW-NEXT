@@ -26,7 +26,7 @@ interface Data {
 	price: string;
 	agent: string;
 	location: string;
-	type: string;
+	category: string;
 	status: string;
 }
 
@@ -71,10 +71,10 @@ const headCells: readonly HeadCell[] = [
 		label: 'LOCATION',
 	},
 	{
-		id: 'type',
+		id: 'category',
 		numeric: false,
 		disablePadding: false,
-		label: 'TYPE',
+		label: 'CATEGORY',
 	},
 	{
 		id: 'status',
