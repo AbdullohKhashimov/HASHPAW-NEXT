@@ -1,546 +1,2001 @@
-#pc-wrap {
-  .MuiAppBar-root {
-    height: 64px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding: 0 24px;
-    position: fixed;
-    left: auto;
-    box-shadow: none;
-    background: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
-    .settings-icon-admin {
-      margin-right: 15px;
-      color: #7b809a;
-      cursor: pointer;
-    }
-  }
-  .aside {
-    .logo-box {
-      display: flex;
-      flex-direction: row;
-      padding: 16px 0;
-      img {
-        width: 90px;
-        height: 90px;
-      }
-    }
-    .user {
-      background: #f5f5f5;
-    }
-    hr {
-      margin: 24px 0;
-    }
-    .MuiListItemIcon-root {
-      margin-right: 16px;
-    }
-  }
-  .user {
-    background: #f5f5f5;
-  }
-  .menu-list {
-    padding: 8px 24px 8px 32px;
-    li {
-      padding: 8px 16px 8px 28px;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-    li.on {
-      font-weight: 600;
-      background: #FDF4F4;
-      color: #F54D56;
-      span {
-        color: #212121;
-      }
-    }
-  }
-  #bunker {
-    width: calc(100% - 280px);
-    margin-left: auto;
-    padding: 116px 24px;
-    align-items: center;
-    .flex-space {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .title {
-      margin-bottom: 24px;
-    }
-    .badge {
-      padding: 3px 8px;
-      font-weight: 500;
-      font-size: 12px;
-      border-radius: 4px;
-    }
-    .success {
-      color: #229a16;
-      background: rgba(84, 214, 44, 0.16);
-    }
-    .warning {
-      color: #f57c00;
-      //padding: 4px;
-      background: rgba(245, 124, 0, 0.1);
-      border-radius: 4px;
-    }
-    .error {
-      color: #B72136;
-      background: rgba(255, 72, 66, 0.16);
-    }
-    .block {
-      color: #ab47bc;
-      background: rgba(171, 71, 188, 0.1);
-      border-radius: 4px;
-    }
-    .delete {
-      background: #757575;
-      color: #fff;
-      border-radius: 4px;
-    }
-    .success-txt {
-      font-size: 14px;
-      color: #229a16;
-    }
-    .warning-txt {
-      font-size: 14px;
-      color: #f57c00;
-    }
-    .error-txt {
-      font-size: 14px;
-      color: #B72136;
-    }
-    .hacking-txt {
-      font-size: 14px;
-      color: #ab47bc;
-    }
-    .delete-txt {
-      font-size: 14px;
-      color: #757575;
-    }
-    .up {
-      color: rgba(45, 153, 255);
-      background: rgba(45, 153, 255, 0.3) ;
-    }
-    .down {
-      color: rgba(255, 48, 48);
-      background: rgba(255, 48, 48, 0.3);
-    }
-    .content {
-      width: 100%;
-      .no-data {
-        font-size: 16px;
-      }
-    }
-    .detail {
-      // width: 1080px;
-      min-width: 1080px;
-      align-items: center;
-      justify-content: center;
-      .back {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 24px;
-      }
-      .info-area {
-        flex-direction: row;
-        & > ul {
-          flex: 1;
-        }
-        li {
-          padding: 16px 24px;
-        }
-        hr {
-          margin: 6px 10px;
-          border-color: #bdbdbd;
-        }
-        span:first-child {
-          width: 220px;
-          min-width: 220px;
-        }
-        .active {
-          color: #229a16;
-          background: rgba(84, 214, 44, 0.16);
-        }
-        .warning {
-          color: #f57c00;
-          padding: 4px;
-          background: rgba(245, 124, 0, 0.1);
-          border-radius: 4px;
-        }
-        .error {
-          color: #B72136;
-          background: rgba(255, 72, 66, 0.16);
-        }
-        .hacking {
-          color: #ab47bc;
-          padding: 4px;
-          background: rgba(171, 71, 188, 0.1);
-          border-radius: 4px;
-        }
-      }
-      .MuiTabPanel-root {
-        padding: 0;
-        margin: 24px 0;
-      }
-      .banned-wrap {
-        & > div {
-          margin: 0 8px 8px 0;
-        }
-      }
-    }
-    .content-area {
-      strong {
-        margin: 0 3px;
-      }
-      .tit {
-        font-size: 20px;
-        padding: 32px 24px;
-      }
-      .btn-upload {
-        flex-direction: column;
-        .img-area {
-          img { width: 100%; }
-        }
-      }
-      .comment {
-        height: 150px;
-        textarea {
-          width: 50%;
-          height: 80%;
-          padding: 10px;
-          font-size: 14px;
-          border: 1px solid #eee;
-          border-radius: 4px;
-          resize: none;
-        }
-      }
-      .desc {
-        span {
-          color: #757575;
-          margin-right: 4px;
-        }
-      }
-    }
-    .user-area {
-      margin-bottom: 24px;
-      .user-id {
-        background: #f5f5f5;
-        border-radius: 30px;
-        padding: 0 8px;
-        margin-top: 8px;
-        text-align: center;
-      }
-      .connect {
-        height: min-content;
-        border-radius: 8px;
-        padding: 2px 6px;
-        margin-left: 10px;
-      }
-      .connect.online {
-        color: #229a16;
-        background: rgba(84, 214, 44, 0.16);
-      }
-      .connect.offline {
-        color: #b72136;
-        background: rgba(255, 72, 66, 0.16);
-      }
-    }
-    .input-area {
-      div:nth-child(1) {
-        margin-right: 16px;
-      }
-      .MuiInputAdornment-root {
-        button {
-          margin-right: 0;
-        }
-      }
-    }
-    .btn-wrap {
-      margin-top: 24px;
-      flex-direction: row;
-      justify-content: flex-end;
-      button {
-        font-weight: 500;
-      }
-      button:nth-child(2) {
-        color:#fff;
-        box-shadow: rgb(255 48 48 / 24%) 0px 8px 16px 0px;
-      }
-    }
-    .btn-complete {
-      color:#fff;
-      box-shadow: rgb(255 48 48 / 24%) 0px 8px 16px 0px;
-    }
-    .btn-action {
-      position: static;
-      font-weight: 500;
-      color: #fff;
-      border-radius: 8px;
-    }
-    .btn-add {
-      color: #fff;
-      font-weight: 500;
-      box-shadow: rgb(255 48 48 / 24%) 0px 8px 16px 0px;
-    }
-    .btn-cancel {
-      color: #757575;
-      border: 1px solid #eee;
-    }
-    .btn-upload {
-      border: 1px dashed #eee;
-    }
-    .btn-text { color: #e92c28; }
-    .btn-window {
-      color: #757575;
-      margin-left: 8px;
-      svg {
-        font-size: 20px;
-      }
-    }
-    .name a {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
+// /* Define CSS variables for easy customization */
+// :root {
+// 	--background-color: #fff;
+// 	--border-color: rgba(0, 0, 0, 0.12);
+// 	--text-color-dark: #344767;
+// 	--text-color-light: #7b809a;
+// 	--text-color-error: #b72136;
+// 	--text-color-success: #229a16;
+// 	--text-color-warning: #f57c00;
+// 	--box-shadow: 0 1px 4px rgba(24, 26, 32, 0.07);
+// 	--font-family: 'Helvetica Neue', sans-serif;
+// 	--badge-success-bg: rgba(84, 214, 44, 0.16);
+// 	--badge-warning-bg: rgba(245, 124, 0, 0.1);
+// 	--badge-error-bg: rgba(255, 72, 66, 0.16);
+// 	--badge-block-bg: rgba(171, 71, 188, 0.1);
+// 	--badge-delete-bg: #757575;
+// 	--btn-text-color: #e92c28;
+// 	--btn-cancel-border: 1px solid #eee;
+// 	--btn-upload-border: 1px dashed #eee;
+// 	--btn-shadow: 0px 8px 16px rgba(255, 48, 48, 0.24);
+// }
 
-    .table-wrap {
-      background: #fff;
-      border-radius: 4px;
-      box-shadow: rgb(145 158 171 / 20%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px;
-      .tab-menu {
-        display: flex;
-        flex-direction: row;
-        padding: 0 24px;
-        li {
-          width: auto;
-          height: 48px;
-          cursor: pointer;
-          padding: 12px 16px;
-          color: #bdbdbd;
-          font-size: 14px;
-        }
-        li.on {
-          font-weight: 500;
-          color: #e92c28;
-          border-bottom: 2px solid #e92c28;
-        }
-      }
-      &.check-table-wrap {
-        th:nth-child(1),td:first-child {
-          width: 50px;
-          padding: 0 0 0 15px;
-        }
-      }
-      thead {
-        tr {
-          background: #fafafa;
-        }
-        th {
-          font-weight: bold;
-          color: #374151;
-          font-size: 14px;
-          border-bottom: 1px solid #eee;
-        }
-        th:last-child {
-          padding-right: 24px;
-        }
-        th:first-child {
-          padding-left: 24px;
-        }
-      }
-      tbody {
-        color: #616161;
-        tr {
-          border-bottom: 1px solid #eee;
-        }
-        tr:last-child {
-          border-bottom: 0;
-        }
-        th:first-child {
-          padding-left: 24px;
-        }
-        td {
-          padding: 12px 16px;
-          border-bottom: 0;
-          font-size: 14px;
-          color: #616161;
-          &.info {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-          }
-          &.info-community {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            a:visited {
-              color: #959595;
-            }
-          }
-          .img-box {
-            width: 80px;
-            height: 80px;
-          }
-          p.text-ellipsis {
-            width: 280px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
-        }
-        /*td:last-child {
-          padding-right: 24px;
-        }*/
-        td:first-child {
-          padding-left: 24px;
-        }
-      }
-      .MuiAvatar-root {
-        //width: 30px;
-        //height: 30px;
-      }
-      .flex-box {
-        button {
-          color: #e92c28;
-          font-weight: 500;
-          margin-right: 8px;
-        }
-        button:last-child { margin-right:0; }
-      }
-      .edit-options {
-        padding: 25px;
-        .option-wrap {
-          margin-bottom: 40px;
-          .tit {
-            height: 40px;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            background: #f5f5f5;
-            border-radius: 4px;
-            padding: 2px 16px;
-          }
-          .notice {
-            margin: 6px 0 0 30px;
-            color: #bdbdbd;
-          }
-        }
-        .option {
-          flex-flow: row wrap;
-          label {
-            width:301px;
-            height: 48px;
-            padding-right: 8px;
-            color: #616161;
-            span { font-size: 14px; }
-          }
-        }
-      }
-    }
-    .tit {
-      flex-direction: row;
-      font-size: 28px;
-      font-weight: bold;
-      // margin-bottom: 24px;
-    }
-    .info-area {
-      flex-direction: row;
-    }
-    .search-area {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      img {
-        cursor: pointer;
-      }
-      .MuiOutlinedInput-root {
-        height: 48px;
-        background: #fff;
-        font-size: 14px;
-      }
-      .MuiTableCell-root {
-        padding: 12px 20px;
-        border-bottom: 1px solid #eee;
-      }
-      .MuiToolbar-root {
-        align-items: center;
-      }
-    }
-    .btn-action-wrap {
-      display: flex;
-      flex-direction: row;
-      button {
-        height: 44px;
-        background: #fff;
-        border: 1px solid #eee;
-        color: #757575;
-        margin-right: 8px;
-      }
-      thead { font-weight: 600; }
-    }
-    .MuiTabPanel-root {
-      padding: 0;
-    }
-    .MuiTableContainer-root {
-      box-shadow: none;
-    }
-  }
+// #pc-wrap {
+// 	.MuiAppBar-root {
+// 		height: 64px;
+// 		display: flex;
+// 		justify-content: flex-end;
+// 		padding: 0 24px;
+// 		position: fixed;
+// 		left: auto;
+// 		box-shadow: none;
+// 		background: var(--background-color);
+// 		border-bottom: 1px solid var(--border-color);
+
+// 		.settings-icon-admin {
+// 			margin-right: 15px;
+// 			color: var(--text-color-light);
+// 			cursor: pointer;
+// 		}
+// 	}
+
+// 	.aside {
+// 		.logo-box {
+// 			display: flex;
+// 			padding: 16px 0;
+
+// 			img {
+// 				width: 90px;
+// 				height: 90px;
+// 			}
+// 		}
+
+// 		.user {
+// 			background: #f5f5f5;
+// 		}
+
+// 		hr {
+// 			margin: 24px 0;
+// 		}
+
+// 		.MuiListItemIcon-root {
+// 			margin-right: 16px;
+// 		}
+// 	}
+
+// 	.menu-list {
+// 		padding: 8px 24px 8px 32px;
+
+// 		li {
+// 			padding: 8px 16px 8px 28px;
+// 			border-radius: 4px;
+// 			font-size: 14px;
+// 		}
+
+// 		li.on {
+// 			font-weight: 600;
+// 			background: #fdf4f4;
+// 			color: #f54d56;
+
+// 			span {
+// 				color: #212121;
+// 			}
+// 		}
+// 	}
+
+// 	#bunker {
+// 		width: calc(100% - 280px);
+// 		margin-left: auto;
+// 		padding: 116px 24px;
+// 		align-items: center;
+
+// 		.flex-space {
+// 			display: flex;
+// 			justify-content: space-between;
+// 			align-items: center;
+// 		}
+
+// 		.title {
+// 			margin-bottom: 24px;
+// 		}
+
+// 		.badge {
+// 			padding: 3px 8px;
+// 			font-weight: 500;
+// 			font-size: 12px;
+// 			border-radius: 4px;
+
+// 			&.success {
+// 				color: var(--text-color-success);
+// 				background: var(--badge-success-bg);
+// 			}
+
+// 			&.warning {
+// 				color: var(--text-color-warning);
+// 				background: var(--badge-warning-bg);
+// 			}
+
+// 			&.error {
+// 				color: var(--text-color-error);
+// 				background: var(--badge-error-bg);
+// 			}
+
+// 			&.block {
+// 				color: #ab47bc;
+// 				background: var(--badge-block-bg);
+// 			}
+
+// 			&.delete {
+// 				background: var(--badge-delete-bg);
+// 				color: var(--background-color);
+// 			}
+// 		}
+
+// 		.success-txt,
+// 		.warning-txt,
+// 		.error-txt,
+// 		.hacking-txt,
+// 		.delete-txt {
+// 			font-size: 14px;
+// 		}
+
+// 		.success-txt {
+// 			color: var(--text-color-success);
+// 		}
+
+// 		.warning-txt {
+// 			color: var(--text-color-warning);
+// 		}
+
+// 		.error-txt {
+// 			color: var(--text-color-error);
+// 		}
+
+// 		.hacking-txt {
+// 			color: #ab47bc;
+// 		}
+
+// 		.delete-txt {
+// 			color: #757575;
+// 		}
+
+// 		.up {
+// 			color: rgba(45, 153, 255);
+// 			background: rgba(45, 153, 255, 0.3);
+// 		}
+
+// 		.down {
+// 			color: rgba(255, 48, 48);
+// 			background: rgba(255, 48, 48, 0.3);
+// 		}
+
+// 		.content {
+// 			width: 100%;
+
+// 			.no-data {
+// 				font-size: 16px;
+// 			}
+// 		}
+
+// 		.detail {
+// 			min-width: 1080px;
+// 			align-items: center;
+// 			justify-content: center;
+
+// 			.back {
+// 				display: flex;
+// 				align-items: center;
+// 				margin-bottom: 24px;
+// 			}
+
+// 			.info-area {
+// 				display: flex;
+// 				flex-direction: row;
+
+// 				ul {
+// 					flex: 1;
+// 				}
+
+// 				li {
+// 					padding: 16px 24px;
+// 				}
+
+// 				hr {
+// 					margin: 6px 10px;
+// 					border-color: #bdbdbd;
+// 				}
+
+// 				span:first-child {
+// 					width: 220px;
+// 					min-width: 220px;
+// 				}
+
+// 				.active {
+// 					color: var(--text-color-success);
+// 					background: var(--badge-success-bg);
+// 				}
+
+// 				.warning {
+// 					color: var(--text-color-warning);
+// 					padding: 4px;
+// 					background: var(--badge-warning-bg);
+// 					border-radius: 4px;
+// 				}
+
+// 				.error {
+// 					color: var(--text-color-error);
+// 					background: var(--badge-error-bg);
+// 				}
+
+// 				.hacking {
+// 					color: #ab47bc;
+// 					padding: 4px;
+// 					background: var(--badge-block-bg);
+// 					border-radius: 4px;
+// 				}
+// 			}
+
+// 			.MuiTabPanel-root {
+// 				padding: 0;
+// 				margin: 24px 0;
+// 			}
+
+// 			.banned-wrap {
+// 				> div {
+// 					margin: 0 8px 8px 0;
+// 				}
+// 			}
+// 		}
+
+// 		.content-area {
+// 			strong {
+// 				margin: 0 3px;
+// 			}
+
+// 			.tit {
+// 				font-size: 20px;
+// 				padding: 32px 24px;
+// 			}
+
+// 			.btn-upload {
+// 				flex-direction: column;
+
+// 				.img-area img {
+// 					width: 100%;
+// 				}
+// 			}
+
+// 			.comment {
+// 				height: 150px;
+
+// 				textarea {
+// 					width: 50%;
+// 					height: 80%;
+// 					padding: 10px;
+// 					font-size: 14px;
+// 					border: 1px solid #eee;
+// 					border-radius: 4px;
+// 					resize: none;
+// 				}
+// 			}
+
+// 			.desc span {
+// 				color: #757575;
+// 				margin-right: 4px;
+// 			}
+// 		}
+
+// 		.user-area {
+// 			margin-bottom: 24px;
+
+// 			.user-id {
+// 				background: #f5f5f5;
+// 				border-radius: 30px;
+// 				padding: 0 8px;
+// 				margin-top: 8px;
+// 				text-align: center;
+// 			}
+
+// 			.connect {
+// 				height: min-content;
+// 				border-radius: 8px;
+// 				padding: 2px 6px;
+// 				margin-left: 10px;
+
+// 				&.online {
+// 					color: var(--text-color-success);
+// 					background: var(--badge-success-bg);
+// 				}
+
+// 				&.offline {
+// 					color: var(--text-color-error);
+// 					background: var(--badge-error-bg);
+// 				}
+// 			}
+// 		}
+
+// 		.input-area {
+// 			div:nth-child(1) {
+// 				margin-right: 16px;
+// 			}
+
+// 			.MuiInputAdornment-root button {
+// 				margin-right: 0;
+// 			}
+// 		}
+
+// 		.btn-wrap {
+// 			margin-top: 24px;
+// 			display: flex;
+// 			justify-content: flex-end;
+
+// 			button {
+// 				font-weight: 500;
+// 			}
+
+// 			button:nth-child(2) {
+// 				color: var(--background-color);
+// 				box-shadow: var(--btn-shadow);
+// 			}
+// 		}
+
+// 		.btn-complete {
+// 			color: var(--background-color);
+// 			box-shadow: var(--btn-shadow);
+// 		}
+
+// 		.btn-action {
+// 			position: static;
+// 			font-weight: 500;
+// 			color: var(--background-color);
+// 			border-radius: 8px;
+// 		}
+
+// 		.btn-add {
+// 			color: var(--background-color);
+// 			font-weight: 500;
+// 			box-shadow: var(--btn-shadow);
+// 		}
+
+// 		.btn-cancel {
+// 			color: #757575;
+// 			border: var(--btn-cancel-border);
+// 		}
+
+// 		.btn-upload {
+// 			border: var(--btn-upload-border);
+// 		}
+
+// 		.btn-text {
+// 			color: var(--btn-text-color);
+// 		}
+
+// 		.btn-window {
+// 			color: #757575;
+// 			margin-left: 8px;
+
+// 			svg {
+// 				font-size: 20px;
+// 			}
+// 		}
+
+// 		.name a {
+// 			display: flex;
+// 			align-items: center;
+// 		}
+
+// 		.table-wrap {
+// 			background: var(--background-color);
+// 			border-radius: 4px;
+// 			box-shadow: var(--box-shadow);
+
+// 			.tab-menu {
+// 				display: flex;
+// 				padding: 0 24px;
+
+// 				li {
+// 					height: 48px;
+// 					cursor: pointer;
+// 					padding: 12px 16px;
+// 					color: #bdbdbd;
+// 					font-size: 14px;
+// 				}
+
+// 				li.on {
+// 					font-weight: 500;
+// 					color: var(--btn-text-color);
+// 					border-bottom: 2px solid var(--btn-text-color);
+// 				}
+// 			}
+
+// 			&.check-table-wrap th:nth-child(1),
+// 			td:first-child {
+// 				width: 50px;
+// 				padding-left: 15px;
+// 			}
+
+// 			thead {
+// 				tr {
+// 					background: #fafafa;
+// 				}
+
+// 				th {
+// 					font-weight: bold;
+// 					color: #374151;
+// 					font-size: 14px;
+// 					border-bottom: 1px solid #eee;
+// 				}
+
+// 				th:last-child {
+// 					padding-right: 24px;
+// 				}
+
+// 				th:first-child {
+// 					padding-left: 24px;
+// 				}
+// 			}
+
+// 			tbody {
+// 				color: #616161;
+
+// 				tr {
+// 					border-bottom: 1px solid #eee;
+
+// 					&:last-child {
+// 						border-bottom: 0;
+// 					}
+// 				}
+
+// 				th:first-child {
+// 					padding-left: 24px;
+// 				}
+
+// 				td {
+// 					padding: 12px 16px;
+// 					font-size: 14px;
+
+// 					&.info,
+// 					&.info-community {
+// 						display: flex;
+// 						align-items: center;
+
+// 						a:visited {
+// 							color: #959595;
+// 						}
+// 					}
+
+// 					.img-box {
+// 						width: 80px;
+// 						height: 80px;
+// 					}
+
+// 					p.text-ellipsis {
+// 						width: 280px;
+// 						overflow: hidden;
+// 						white-space: nowrap;
+// 						text-overflow: ellipsis;
+// 					}
+// 				}
+// 			}
+
+// 			.MuiAvatar-root {
+// 				/* Adjust size if needed */
+// 			}
+
+// 			.flex-box button {
+// 				color: var(--btn-text-color);
+// 				font-weight: 500;
+// 				margin-right: 8px;
+
+// 				&:last-child {
+// 					margin-right: 0;
+// 				}
+// 			}
+
+// 			.edit-options {
+// 				padding: 25px;
+
+// 				.option-wrap {
+// 					margin-bottom: 40px;
+
+// 					.tit {
+// 						height: 40px;
+// 						display: flex;
+// 						align-items: center;
+// 						justify-content: space-between;
+// 						margin-bottom: 8px;
+// 						background: #f5f5f5;
+// 						border-radius: 4px;
+// 						padding: 2px 16px;
+// 					}
+
+// 					.notice {
+// 						margin: 6px 0 0 30px;
+// 						color: #bdbdbd;
+// 					}
+// 				}
+
+// 				.option {
+// 					display: flex;
+// 					flex-wrap: wrap;
+
+// 					label {
+// 						width: 301px;
+// 						height: 48px;
+// 						padding-right: 8px;
+// 						color: #616161;
+
+// 						span {
+// 							font-size: 14px;
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+
+// 		.tit {
+// 			display: flex;
+// 			font-size: 28px;
+// 			font-weight: bold;
+// 		}
+
+// 		.info-area {
+// 			display: flex;
+// 			flex-direction: row;
+// 		}
+
+// 		.search-area {
+// 			display: flex;
+// 			justify-content: flex-end;
+
+// 			img {
+// 				cursor: pointer;
+// 			}
+
+// 			.MuiOutlinedInput-root {
+// 				height: 48px;
+// 				background: var(--background-color);
+// 				font-size: 14px;
+// 			}
+
+// 			.MuiTableCell-root {
+// 				padding: 12px 20px;
+// 				border-bottom: 1px solid #eee;
+// 			}
+
+// 			.MuiToolbar-root {
+// 				align-items: center;
+// 			}
+// 		}
+
+// 		.btn-action-wrap {
+// 			display: flex;
+// 			button {
+// 				height: 44px;
+// 				background: var(--background-color);
+// 				border: 1px solid #eee;
+// 				color: #757575;
+// 				margin-right: 8px;
+// 			}
+
+// 			thead {
+// 				font-weight: 600;
+// 			}
+// 		}
+
+// 		.MuiTabPanel-root {
+// 			padding: 0;
+// 		}
+
+// 		.MuiTableContainer-root {
+// 			box-shadow: none;
+// 		}
+// 	}
+// }
+
+// .right-dashboard-settings {
+// 	position: relative;
+// 	padding: 0 10px;
+// 	width: 360px;
+// 	height: 100%;
+// 	display: flex;
+// 	flex-direction: column;
+// 	box-sizing: border-box;
+
+// 	.top {
+// 		position: relative;
+// 		padding: 24px;
+// 		display: flex;
+// 		flex-direction: column;
+// 		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+// 		box-sizing: border-box;
+
+// 		h5 {
+// 			font-size: 20px;
+// 			font-family: var(--font-family);
+// 		}
+
+// 		p {
+// 			color: var(--text-color-dark);
+// 			font-family: var(--font-family);
+// 		}
+
+// 		.close-icon {
+// 			position: absolute;
+// 			right: 8px;
+// 			cursor: pointer;
+// 			font-size: 20px;
+// 		}
+// 	}
+
+// 	.main {
+// 		position: relative;
+// 		padding: 16px 24px 24px;
+// 		width: 100%;
+// 		height: auto;
+// 		display: flex;
+// 		flex-direction: column;
+// 		box-sizing: border-box;
+
+// 		.switch-box {
+// 			width: 100%;
+// 			display: flex;
+// 			justify-content: space-between;
+// 			align-items: center;
+
+// 			h6 {
+// 				font-size: 16px;
+// 				font-family: var(--font-family);
+// 				font-weight: 600;
+// 			}
+// 		}
+// 	}
+// }
+
+/* Define CSS variables for easy customization */
+// :root {
+// 	--background-color: #fff;
+// 	--border-color: rgba(0, 0, 0, 0.12);
+// 	--text-color-dark: #344767;
+// 	--text-color-light: #7b809a;
+// 	--text-color-error: #b72136;
+// 	--text-color-success: #229a16;
+// 	--text-color-warning: #f57c00;
+// 	--box-shadow: 0 1px 4px rgba(24, 26, 32, 0.07);
+// 	--font-family: 'Helvetica Neue', sans-serif;
+// 	--badge-success-bg: rgba(84, 214, 44, 0.16);
+// 	--badge-warning-bg: rgba(245, 124, 0, 0.1);
+// 	--badge-error-bg: rgba(255, 72, 66, 0.16);
+// 	--badge-block-bg: rgba(171, 71, 188, 0.1);
+// 	--badge-delete-bg: #757575;
+// 	--btn-text-color: #e92c28;
+// 	--btn-cancel-border: 1px solid #eee;
+// 	--btn-upload-border: 1px dashed #eee;
+// 	--btn-shadow: 0px 8px 16px rgba(255, 48, 48, 0.24);
+// }
+
+// /* Global Styles */
+// body {
+// 	margin: 0;
+// 	font-family: var(--font-family);
+// 	background: var(--background-color);
+// }
+
+// a {
+// 	color: inherit;
+// 	text-decoration: none;
+// }
+
+// ul {
+// 	list-style: none;
+// 	padding: 0;
+// 	margin: 0;
+// }
+
+// /* App Bar */
+// .MuiAppBar-root {
+// 	height: 64px;
+// 	display: flex;
+// 	justify-content: flex-end;
+// 	padding: 0 24px;
+// 	position: fixed;
+// 	width: 100%;
+// 	background: var(--background-color);
+// 	border-bottom: 1px solid var(--border-color);
+// 	box-shadow: none;
+
+// 	.settings-icon-admin {
+// 		margin-right: 15px;
+// 		color: var(--text-color-light);
+// 		cursor: pointer;
+// 	}
+// }
+
+// /* Aside Navigation */
+// .aside {
+// 	.logo-box {
+// 		display: flex;
+// 		padding: 16px 0;
+
+// 		img {
+// 			width: 90px;
+// 			height: 90px;
+// 		}
+// 	}
+
+// 	.user {
+// 		background: #f5f5f5;
+// 	}
+
+// 	hr {
+// 		margin: 24px 0;
+// 	}
+
+// 	.MuiListItemIcon-root {
+// 		margin-right: 16px;
+// 	}
+
+// 	.menu-list {
+// 		padding: 8px 24px 8px 32px;
+
+// 		li {
+// 			padding: 8px 16px;
+// 			border-radius: 4px;
+// 			font-size: 14px;
+// 			cursor: pointer;
+// 			transition: background 0.3s, color 0.3s;
+// 		}
+
+// 		li.on {
+// 			font-weight: 600;
+// 			background: #fdf4f4;
+// 			color: #f54d56;
+
+// 			span {
+// 				color: #212121;
+// 			}
+// 		}
+// 	}
+// }
+
+// /* Main Content */
+// #bunker {
+// 	width: calc(100% - 280px);
+// 	margin-left: auto;
+// 	padding: 116px 24px;
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+
+// 	.flex-space {
+// 		display: flex;
+// 		justify-content: space-between;
+// 		align-items: center;
+// 	}
+
+// 	.title {
+// 		margin-bottom: 24px;
+// 	}
+
+// 	.badge {
+// 		padding: 3px 8px;
+// 		font-weight: 500;
+// 		font-size: 12px;
+// 		border-radius: 4px;
+// 		display: inline-block;
+
+// 		&.success {
+// 			color: var(--text-color-success);
+// 			background: var(--badge-success-bg);
+// 		}
+
+// 		&.warning {
+// 			color: var(--text-color-warning);
+// 			background: var(--badge-warning-bg);
+// 		}
+
+// 		&.error {
+// 			color: var(--text-color-error);
+// 			background: var(--badge-error-bg);
+// 		}
+
+// 		&.block {
+// 			color: #ab47bc;
+// 			background: var(--badge-block-bg);
+// 		}
+
+// 		&.delete {
+// 			background: var(--badge-delete-bg);
+// 			color: var(--background-color);
+// 		}
+// 	}
+
+// 	.text {
+// 		font-size: 14px;
+
+// 		&.success-txt {
+// 			color: var(--text-color-success);
+// 		}
+// 		&.warning-txt {
+// 			color: var(--text-color-warning);
+// 		}
+// 		&.error-txt {
+// 			color: var(--text-color-error);
+// 		}
+// 		&.hacking-txt {
+// 			color: #ab47bc;
+// 		}
+// 		&.delete-txt {
+// 			color: #757575;
+// 		}
+// 	}
+
+// 	.status {
+// 		.up {
+// 			color: rgba(45, 153, 255);
+// 			background: rgba(45, 153, 255, 0.3);
+// 		}
+
+// 		.down {
+// 			color: rgba(255, 48, 48);
+// 			background: rgba(255, 48, 48, 0.3);
+// 		}
+// 	}
+
+// 	.content {
+// 		width: 100%;
+
+// 		.no-data {
+// 			font-size: 16px;
+// 		}
+// 	}
+
+// 	.detail {
+// 		min-width: 1080px;
+// 		display: flex;
+// 		flex-direction: column;
+// 		align-items: center;
+// 		justify-content: center;
+
+// 		.back {
+// 			display: flex;
+// 			align-items: center;
+// 			margin-bottom: 24px;
+// 		}
+
+// 		.info-area {
+// 			display: flex;
+// 			flex-direction: row;
+// 			flex-wrap: wrap;
+// 			gap: 10px;
+
+// 			ul {
+// 				flex: 1;
+// 			}
+
+// 			li {
+// 				padding: 16px 24px;
+// 			}
+
+// 			hr {
+// 				margin: 6px 10px;
+// 				border-color: #bdbdbd;
+// 			}
+
+// 			span:first-child {
+// 				width: 220px;
+// 			}
+
+// 			.active {
+// 				color: var(--text-color-success);
+// 				background: var(--badge-success-bg);
+// 			}
+
+// 			.warning {
+// 				color: var(--text-color-warning);
+// 				background: var(--badge-warning-bg);
+// 				padding: 4px;
+// 				border-radius: 4px;
+// 			}
+
+// 			.error {
+// 				color: var(--text-color-error);
+// 				background: var(--badge-error-bg);
+// 			}
+
+// 			.hacking {
+// 				color: #ab47bc;
+// 				background: var(--badge-block-bg);
+// 				padding: 4px;
+// 				border-radius: 4px;
+// 			}
+// 		}
+
+// 		.MuiTabPanel-root {
+// 			padding: 0;
+// 			margin: 24px 0;
+// 		}
+
+// 		.banned-wrap {
+// 			> div {
+// 				margin: 0 8px 8px 0;
+// 			}
+// 		}
+// 	}
+
+// 	.content-area {
+// 		strong {
+// 			margin: 0 3px;
+// 		}
+
+// 		.tit {
+// 			font-size: 20px;
+// 			padding: 32px 24px;
+// 		}
+
+// 		.btn-upload {
+// 			flex-direction: column;
+
+// 			.img-area img {
+// 				width: 100%;
+// 			}
+// 		}
+
+// 		.comment {
+// 			height: 150px;
+
+// 			textarea {
+// 				width: 50%;
+// 				height: 80%;
+// 				padding: 10px;
+// 				font-size: 14px;
+// 				border: 1px solid #eee;
+// 				border-radius: 4px;
+// 				resize: none;
+// 			}
+// 		}
+
+// 		.desc span {
+// 			color: #757575;
+// 			margin-right: 4px;
+// 		}
+// 	}
+
+// 	.user-area {
+// 		margin-bottom: 24px;
+
+// 		.user-id {
+// 			background: #f5f5f5;
+// 			border-radius: 30px;
+// 			padding: 0 8px;
+// 			margin-top: 8px;
+// 			text-align: center;
+// 		}
+
+// 		.connect {
+// 			height: min-content;
+// 			border-radius: 8px;
+// 			padding: 2px 6px;
+// 			margin-left: 10px;
+
+// 			&.online {
+// 				color: var(--text-color-success);
+// 				background: var(--badge-success-bg);
+// 			}
+
+// 			&.offline {
+// 				color: var(--text-color-error);
+// 				background: var(--badge-error-bg);
+// 			}
+// 		}
+// 	}
+
+// 	.input-area {
+// 		div {
+// 			margin-right: 16px;
+// 		}
+
+// 		.MuiInputAdornment-root button {
+// 			margin-right: 0;
+// 		}
+// 	}
+
+// 	.btn-wrap {
+// 		margin-top: 24px;
+// 		display: flex;
+// 		justify-content: flex-end;
+
+// 		button {
+// 			font-weight: 500;
+// 		}
+
+// 		button:nth-child(2) {
+// 			color: var(--background-color);
+// 			box-shadow: var(--btn-shadow);
+// 		}
+// 	}
+
+// 	.btn-complete {
+// 		color: var(--background-color);
+// 		box-shadow: var(--btn-shadow);
+// 	}
+
+// 	.btn-action {
+// 		position: static;
+// 		font-weight: 500;
+// 		color: var(--background-color);
+// 		border-radius: 8px;
+// 	}
+
+// 	.btn-add {
+// 		color: var(--background-color);
+// 		font-weight: 500;
+// 		box-shadow: var(--btn-shadow);
+// 	}
+
+// 	.btn-cancel {
+// 		color: #757575;
+// 		border: var(--btn-cancel-border);
+// 	}
+
+// 	.btn-upload {
+// 		border: var(--btn-upload-border);
+// 	}
+
+// 	.btn-text {
+// 		color: var(--btn-text-color);
+// 	}
+
+// 	.btn-window {
+// 		color: #757575;
+// 		margin-left: 8px;
+
+// 		svg {
+// 			font-size: 20px;
+// 		}
+// 	}
+
+// 	.name a {
+// 		display: flex;
+// 		align-items: center;
+// 	}
+
+// 	.table-wrap {
+// 		background: var(--background-color);
+// 		border-radius: 4px;
+// 		box-shadow: var(--box-shadow);
+
+// 		.tab-menu {
+// 			display: flex;
+// 			padding: 0 24px;
+
+// 			li {
+// 				height: 48px;
+// 				cursor: pointer;
+// 				padding: 12px 16px;
+// 				color: #bdbdbd;
+// 				font-size: 14px;
+// 				transition: color 0.3s, border-bottom 0.3s;
+// 			}
+
+// 			li.on {
+// 				font-weight: 500;
+// 				color: var(--btn-text-color);
+// 				border-bottom: 2px solid var(--btn-text-color);
+// 			}
+// 		}
+
+// 		.check-table-wrap th:nth-child(1),
+// 		td:first-child {
+// 			width: 50px;
+// 			padding-left: 15px;
+// 		}
+
+// 		thead {
+// 			tr {
+// 				background: #fafafa;
+// 			}
+
+// 			th {
+// 				font-weight: bold;
+// 				color: #374151;
+// 				font-size: 14px;
+// 				border-bottom: 1px solid #eee;
+// 				padding: 12px;
+// 			}
+
+// 			th:last-child {
+// 				padding-right: 24px;
+// 			}
+
+// 			th:first-child {
+// 				padding-left: 24px;
+// 			}
+// 		}
+
+// 		tbody {
+// 			color: #616161;
+
+// 			tr {
+// 				border-bottom: 1px solid #eee;
+
+// 				&:last-child {
+// 					border-bottom: 0;
+// 				}
+// 			}
+
+// 			td {
+// 				padding: 12px 16px;
+// 				font-size: 14px;
+
+// 				&.info,
+// 				&.info-community {
+// 					display: flex;
+// 					align-items: center;
+
+// 					a:visited {
+// 						color: #959595;
+// 					}
+// 				}
+
+// 				.img-box {
+// 					width: 80px;
+// 					height: 80px;
+// 				}
+
+// 				p.text-ellipsis {
+// 					width: 280px;
+// 					overflow: hidden;
+// 					white-space: nowrap;
+// 					text-overflow: ellipsis;
+// 				}
+// 			}
+// 		}
+
+// 		.MuiAvatar-root {
+// 			/* Adjust size if needed */
+// 		}
+
+// 		.flex-box button {
+// 			color: var(--btn-text-color);
+// 			font-weight: 500;
+// 			margin-right: 8px;
+
+// 			&:last-child {
+// 				margin-right: 0;
+// 			}
+// 		}
+
+// 		.edit-options {
+// 			padding: 25px;
+
+// 			.option-wrap {
+// 				margin-bottom: 40px;
+
+// 				.tit {
+// 					height: 40px;
+// 					display: flex;
+// 					align-items: center;
+// 					justify-content: space-between;
+// 					margin-bottom: 8px;
+// 					background: #f5f5f5;
+// 					border-radius: 4px;
+// 					padding: 2px 16px;
+// 				}
+
+// 				.notice {
+// 					margin: 6px 0 0 30px;
+// 					color: #bdbdbd;
+// 				}
+// 			}
+
+// 			.option {
+// 				display: flex;
+// 				flex-wrap: wrap;
+
+// 				label {
+// 					width: 301px;
+// 					height: 48px;
+// 					padding-right: 8px;
+// 					color: #616161;
+
+// 					span {
+// 						font-size: 14px;
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	.tit {
+// 		display: flex;
+// 		font-size: 28px;
+// 		font-weight: bold;
+// 	}
+
+// 	.info-area {
+// 		display: flex;
+// 		flex-direction: row;
+// 	}
+
+// 	.search-area {
+// 		display: flex;
+// 		justify-content: flex-end;
+
+// 		img {
+// 			cursor: pointer;
+// 		}
+
+// 		.MuiOutlinedInput-root {
+// 			height: 48px;
+// 			background: var(--background-color);
+// 			font-size: 14px;
+// 		}
+
+// 		.MuiTableCell-root {
+// 			padding: 12px 20px;
+// 			border-bottom: 1px solid #eee;
+// 		}
+
+// 		.MuiToolbar-root {
+// 			align-items: center;
+// 		}
+// 	}
+
+// 	.btn-action-wrap {
+// 		display: flex;
+
+// 		button {
+// 			height: 44px;
+// 			background: var(--background-color);
+// 			border: 1px solid #eee;
+// 			color: #757575;
+// 			margin-right: 8px;
+// 		}
+
+// 		thead {
+// 			font-weight: 600;
+// 		}
+// 	}
+
+// 	.MuiTabPanel-root {
+// 		padding: 0;
+// 	}
+
+// 	.MuiTableContainer-root {
+// 		box-shadow: none;
+// 	}
+// }
+
+// /* Right Dashboard Settings */
+// .right-dashboard-settings {
+// 	position: relative;
+// 	padding: 0 10px;
+// 	width: 360px;
+// 	height: 100%;
+// 	display: flex;
+// 	flex-direction: column;
+// 	box-sizing: border-box;
+
+// 	.top {
+// 		position: relative;
+// 		padding: 24px;
+// 		display: flex;
+// 		flex-direction: column;
+// 		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+// 		box-sizing: border-box;
+
+// 		h5 {
+// 			font-size: 20px;
+// 			font-family: var(--font-family);
+// 		}
+
+// 		p {
+// 			color: var(--text-color-dark);
+// 			font-family: var(--font-family);
+// 		}
+
+// 		.close-icon {
+// 			position: absolute;
+// 			right: 8px;
+// 			cursor: pointer;
+// 			font-size: 20px;
+// 		}
+// 	}
+
+// 	.main {
+// 		position: relative;
+// 		padding: 16px 24px 24px;
+// 		width: 100%;
+// 		display: flex;
+// 		flex-direction: column;
+// 		box-sizing: border-box;
+
+// 		.switch-box {
+// 			width: 100%;
+// 			display: flex;
+// 			justify-content: space-between;
+// 			align-items: center;
+
+// 			h6 {
+// 				font-size: 16px;
+// 				font-family: var(--font-family);
+// 				font-weight: 600;
+// 			}
+// 		}
+// 	}
+// }
+
+/* Define CSS variables for easy customization */
+:root {
+	--background-color: #f0f8ff; /* Alice Blue */
+	--border-color: rgba(0, 0, 0, 0.12);
+	--text-color-dark: #2c3e50; /* Darker Blue */
+	--text-color-light: #95a5a6; /* Light Grey */
+	--text-color-error: #e74c3c; /* Error Red */
+	--text-color-success: #27ae60; /* Success Green */
+	--text-color-warning: #f39c12; /* Warning Yellow */
+	--box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	--font-family: 'Helvetica Neue', Arial, sans-serif;
+	--badge-success-bg: rgba(39, 174, 96, 0.2); /* Light Green */
+	--badge-warning-bg: rgba(243, 156, 18, 0.2); /* Light Yellow */
+	--badge-error-bg: rgba(231, 76, 60, 0.2); /* Light Red */
+	--badge-block-bg: rgba(155, 89, 182, 0.2); /* Light Purple */
+	--badge-delete-bg: #95a5a6; /* Grey */
+	--btn-text-color: #3498db; /* Blue */
+	--btn-cancel-border: 1px solid #dfe6e9; /* Light Border */
+	--btn-upload-border: 1px dashed #dfe6e9; /* Light Dashed Border */
+	--btn-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Global Styles */
+body {
+	margin: 0;
+	font-family: var(--font-family);
+	background: var(--background-color);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* App Bar */
+.MuiAppBar-root {
+	height: 64px;
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 24px;
+	position: fixed;
+	width: 100%;
+	background: var(--background-color);
+	border-bottom: 1px solid var(--border-color);
+	box-shadow: none;
+
+	.settings-icon-admin {
+		margin-right: 15px;
+		color: var(--text-color-light);
+		cursor: pointer;
+	}
+}
+
+/* Aside Navigation */
+.aside {
+	.logo-box {
+		display: flex;
+		padding: 16px 0;
+
+		img {
+			width: 80px;
+			height: 80px;
+		}
+	}
+
+	.user {
+		background: #ecf0f1; /* Light Grey */
+	}
+
+	hr {
+		margin: 24px 0;
+	}
+
+	.MuiListItemIcon-root {
+		margin-right: 16px;
+	}
+
+	.menu-list {
+		padding: 8px 24px 8px 32px;
+
+		li {
+			padding: 8px 16px;
+			border-radius: 4px;
+			font-size: 14px;
+			cursor: pointer;
+			transition: background 0.3s, color 0.3s;
+		}
+
+		li.on {
+			font-weight: 600;
+			background: #eaf2f8; /* Light Blue */
+			color: #3498db; /* Blue */
+
+			span {
+				color: #2c3e50; /* Dark Blue */
+			}
+		}
+	}
+}
+
+/* Main Content */
+#bunker {
+	width: calc(100% - 280px);
+	margin-left: auto;
+	padding: 116px 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.flex-space {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.title {
+		margin-bottom: 24px;
+	}
+
+	.badge {
+		padding: 3px 8px;
+		font-weight: 500;
+		font-size: 12px;
+		border-radius: 4px;
+		display: inline-block;
+
+		&.success {
+			color: var(--text-color-success);
+			background: var(--badge-success-bg);
+		}
+
+		&.warning {
+			color: var(--text-color-warning);
+			background: var(--badge-warning-bg);
+		}
+
+		&.error {
+			color: var(--text-color-error);
+			background: var(--badge-error-bg);
+		}
+
+		&.block {
+			color: #9b59b6; /* Purple */
+			background: var(--badge-block-bg);
+		}
+
+		&.delete {
+			background: var(--badge-delete-bg);
+			color: var(--background-color);
+		}
+	}
+
+	.text {
+		font-size: 14px;
+
+		&.success-txt {
+			color: var(--text-color-success);
+		}
+		&.warning-txt {
+			color: var(--text-color-warning);
+		}
+		&.error-txt {
+			color: var(--text-color-error);
+		}
+		&.hacking-txt {
+			color: #9b59b6; /* Purple */
+		}
+		&.delete-txt {
+			color: var(--badge-delete-bg);
+		}
+	}
+
+	.status {
+		.up {
+			color: rgba(52, 152, 219); /* Sky Blue */
+			background: rgba(52, 152, 219, 0.3);
+		}
+
+		.down {
+			color: rgba(231, 76, 60); /* Error Red */
+			background: rgba(231, 76, 60, 0.3);
+		}
+	}
+
+	.content {
+		width: 100%;
+
+		.no-data {
+			font-size: 16px;
+		}
+	}
+
+	.detail {
+		min-width: 1080px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		.back {
+			display: flex;
+			align-items: center;
+			margin-bottom: 24px;
+		}
+
+		.info-area {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 10px;
+
+			ul {
+				flex: 1;
+			}
+
+			li {
+				padding: 16px 24px;
+			}
+
+			hr {
+				margin: 6px 10px;
+				border-color: #bdc3c7; /* Grey */
+			}
+
+			span:first-child {
+				width: 220px;
+			}
+
+			.active {
+				color: var(--text-color-success);
+				background: var(--badge-success-bg);
+			}
+
+			.warning {
+				color: var(--text-color-warning);
+				background: var(--badge-warning-bg);
+				padding: 4px;
+				border-radius: 4px;
+			}
+
+			.error {
+				color: var(--text-color-error);
+				background: var(--badge-error-bg);
+			}
+
+			.hacking {
+				color: #9b59b6; /* Purple */
+				background: var(--badge-block-bg);
+				padding: 4px;
+				border-radius: 4px;
+			}
+		}
+
+		.MuiTabPanel-root {
+			padding: 0;
+			margin: 24px 0;
+		}
+
+		.banned-wrap {
+			> div {
+				margin: 0 8px 8px 0;
+			}
+		}
+	}
+
+	.content-area {
+		strong {
+			margin: 0 3px;
+		}
+
+		.tit {
+			font-size: 20px;
+			padding: 32px 24px;
+		}
+
+		.btn-upload {
+			flex-direction: column;
+
+			.img-area img {
+				width: 100%;
+			}
+		}
+
+		.comment {
+			height: 150px;
+
+			textarea {
+				width: 50%;
+				height: 80%;
+				padding: 10px;
+				font-size: 14px;
+				border: 1px solid #dfe6e9;
+				border-radius: 4px;
+				resize: none;
+			}
+		}
+
+		.desc span {
+			color: #95a5a6; /* Light Grey */
+			margin-right: 4px;
+		}
+	}
+
+	.user-area {
+		margin-bottom: 24px;
+
+		.user-id {
+			background: #ecf0f1; /* Light Grey */
+			border-radius: 30px;
+			padding: 0 8px;
+			margin-top: 8px;
+			text-align: center;
+		}
+
+		.connect {
+			height: min-content;
+			border-radius: 8px;
+			padding: 2px 6px;
+			margin-left: 10px;
+
+			&.online {
+				color: var(--text-color-success);
+				background: var(--badge-success-bg);
+			}
+
+			&.offline {
+				color: var(--text-color-error);
+				background: var(--badge-error-bg);
+			}
+		}
+	}
+
+	.input-area {
+		div {
+			margin-right: 16px;
+		}
+
+		.MuiInputAdornment-root button {
+			margin-right: 0;
+		}
+	}
+
+	.btn-wrap {
+		margin-top: 24px;
+		display: flex;
+		justify-content: flex-end;
+
+		button {
+			font-weight: 500;
+		}
+
+		button:nth-child(2) {
+			color: var(--background-color);
+			box-shadow: var(--btn-shadow);
+		}
+	}
+
+	.btn-complete {
+		color: var(--background-color);
+		box-shadow: var(--btn-shadow);
+	}
+
+	.btn-action {
+		position: static;
+		font-weight: 500;
+		color: var(--background-color);
+		border-radius: 8px;
+	}
+
+	.btn-add {
+		color: var(--background-color);
+		font-weight: 500;
+		box-shadow: var(--btn-shadow);
+	}
+
+	.btn-cancel {
+		color: #95a5a6; /* Light Grey */
+		border: var(--btn-cancel-border);
+	}
+
+	.btn-upload {
+		border: var(--btn-upload-border);
+	}
+
+	.btn-text {
+		color: var(--btn-text-color);
+	}
+
+	.btn-window {
+		color: #95a5a6; /* Light Grey */
+		margin-left: 8px;
+
+		svg {
+			font-size: 20px;
+		}
+	}
+
+	.name a {
+		display: flex;
+		align-items: center;
+	}
+
+	.table-wrap {
+		background: var(--background-color);
+		border-radius: 4px;
+		box-shadow: var(--box-shadow);
+
+		.tab-menu {
+			display: flex;
+			padding: 0 24px;
+
+			li {
+				height: 48px;
+				cursor: pointer;
+				padding: 12px 16px;
+				color: #bdc3c7; /* Grey */
+				font-size: 14px;
+				transition: color 0.3s, border-bottom 0.3s;
+			}
+
+			li.on {
+				font-weight: 500;
+				color: var(--btn-text-color);
+				border-bottom: 2px solid var(--btn-text-color);
+			}
+		}
+
+		.check-table-wrap th:nth-child(1),
+		td:first-child {
+			width: 50px;
+			padding-left: 15px;
+		}
+
+		thead {
+			tr {
+				background: #f7f9fc; /* Very Light Blue */
+			}
+
+			th {
+				font-weight: bold;
+				color: #2c3e50; /* Darker Blue */
+				font-size: 14px;
+				border-bottom: 1px solid #dfe6e9; /* Light Border */
+				padding: 12px;
+			}
+
+			th:last-child {
+				padding-right: 24px;
+			}
+
+			th:first-child {
+				padding-left: 24px;
+			}
+		}
+
+		tbody {
+			color: #7f8c8d; /* Grey */
+
+			tr {
+				border-bottom: 1px solid #dfe6e9; /* Light Border */
+
+				&:last-child {
+					border-bottom: 0;
+				}
+			}
+
+			td {
+				padding: 12px 16px;
+				font-size: 14px;
+
+				&.info,
+				&.info-community {
+					display: flex;
+					align-items: center;
+
+					a:visited {
+						color: #95a5a6; /* Light Grey */
+					}
+				}
+
+				.img-box {
+					width: 80px;
+					height: 80px;
+				}
+
+				p.text-ellipsis {
+					width: 280px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+			}
+		}
+
+		// .MuiAvatar-root {
+		// 	/* Adjust size if needed */
+		// }
+
+		.flex-box button {
+			color: var(--btn-text-color);
+			font-weight: 500;
+			margin-right: 8px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		.edit-options {
+			padding: 25px;
+
+			.option-wrap {
+				margin-bottom: 40px;
+
+				.tit {
+					height: 40px;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					margin-bottom: 8px;
+					background: #ecf0f1; /* Light Grey */
+					border-radius: 4px;
+					padding: 2px 16px;
+				}
+
+				.notice {
+					margin: 6px 0 0 30px;
+					color: #bdc3c7; /* Grey */
+				}
+			}
+
+			.option {
+				display: flex;
+				flex-wrap: wrap;
+
+				label {
+					width: 301px;
+					height: 48px;
+					padding-right: 8px;
+					color: #7f8c8d; /* Grey */
+
+					span {
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+
+	.tit {
+		display: flex;
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.info-area {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.search-area {
+		display: flex;
+		justify-content: flex-end;
+
+		img {
+			cursor: pointer;
+		}
+
+		.MuiOutlinedInput-root {
+			height: 48px;
+			background: var(--background-color);
+			font-size: 14px;
+		}
+
+		.MuiTableCell-root {
+			padding: 12px 20px;
+			border-bottom: 1px solid #dfe6e9; /* Light Border */
+		}
+
+		.MuiToolbar-root {
+			align-items: center;
+		}
+	}
+
+	.btn-action-wrap {
+		display: flex;
+
+		button {
+			height: 44px;
+			background: var(--background-color);
+			border: 1px solid #dfe6e9; /* Light Border */
+			color: #7f8c8d; /* Grey */
+			margin-right: 8px;
+		}
+
+		thead {
+			font-weight: 600;
+		}
+	}
+
+	.MuiTabPanel-root {
+		padding: 0;
+	}
+
+	.MuiTableContainer-root {
+		box-shadow: none;
+	}
+}
+
+/* Right Dashboard Settings */
 .right-dashboard-settings {
-  position: relative;
-  padding: 0 10px;
-  width: 360px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  .top {
-    position: relative;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-    box-sizing: border-box;
-    h5 {
-      font-size: 20px;
-      font-family: $font;
-    }
-    p {
-      color: #344767;
-      font-family: $font;
-    }
-    .close-icon {
-      position: absolute;
-      right: 8px;
-      cursor: pointer;
-      font-size: 20px;
-    }
-  }
-  .main {
-    position: relative;
-    padding: 16px 24px 24px 24px;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    .switch-box {
-      width: 100%;
-      height: auto;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      h6 {
-        font-size: 16px;
-        font-family: $font ;
-        font-weight: 600;
-      }
-    }
-  }
+	position: relative;
+	padding: 0 10px;
+	width: 360px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+
+	.top {
+		position: relative;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+		box-sizing: border-box;
+
+		h5 {
+			font-size: 20px;
+			font-family: var(--font-family);
+		}
+
+		p {
+			color: var(--text-color-dark);
+			font-family: var(--font-family);
+		}
+
+		.close-icon {
+			position: absolute;
+			right: 8px;
+			cursor: pointer;
+			font-size: 20px;
+		}
+	}
+
+	.main {
+		position: relative;
+		padding: 16px 24px 24px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+
+		.switch-box {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			h6 {
+				font-size: 16px;
+				font-family: var(--font-family);
+				font-weight: 600;
+			}
+		}
+	}
 }
