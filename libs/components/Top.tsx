@@ -44,6 +44,7 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 	const [notifications, setNotifications] = useState<NotificDto[]>([]);
 	const notificationOpen = Boolean(notificationAnchorEl);
 	const [updateData, setUpdateData] = useState<NotificationUpdate>(intialValues);
+	const [unreadCount, setUnreadCount] = useState(0);
 
 	//Apollo query
 	const [updateNotification] = useMutation(UPDATE_NOTIFICATION);
@@ -61,8 +62,11 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 
 		onCompleted: (data) => {
 			if (data?.getNotifcations?.list) {
-				console.log('Notifications data', data.getNotifcations.list);
 				setNotifications(data?.getNotifcations?.list);
+				const unread = data?.getNotifcations?.list.filter(
+					(notification: any) => notification.notificationStatus === NotificationStatus.WAIT,
+				).length;
+				setUnreadCount(unread);
 			}
 		},
 	});
@@ -70,10 +74,19 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 	console.log('notifications:', notifications);
 
 	/** LIFECYCLES **/
-	//notifications fetching
+	// notifications fetching
 	useEffect(() => {
 		if (notificationsData) {
 			console.log('Fetched notifications:', notificationsData.getNotifications.list);
+		}
+	}, [notificationsData]);
+	useEffect(() => {
+		if (notificationsData) {
+			setNotifications(notificationsData.getNotifications.list);
+			const unread = notificationsData.getNotifications.list.filter(
+				(notification: any) => notification.notificationStatus === NotificationStatus.WAIT,
+			).length;
+			setUnreadCount(unread);
 		}
 	}, [notificationsData]);
 
@@ -348,6 +361,9 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 								{user?._id && (
 									<div style={{ position: 'relative', display: 'inline-block', color: 'white', cursor: 'pointer' }}>
 										<NotificationsOutlinedIcon className={'notification-icon'} onClick={handleNotificationClick} />
+										{unreadCount > 0 && (
+											<span style={{ fontSize: '12px', fontWeight: '600', marginTop: '10%' }}>{unreadCount}</span>
+										)}
 										{hasNewNotifications && (
 											<div
 												style={{
@@ -365,6 +381,9 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 											anchorEl={notificationAnchorEl}
 											open={Boolean(notificationAnchorEl)}
 											onClose={handleNotificationClose}
+											MenuListProps={{
+												'aria-labelledby': 'notification-button',
+											}}
 											PaperProps={{
 												style: {
 													padding: '20px',
