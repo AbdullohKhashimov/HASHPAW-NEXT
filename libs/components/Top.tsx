@@ -57,7 +57,6 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 	} = useQuery(GET_NOTIFICATIONS, {
 		fetchPolicy: 'cache-and-network',
 		variables: { input: { page: 1, limit: 100, search: { receiverId: '' } } },
-		skip: !notificationOpen,
 		notifyOnNetworkStatusChange: true,
 
 		onCompleted: (data) => {
