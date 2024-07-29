@@ -10,8 +10,6 @@ import { GET_FAQS } from '../../../apollo/user/query';
 import { useQuery } from '@apollo/client';
 import { T } from '../../types/common';
 import { NextPage } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { FaqType } from '../../enums/faq.enum';
 
 const Accordion = styled((props: AccordionProps) => <MuiAccordion disableGutters elevation={0} square {...props} />)(
 	({ theme }) => ({
