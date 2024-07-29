@@ -46,7 +46,7 @@ interface FaqsListProps {
 const FaqsList: NextPage<FaqsListProps> = ({ initialInput, ...props }) => {
 	const device = useDeviceDetect();
 	const router = useRouter();
-	const [type, setType] = useState<string>('PRODUCT');
+	const [type, setType] = useState<string>('PRODUCTS');
 	const [expanded, setExpanded] = useState<string | false>('panel1');
 	const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -61,6 +61,7 @@ const FaqsList: NextPage<FaqsListProps> = ({ initialInput, ...props }) => {
 	const {
 		loading: getFaqsLoading,
 		data: getFaqsData,
+		error: getFaqsError,
 		refetch: getFaqsRefetch,
 	} = useQuery(GET_FAQS, {
 		fetchPolicy: 'network-only', // by default cache-first
@@ -71,6 +72,10 @@ const FaqsList: NextPage<FaqsListProps> = ({ initialInput, ...props }) => {
 			setTotal(data?.getFaqs?.metaCounter[0]?.total || 0);
 		},
 	});
+
+	if (getFaqsError) {
+		router.push('_error');
+	}
 
 	/** LIFECYCLES **/
 	useEffect(() => {
@@ -105,9 +110,9 @@ const FaqsList: NextPage<FaqsListProps> = ({ initialInput, ...props }) => {
 			<Stack className={'faq-content'}>
 				<Box className={'categories'} component={'div'}>
 					<div
-						className={type === 'PRODUCT' ? 'active' : ''}
+						className={type === 'PRODUCTS' ? 'active' : ''}
 						onClick={() => {
-							changeCategoryHandler('PRODUCT');
+							changeCategoryHandler('PRODUCTS');
 						}}
 					>
 						Products
@@ -190,7 +195,7 @@ FaqsList.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 9,
-		faqType: 'PRODUCT',
+		faqType: 'PRODUCTS',
 	},
 };
 
