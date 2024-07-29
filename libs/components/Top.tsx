@@ -360,21 +360,27 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 								{user?._id && (
 									<div style={{ position: 'relative', display: 'inline-block', color: 'white', cursor: 'pointer' }}>
 										<NotificationsOutlinedIcon className={'notification-icon'} onClick={handleNotificationClick} />
-										{unreadCount > 0 && (
-											<span style={{ fontSize: '12px', fontWeight: '600', marginTop: '10%' }}>{unreadCount}</span>
-										)}
 										{hasNewNotifications && (
 											<div
 												style={{
 													position: 'absolute',
-													top: 0,
-													right: 0,
-													width: '10px',
-													height: '10px',
-													borderRadius: '40%',
+													top: '-10px',
+													right: '-3px',
+													width: '15px',
+													height: '15px',
+													borderRadius: '50%',
 													backgroundColor: '#ef1d26',
 												}}
-											/>
+											>
+												{' '}
+												{unreadCount > 0 && (
+													<span
+														style={{ fontSize: '12px', fontWeight: '600', display: 'flex', justifyContent: 'center' }}
+													>
+														{unreadCount}
+													</span>
+												)}
+											</div>
 										)}
 										<Menu
 											anchorEl={notificationAnchorEl}

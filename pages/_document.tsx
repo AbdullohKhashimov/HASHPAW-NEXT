@@ -6,6 +6,7 @@ export default function Document() {
 			<Head>
 				<meta name="robots" content="index,follow" />
 				<link rel="icon" type="image/png" href="/img/logo/favicon.svg" />
+				{/* //-> to change later icon */}
 
 				{/* SEO */}
 				<meta name="keyword" content={'nestar, nestar.uz, devex mern, mern nestjs fullstack'} />
