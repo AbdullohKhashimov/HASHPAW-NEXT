@@ -70,15 +70,6 @@ const Top: NextPage = ({ intialValues, ...props }: any) => {
 		},
 	});
 
-	console.log('notifications:', notifications);
-
-	/** LIFECYCLES **/
-	// notifications fetching
-	useEffect(() => {
-		if (notificationsData) {
-			console.log('Fetched notifications:', notificationsData.getNotifications.list);
-		}
-	}, [notificationsData]);
 	useEffect(() => {
 		if (notificationsData) {
 			setNotifications(notificationsData.getNotifications.list);
