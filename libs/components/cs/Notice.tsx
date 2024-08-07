@@ -72,10 +72,6 @@ const NoticesList: NextPage<NoticesListProps> = ({ initialInput, ...props }) => 
 		},
 	});
 
-	if (getNoticesError) {
-		router.push('/_error');
-	}
-
 	/** LIFECYCLES **/
 	useEffect(() => {
 		if (router.query.input) {
