@@ -221,7 +221,7 @@ const AddFaq = ({ initialValues, ...props }: any) => {
 							<Button className="next-button" onClick={cancelBtnHandler}>
 								<Typography className="next-button-text">Cancel</Typography>
 							</Button>
-							<Box>
+							<Box component={'div'}>
 								{router.query.faqId ? (
 									<Button className="next-button" disabled={doDisabledCheck()} onClick={updateFaqHandler}>
 										<Typography className="next-button-text">Save</Typography>
