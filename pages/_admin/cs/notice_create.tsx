@@ -234,7 +234,7 @@ const AddNotice = ({ initialValues, ...props }: any) => {
 							<Button className="next-button" onClick={cancelBtnHandler}>
 								<Typography className="next-button-text">Cancel</Typography>
 							</Button>
-							<Box>
+							<Box component={'div'}>
 								{router.query.noticeId ? (
 									<Button className="next-button" disabled={doDisabledCheck()} onClick={updateNoticeHandler}>
 										<Typography className="next-button-text">Save</Typography>
