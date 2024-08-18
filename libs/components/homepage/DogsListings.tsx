@@ -40,11 +40,7 @@ const DogsListings = (props: DogsListingsProps) => {
 		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
-			// Filter out properties of type other than "OTHER"
-			const filteredProperties = data?.getProperties?.list.filter(
-				(property: Property) => property.propertyType === PropertyType.DOG,
-			);
-			setDogProducts(filteredProperties);
+			setDogProducts(data?.getProperties?.list);
 		},
 	});
 	/** HANDLERS **/
@@ -165,7 +161,7 @@ DogsListings.defaultProps = {
 		limit: 8,
 		sort: 'propertyPrice',
 		direction: 'DESC',
-		search: {},
+		search: { typeList: 'DOG' },
 	},
 };
 

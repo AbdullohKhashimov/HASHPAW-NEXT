@@ -40,10 +40,7 @@ const FoodList = (props: FoodListProps) => {
 		variables: { input: initialInput }, //-> variable lar bu qaysi turdagi malumotlarni serverga yuborish
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
-			const filteredProperties = data?.getProperties?.list.filter(
-				(property: Property) => property.propertyType === PropertyType.FOOD,
-			);
-			setTopProperties(filteredProperties); //-> backend dan birinchi data olinganda onComplete ishga tushadi.
+			setTopProperties(data?.getProperties?.list); //-> backend dan birinchi data olinganda onComplete ishga tushadi.
 		},
 	});
 	/** HANDLERS **/
@@ -151,9 +148,9 @@ FoodList.defaultProps = {
 	initialInput: {
 		page: 1,
 		limit: 7,
-		sort: 'propertyPrice',
+		sort: 'createdAt',
 		direction: 'DESC',
-		search: {},
+		search: { typeList: 'FOOD' },
 	},
 };
 

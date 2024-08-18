@@ -40,10 +40,8 @@ const FeaturedProducts = (props: FeaturedProductProps) => {
 		notifyOnNetworkStatusChange: true, //-> va qayta malumotlar ozgarganda update qilishda bu mantiq ishlatiladi. va bullar hammasi options ichida mujassam boladi.
 		onCompleted: (data: T) => {
 			// Filter out properties of type other than "OTHER"
-			const filteredProducts = data?.getProperties?.list.filter(
-				(property: Property) => property.propertyType === PropertyType.CAT,
-			);
-			setFeaturedProducts(filteredProducts);
+
+			setFeaturedProducts(data?.getProperties?.list);
 		},
 	});
 	/** HANDLERS **/
@@ -161,7 +159,7 @@ FeaturedProducts.defaultProps = {
 		limit: 7,
 		sort: 'propertyPrice',
 		direction: 'DESC',
-		search: {},
+		search: { typeList: 'CAT' },
 	},
 };
 
