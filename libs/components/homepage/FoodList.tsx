@@ -67,30 +67,33 @@ const FoodList = (props: FoodListProps) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className={'food-properties'}>
-				<Stack className={'container'}>
-					<Stack className={'info-box'}>
-						<span>Range of Products</span>
-					</Stack>
-					<Stack className={'card-box'}>
-						<Swiper
-							className={'food-property-swiper'}
-							slidesPerView={'auto'}
-							centeredSlides={true}
-							spaceBetween={15}
-							modules={[Autoplay]}
-						>
-							{topProperties.map((property: Property) => {
-								return (
-									<SwiperSlide className={'food-property-slide'} key={property?._id}>
-										<FoodListCard property={property} likePropertyHandler={likePropertyHandler} />
-									</SwiperSlide>
-								);
-							})}
-						</Swiper>
-					</Stack>
-				</Stack>
+			<Stack className={'info-box'}>
+				<span>Range of Products</span>{' '}
 			</Stack>
+			// <Stack className={'food-properties'}>
+			// 	<Stack className={'container'}>
+			// 		<Stack className={'info-box'}>
+			// 			<span>Range of Products</span>
+			// 		</Stack>
+			// 		<Stack className={'card-box'}>
+			// 			<Swiper
+			// 				className={'food-property-swiper'}
+			// 				slidesPerView={'auto'}
+			// 				centeredSlides={true}
+			// 				spaceBetween={15}
+			// 				modules={[Autoplay]}
+			// 			>
+			// 				{topProperties.map((property: Property) => {
+			// 					return (
+			// 						<SwiperSlide className={'food-property-slide'} key={property?._id}>
+			// 							<FoodListCard property={property} likePropertyHandler={likePropertyHandler} />
+			// 						</SwiperSlide>
+			// 					);
+			// 				})}
+			// 			</Swiper>
+			// 		</Stack>
+			// 	</Stack>
+			// </Stack>
 		);
 	} else {
 		return (

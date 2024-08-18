@@ -69,35 +69,38 @@ const FeaturedProducts = (props: FeaturedProductProps) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className={'featured-properties'}>
-				<Stack className={'container'}>
-					<Stack className={'info-box'}>
-						<span>Featured Products</span>
-					</Stack>
-					<Stack className={'card-box'}>
-						{featuredProducts.length === 0 ? (
-							<Box component={'div'} className={'empty-list'}>
-								Featured Products Empty
-							</Box>
-						) : (
-							<Swiper
-								className={'featured-property-swiper'}
-								slidesPerView={'auto'}
-								centeredSlides={true}
-								spaceBetween={15}
-								modules={[Autoplay]}
-							>
-								{featuredProducts.map((property: Property) => {
-									return (
-										<SwiperSlide key={property._id} className={'featured-property-slide'}>
-											<FeaturedProductCard property={property} likePropertyHandler={likePropertyHandler} />
-										</SwiperSlide>
-									);
-								})}
-							</Swiper>
-						)}
-					</Stack>
-				</Stack>
+			// <Stack className={'featured-properties'}>
+			// 	<Stack className={'container'}>
+			// 		<Stack className={'info-box'}>
+			// 			<span>Featured Products</span>
+			// 		</Stack>
+			// 		<Stack className={'card-box'}>
+			// 			{featuredProducts.length === 0 ? (
+			// 				<Box component={'div'} className={'empty-list'}>
+			// 					Featured Products Empty
+			// 				</Box>
+			// 			) : (
+			// 				<Swiper
+			// 					className={'featured-property-swiper'}
+			// 					slidesPerView={'auto'}
+			// 					centeredSlides={true}
+			// 					spaceBetween={15}
+			// 					modules={[Autoplay]}
+			// 				>
+			// 					{featuredProducts.map((property: Property) => {
+			// 						return (
+			// 							<SwiperSlide key={property._id} className={'featured-property-slide'}>
+			// 								<FeaturedProductCard property={property} likePropertyHandler={likePropertyHandler} />
+			// 							</SwiperSlide>
+			// 						);
+			// 					})}
+			// 				</Swiper>
+			// 			)}
+			// 		</Stack>
+			// 	</Stack>
+			// </Stack>
+			<Stack className={'info-box'}>
+				<span>Featured Products</span>{' '}
 			</Stack>
 		);
 	} else {

@@ -67,30 +67,33 @@ const OtherProducts = (props: OtherProductsProps) => {
 
 	if (device === 'mobile') {
 		return (
-			<Stack className={'other-properties'}>
-				<Stack className={'container'}>
-					<Stack className={'info-box'}>
-						<span>Featured Supplements</span>
-					</Stack>
-					<Stack className={'card-box'}>
-						<Swiper
-							className={'other-property-swiper'}
-							slidesPerView={'auto'}
-							centeredSlides={true}
-							spaceBetween={15}
-							modules={[Autoplay]}
-						>
-							{topProperties.map((property: Property) => {
-								return (
-									<SwiperSlide className={'other-property-slide'} key={property?._id}>
-										<OtherProductsCard property={property} likePropertyHandler={likePropertyHandler} />
-									</SwiperSlide>
-								);
-							})}
-						</Swiper>
-					</Stack>
-				</Stack>
+			<Stack className={'info-box'}>
+				<span>Featured Supplements</span>{' '}
 			</Stack>
+			// <Stack className={'other-properties'}>
+			// 	<Stack className={'container'}>
+			// 		<Stack className={'info-box'}>
+			// 			<span>Featured Supplements</span>
+			// 		</Stack>
+			// 		<Stack className={'card-box'}>
+			// 			<Swiper
+			// 				className={'other-property-swiper'}
+			// 				slidesPerView={'auto'}
+			// 				centeredSlides={true}
+			// 				spaceBetween={15}
+			// 				modules={[Autoplay]}
+			// 			>
+			// 				{topProperties.map((property: Property) => {
+			// 					return (
+			// 						<SwiperSlide className={'other-property-slide'} key={property?._id}>
+			// 							<OtherProductsCard property={property} likePropertyHandler={likePropertyHandler} />
+			// 						</SwiperSlide>
+			// 					);
+			// 				})}
+			// 			</Swiper>
+			// 		</Stack>
+			// 	</Stack>
+			// </Stack>
 		);
 	} else {
 		return (
