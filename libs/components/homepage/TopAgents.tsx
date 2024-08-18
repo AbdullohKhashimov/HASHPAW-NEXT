@@ -44,7 +44,7 @@ const TopAgents = (props: TopAgentsProps) => {
 			<Stack className={'top-agents'}>
 				<Stack className={'container'}>
 					<Stack className={'info-box'}>
-						<span>Top Agents</span>
+						<span>Top Dealers</span>
 					</Stack>
 					<Stack className={'wrapper'}>
 						<Swiper
