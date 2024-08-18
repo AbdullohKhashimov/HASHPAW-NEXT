@@ -5,7 +5,7 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<meta name="robots" content="index,follow" />
-				<link rel="icon" type="image/png" href="/img/logo/favicon.svg" />
+				<link rel="icon" type="image/png" href="/img/logo/weblogo.png" />
 				{/* //-> to change later icon */}
 
 				{/* SEO */}
@@ -13,9 +13,9 @@ export default function Document() {
 				<meta
 					name={'description'}
 					content={
-						'Buy and sell properties anywhere anytime in South Korea. Best Properties at Best prices on nestar.uz | ' +
-						'Покупайте и продавайте недвижимость в любой точке Южной Кореи в любое время. Лучшая недвижимость по лучшим ценам на nestar.uz | ' +
-						'대한민국 언제 어디서나 부동산을 사고팔 수 있습니다. Nestar.uz에서 최적의 가격으로 최고의 부동산을 만나보세요'
+						'Buy and sell pets and pet related products anywhere anytime in South Korea. Best Pets and pet related products at Best prices on hashpaw.uz | ' +
+						'Покупайте и продавайте домашних животных и товары для животных в любое время в Южной Корее. Лучшие домашние животные и товары для животных по лучшим ценам на hashpaw.uz | ' +
+						'한국에서 언제 어디서나 애완동물과 애완동물 관련 제품을 사고 파세요. hashpaw.uz에서 최고의 가격으로 최고의 애완동물과 애완동물 관련 제품을 구매하세요'
 					}
 				/>
 			</Head>

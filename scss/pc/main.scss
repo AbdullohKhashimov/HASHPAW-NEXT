@@ -41,7 +41,7 @@ body {
 
 :root {
 	--primary-font: 'Arial', sans-serif; /* Replace with your actual font */
-	--text-color: #353030; /* Replace with your desired text color */
+	--text-color: #fff; /* Replace with your desired text color */
 	--background-color: #fff; /* Background color for community menu */
 	--divider-color: #dcdcdc; /* Divider color */
 	--transition-duration: 0.8s; /* Transition duration */
@@ -66,38 +66,37 @@ body::-webkit-scrollbar {
 				align-items: center;
 				letter-spacing: 0.5px;
 				border-top: 1px solid rgba(255, 255, 255, 0.07);
-				background: linear-gradient(145deg, #1d357c, #283593); /* Metallic gradient */
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+				background: linear-gradient(145deg, #1d357c, #283593);
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 				transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-				&.transparent {
-					background-color: rgba(22, 40, 96, 0.5);
+				a {
+					color: $color_1;
+					text-decoration: none;
+					&:hover {
+						color: $color_2;
+					}
 				}
-
 				&:hover {
 					transform: scale(1.02);
 					box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 				}
-
 				.container {
 					flex-direction: row;
 					align-items: center;
 					justify-content: space-between;
 					width: 100%;
-					padding: 0 20px; /* Added padding for better spacing */
-
+					padding: 0 20px;
 					.logo-box {
 						.logo-txt {
 							font-size: 25px;
-							font-family: 'Helvetica Neue', sans-serif;
+							font-family: $font-family_1;
 							font-weight: 900;
-							color: #fff; /* White color for contrast */
+							color: $color_3;
 							line-height: 26px;
 							letter-spacing: 3px;
-							text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+							text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 						}
 					}
-
 					.router-box {
 						position: relative;
 						width: 100%;
@@ -106,22 +105,20 @@ body::-webkit-scrollbar {
 						justify-content: space-between;
 						align-items: center;
 						letter-spacing: 0.5px;
-						font-family: 'Helvetica Neue', sans-serif; /* Modern font */
+						font-family: $font-family_1;
 						font-size: 18px;
 						font-weight: 600;
-						color: #fff; /* White text color for contrast */
+						color: $color_3;
 						padding: 0 15px;
-
 						> div {
 							position: relative;
-							color: #fff; /* White color for contrast */
+							color: $color_3;
 							font-size: 18px;
 							font-weight: 600;
 							cursor: pointer;
 							transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 							&:hover {
-								transform: translateY(-2px); /* Subtle lift effect */
+								transform: translateY(-2px);
 								box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 							}
 						}

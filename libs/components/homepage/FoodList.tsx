@@ -102,12 +102,12 @@ const FoodList = (props: FoodListProps) => {
 							<p>List of Cat and Dog foods</p>
 						</Box>
 						<Box component={'div'} className={'right'}>
-							<div className={'more-box'}>
+							{/* <div className={'more-box'}>
 								<Link href={'/product'}>
 									<span>See All Categories</span>
 								</Link>
 								<img src="/img/icons/rightup.svg" alt="" />
-							</div>
+							</div> */}
 							<div className={'pagination-box'}>
 								<WestIcon className={'swiper-food-prev'} />
 								<div className={'swiper-food-pagination'}></div>
