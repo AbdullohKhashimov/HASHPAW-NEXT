@@ -26,8 +26,6 @@ const Home: NextPage = () => {
 	if (device === 'mobile') {
 		return (
 			<Stack className={'home-page'}>
-				<FeaturedProducts />
-				<DogsListings />
 				<Advertisement />
 				<TopProperties />
 				<TopAgents />
