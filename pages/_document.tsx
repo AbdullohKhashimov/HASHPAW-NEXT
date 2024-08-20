@@ -9,7 +9,7 @@ export default function Document() {
 				{/* //-> to change later icon */}
 
 				{/* SEO */}
-				<meta name="keyword" content={'nestar, nestar.uz, devex mern, mern nestjs fullstack'} />
+				<meta name="keyword" content={'HashPaw, hashpaw.uz, devex mern, mern nestjs fullstack'} />
 				<meta
 					name={'description'}
 					content={
